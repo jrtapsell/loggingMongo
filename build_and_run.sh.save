@@ -1,0 +1,5 @@
+#!/bin/bash
+
+python2 buildscripts/scons.py all
+python2 buildscripts/scons.py all
+

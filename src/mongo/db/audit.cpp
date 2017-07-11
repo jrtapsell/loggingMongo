@@ -26,9 +26,11 @@
  *    it in the license file.
  */
 
-#include "mongo/db/audit.h"
+#include "audit.h"
+#include "jrtapsell/AuditServer.h"
 
 using namespace std;
+
 namespace mongo {
     namespace audit {
 
@@ -36,8 +38,7 @@ namespace mongo {
                                StringData mechanism,
                                const UserName &user,
                                ErrorCodes::Error result) {
-            cout << "logAuthentication" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logAuthentication");
         }
 
         void logCommandAuthzCheck(Client *client,
@@ -45,49 +46,42 @@ namespace mongo {
                                   const BSONObj &cmdObj,
                                   CommandInterface *command,
                                   ErrorCodes::Error result) {
-            cout << "logCommandAuthzCheck" << endl;
-            cout << cmdObj.toString(false) << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().logCommandAuthzCheck(client, dbname, cmdObj, command, result);
         }
 
         void logDeleteAuthzCheck(Client *client,
                                  const NamespaceString &ns,
                                  const BSONObj &pattern,
                                  ErrorCodes::Error result) {
-            cout << "logDeleteAuthzCheck" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDeleteAuthzCheck");
         }
 
         void logGetMoreAuthzCheck(Client *client,
                                   const NamespaceString &ns,
                                   long long cursorId,
                                   ErrorCodes::Error result) {
-            cout << "logGetMoreAuthzCheck" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logGetMoreAuthzCheck");
         }
 
         void logInsertAuthzCheck(Client *client,
                                  const NamespaceString &ns,
                                  const BSONObj &insertedObj,
                                  ErrorCodes::Error result) {
-            cout << "logInsertAuthzCheck" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logInsertAuthzCheck");
         }
 
         void logKillCursorsAuthzCheck(Client *client,
                                       const NamespaceString &ns,
                                       long long cursorId,
                                       ErrorCodes::Error result) {
-            cout << "logKillCursorsAuthzCheck" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logKillCursorsAuthzCheck");
         }
 
         void logQueryAuthzCheck(Client *client,
                                 const NamespaceString &ns,
                                 const BSONObj &query,
                                 ErrorCodes::Error result) {
-            cout << "logQueryAuthzCheck" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logQueryAuthzCheck");
         }
 
         void logUpdateAuthzCheck(Client *client,
@@ -97,8 +91,7 @@ namespace mongo {
                                  bool isUpsert,
                                  bool isMulti,
                                  ErrorCodes::Error result) {
-            cout << "logUpdateAuthzCheck" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logUpdateAuthzCheck");
         }
 
         void logCreateUser(Client *client,
@@ -106,18 +99,15 @@ namespace mongo {
                            bool password,
                            const BSONObj *customData,
                            const std::vector <RoleName> &roles) {
-            cout << "logCreateUser" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logCreateUser");
         }
 
         void logDropUser(Client *client, const UserName &username) {
-            cout << "logDropUser" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropUser");
         }
 
         void logDropAllUsersFromDatabase(Client *client, StringData dbname) {
-            cout << "logDropAllUsersFromDatabase" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropAllUsersFromDatabase");
         }
 
         void logUpdateUser(Client *client,
@@ -125,172 +115,144 @@ namespace mongo {
                            bool password,
                            const BSONObj *customData,
                            const std::vector <RoleName> *roles) {
-            cout << "logUpdateUser" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logUpdateUser");
         }
 
         void logGrantRolesToUser(Client *client,
                                  const UserName &username,
                                  const std::vector <RoleName> &roles) {
-            cout << "logGrantRolesToUser" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logGrantRolesToUser");
         }
 
         void logRevokeRolesFromUser(Client *client,
                                     const UserName &username,
                                     const std::vector <RoleName> &roles) {
-            cout << "logRevokeRolesFromUser" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logRevokeRolesFromUser");
         }
 
         void logCreateRole(Client *client,
                            const RoleName &role,
                            const std::vector <RoleName> &roles,
                            const PrivilegeVector &privileges) {
-            cout << "logCreateRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logCreateRole");
         }
 
         void logUpdateRole(Client *client,
                            const RoleName &role,
                            const std::vector <RoleName> *roles,
                            const PrivilegeVector *privileges) {
-            cout << "logUpdateRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logUpdateRole");
         }
 
         void logDropRole(Client *client, const RoleName &role) {
-            cout << "logDropRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropRole");
         }
 
         void logDropAllRolesFromDatabase(Client *client, StringData dbname) {
-            cout << "logDropAllRolesFromDatabase" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropAllRolesFromDatabase");
         }
 
         void logGrantRolesToRole(Client *client,
                                  const RoleName &role,
                                  const std::vector <RoleName> &roles) {
-            cout << "logGrantRolesToRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logGrantRolesToRole");
         }
 
         void logRevokeRolesFromRole(Client *client,
                                     const RoleName &role,
                                     const std::vector <RoleName> &roles) {
-            cout << "logRevokeRolesFromRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logRevokeRolesFromRole");
         }
 
         void logGrantPrivilegesToRole(Client *client,
                                       const RoleName &role,
                                       const PrivilegeVector &privileges) {
-            cout << "logGrantPrivilegesToRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logGrantPrivilegesToRole");
         }
 
         void logRevokePrivilegesFromRole(Client *client,
                                          const RoleName &role,
                                          const PrivilegeVector &privileges) {
-            cout << "logRevokePrivilegesFromRole" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logRevokePrivilegesFromRole");
         }
 
         void logReplSetReconfig(Client *client,
                                 const BSONObj *oldConfig,
                                 const BSONObj *newConfig) {
-            cout << "logReplSetReconfig" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logReplSetReconfig");
         }
 
         void logApplicationMessage(Client *client, StringData msg) {
-            cout << "logApplicationMessage" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logApplicationMessage");
         }
 
         void logShutdown(Client *client) {
-            cout << "logShutdown" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logShutdown");
         }
 
         void logCreateIndex(Client *client,
                             const BSONObj *indexSpec,
                             StringData indexname,
                             StringData nsname) {
-            cout << "logCreateIndex" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logCreateIndex");
         }
 
         void logCreateCollection(Client *client, StringData nsname) {
-            cout << "logCreateCollection" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logCreateCollection");
         }
 
         void logCreateDatabase(Client *client, StringData dbname) {
-            cout << "logCreateDatabase" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logCreateDatabase");
         }
 
 
         void logDropIndex(Client *client, StringData indexname, StringData nsname) {
-            cout << "logDropIndex" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropIndex");
         }
 
         void logDropCollection(Client *client, StringData nsname) {
-            cout << "logDropCollection" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropCollection");
         }
 
         void logDropDatabase(Client *client, StringData dbname) {
-            cout << "logDropDatabase" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logDropDatabase");
         }
 
         void logRenameCollection(Client *client, StringData source, StringData target) {
-            cout << "logRenameCollection" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logRenameCollection");
         }
 
         void logEnableSharding(Client *client, StringData dbname) {
-            cout << "logEnableSharding" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logEnableSharding");
         }
 
         void logAddShard(Client *client, StringData name, const std::string &servers, long long maxSize) {
-            cout << "logAddShard" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logAddShard");
         }
 
         void logRemoveShard(Client *client, StringData shardname) {
-            cout << "logRemoveShard" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logRemoveShard");
         }
 
         void logShardCollection(Client *client, StringData ns, const BSONObj &keyPattern, bool unique) {
-            cout << "logShardCollection" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("logShardCollection");
         }
 
         void writeImpersonatedUsersToMetadata(OperationContext *opCtx,
                                               BSONObjBuilder *metadata) {
-            cout << "writeImpersonatedUsersToMetadata" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("writeImpersonatedUsersToMetadata");
         }
 
         void parseAndRemoveImpersonatedUsersField(BSONObj cmdObj,
                                                   std::vector <UserName> *parsedUserNames,
                                                   bool *fieldIsPresent) {
-            cout << "parseAndRemoveImpersonatedUsersField" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("parseAndRemoveImpersonatedUsersField");
         }
 
         void parseAndRemoveImpersonatedRolesField(BSONObj cmdObj,
                                                   std::vector <RoleName> *parsedRoleNames,
                                                   bool *fieldIsPresent) {
-            cout << "parseAndRemoveImpersonatedRolesField" << endl;
-            cout << "=-=-=-=-=-=-=-=-=-" << endl;
+            AuditServer::instance().generalEvent("parseAndRemoveImpersonatedRolesField");
         }
 
     }  // namespace audit
