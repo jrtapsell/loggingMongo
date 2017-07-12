@@ -6,3 +6,4 @@ export delta=$(expr $end - $start)
 echo $start > timeLog/start
 echo $end > timeLog/end
 echo $delta > timeLog/delta
+echo $start,$end,$delta >> timeLog/all.csv

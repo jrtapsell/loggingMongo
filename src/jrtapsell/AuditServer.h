@@ -39,7 +39,8 @@ public:
                             const NamespaceString &ns,
                             const BSONObj &query,
                             ErrorCodes::Error result) {
-        cout << "{\"event\":\"logQueryAuthzCheck\", \"query\":";
+        cout << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
+        cout << "\",\"query\":";
         cout << query.toString(false) << "}" << endl;
     }
 
