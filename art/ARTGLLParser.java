@@ -63,6 +63,8 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
   private static boolean[] ARTSet53;
   private static boolean[] ARTSet54;
   private static boolean[] ARTSet55;
+  private static boolean[] ARTSet56;
+  private static boolean[] ARTSet57;
 
   /* Start of artLabel enumeration */
   public static final int ARTX_EOS = 0;
@@ -70,218 +72,225 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
   public static final int ARTTB_STRING_DQ = 2;
   public static final int ARTTB_STRING_SQ = 3;
   public static final int ARTTC__DOLLAR = 4;
-  public static final int ARTTS__RPAR = 5;
-  public static final int ARTTS__PLUS = 6;
-  public static final int ARTTS__COMMA = 7;
-  public static final int ARTTS__MINUS = 8;
-  public static final int ARTTS__PERIOD = 9;
-  public static final int ARTTS_0 = 10;
-  public static final int ARTTS_1 = 11;
-  public static final int ARTTS_2 = 12;
-  public static final int ARTTS_3 = 13;
-  public static final int ARTTS_4 = 14;
-  public static final int ARTTS_5 = 15;
-  public static final int ARTTS_6 = 16;
-  public static final int ARTTS_7 = 17;
-  public static final int ARTTS_8 = 18;
-  public static final int ARTTS_9 = 19;
-  public static final int ARTTS__COLON = 20;
-  public static final int ARTTS_ObjectId_LPAR = 21;
-  public static final int ARTTS__LBRACK = 22;
-  public static final int ARTTS__RBRACK = 23;
-  public static final int ARTTS_false = 24;
-  public static final int ARTTS_null = 25;
-  public static final int ARTTS_true = 26;
-  public static final int ARTTS__LBRACE = 27;
-  public static final int ARTTS__RBRACE = 28;
-  public static final int ARTTI_e = 29;
-  public static final int ARTX_EPSILON = 30;
-  public static final int ARTL_ART_O_array_values = 31;
-  public static final int ARTL_ART_O_array_values_5 = 32;
-  public static final int ARTL_ART_O_array_values_7 = 33;
-  public static final int ARTL_ART_O_array_values_9 = 34;
-  public static final int ARTL_ART_O_array_values_11 = 35;
-  public static final int ARTL_ART_O_exponent = 36;
-  public static final int ARTL_ART_O_exponent_14 = 37;
-  public static final int ARTL_ART_O_exponent_16 = 38;
-  public static final int ARTL_ART_O_exponent_18 = 39;
-  public static final int ARTL_ART_O_exponent_20 = 40;
-  public static final int ARTL_ART_O_exponent_22 = 41;
-  public static final int ARTL_ART_O_exponent_24 = 42;
-  public static final int ARTL_ART_O_fraction = 43;
-  public static final int ARTL_ART_O_fraction_27 = 44;
-  public static final int ARTL_ART_O_fraction_31 = 45;
-  public static final int ARTL_ART_O_fraction_28 = 46;
-  public static final int ARTL_ART_O_fraction_29 = 47;
-  public static final int ARTL_ART_O_fraction_33 = 48;
-  public static final int ARTL_ART_O_fraction_35 = 49;
-  public static final int ARTL_ART_O_members = 50;
-  public static final int ARTL_ART_O_members_38 = 51;
-  public static final int ARTL_ART_O_members_40 = 52;
-  public static final int ARTL_ART_O_members_42 = 53;
-  public static final int ARTL_ART_O_members_44 = 54;
-  public static final int ARTL_ART_O_minus = 55;
-  public static final int ARTL_ART_O_minus_47 = 56;
-  public static final int ARTL_ART_O_minus_49 = 57;
-  public static final int ARTL_ART_O_minus_48 = 58;
-  public static final int ARTL_ART_O_minus_51 = 59;
-  public static final int ARTL_ART_O_minus_53 = 60;
-  public static final int ARTL_ART_O_sign = 61;
-  public static final int ARTL_ART_O_sign_56 = 62;
-  public static final int ARTL_ART_O_sign_58 = 63;
-  public static final int ARTL_ART_O_sign_57 = 64;
-  public static final int ARTL_ART_O_sign_60 = 65;
-  public static final int ARTL_ART_O_sign_62 = 66;
-  public static final int ARTL_ART_array = 67;
-  public static final int ARTL_ART_array_65 = 68;
-  public static final int ARTL_ART_array_69 = 69;
-  public static final int ARTL_ART_array_71 = 70;
-  public static final int ARTL_ART_array_66 = 71;
-  public static final int ARTL_ART_array_67 = 72;
-  public static final int ARTL_ART_array_70 = 73;
-  public static final int ARTL_ART_array_values = 74;
-  public static final int ARTL_ART_array_values_74 = 75;
-  public static final int ARTL_ART_array_values_76 = 76;
-  public static final int ARTL_ART_array_values_78 = 77;
-  public static final int ARTL_ART_array_values_80 = 78;
-  public static final int ARTL_ART_array_values_82 = 79;
-  public static final int ARTL_ART_array_values_84 = 80;
-  public static final int ARTL_ART_array_values_81 = 81;
-  public static final int ARTL_ART_boolean = 82;
-  public static final int ARTL_ART_boolean_87 = 83;
-  public static final int ARTL_ART_boolean_89 = 84;
-  public static final int ARTL_ART_boolean_88 = 85;
-  public static final int ARTL_ART_boolean_91 = 86;
-  public static final int ARTL_ART_boolean_93 = 87;
-  public static final int ARTL_ART_boolean_92 = 88;
-  public static final int ARTL_ART_bson_id = 89;
-  public static final int ARTL_ART_bson_id_96 = 90;
-  public static final int ARTL_ART_bson_id_100 = 91;
-  public static final int ARTL_ART_bson_id_102 = 92;
-  public static final int ARTL_ART_bson_id_97 = 93;
-  public static final int ARTL_ART_bson_id_98 = 94;
-  public static final int ARTL_ART_bson_id_101 = 95;
-  public static final int ARTL_ART_bson_no_quote = 96;
-  public static final int ARTL_ART_bson_no_quote_105 = 97;
-  public static final int ARTL_ART_bson_no_quote_107 = 98;
-  public static final int ARTL_ART_bson_no_quote_106 = 99;
-  public static final int ARTL_ART_bson_no_quote_109 = 100;
-  public static final int ARTL_ART_bson_no_quote_113 = 101;
-  public static final int ARTL_ART_bson_no_quote_110 = 102;
-  public static final int ARTL_ART_bson_no_quote_111 = 103;
-  public static final int ARTL_ART_bson_no_quote_112 = 104;
-  public static final int ARTL_ART_digit = 105;
-  public static final int ARTL_ART_digit_116 = 106;
-  public static final int ARTL_ART_digit_118 = 107;
-  public static final int ARTL_ART_digit_117 = 108;
-  public static final int ARTL_ART_digit_120 = 109;
-  public static final int ARTL_ART_digit_122 = 110;
-  public static final int ARTL_ART_digits = 111;
-  public static final int ARTL_ART_digits_125 = 112;
-  public static final int ARTL_ART_digits_127 = 113;
-  public static final int ARTL_ART_digits_129 = 114;
-  public static final int ARTL_ART_digits_131 = 115;
-  public static final int ARTL_ART_digits_133 = 116;
-  public static final int ARTL_ART_exp_letter = 117;
-  public static final int ARTL_ART_exp_letter_136 = 118;
-  public static final int ARTL_ART_exp_letter_138 = 119;
-  public static final int ARTL_ART_exp_letter_137 = 120;
-  public static final int ARTL_ART_id_number = 121;
-  public static final int ARTL_ART_id_number_141 = 122;
-  public static final int ARTL_ART_id_number_145 = 123;
-  public static final int ARTL_ART_id_number_144 = 124;
-  public static final int ARTL_ART_key = 125;
-  public static final int ARTL_ART_key_148 = 126;
-  public static final int ARTL_ART_key_152 = 127;
-  public static final int ARTL_ART_key_154 = 128;
-  public static final int ARTL_ART_key_158 = 129;
-  public static final int ARTL_ART_members = 130;
-  public static final int ARTL_ART_members_161 = 131;
-  public static final int ARTL_ART_members_163 = 132;
-  public static final int ARTL_ART_members_165 = 133;
-  public static final int ARTL_ART_members_167 = 134;
-  public static final int ARTL_ART_members_164 = 135;
-  public static final int ARTL_ART_members_169 = 136;
-  public static final int ARTL_ART_members_171 = 137;
-  public static final int ARTL_ART_no_leading_zeros = 138;
-  public static final int ARTL_ART_no_leading_zeros_174 = 139;
-  public static final int ARTL_ART_no_leading_zeros_176 = 140;
-  public static final int ARTL_ART_no_leading_zeros_178 = 141;
-  public static final int ARTL_ART_no_leading_zeros_180 = 142;
-  public static final int ARTL_ART_no_leading_zeros_182 = 143;
-  public static final int ARTL_ART_non_zero_digits = 144;
-  public static final int ARTL_ART_non_zero_digits_185 = 145;
-  public static final int ARTL_ART_non_zero_digits_187 = 146;
-  public static final int ARTL_ART_non_zero_digits_186 = 147;
-  public static final int ARTL_ART_non_zero_digits_189 = 148;
-  public static final int ARTL_ART_non_zero_digits_191 = 149;
-  public static final int ARTL_ART_non_zero_digits_190 = 150;
-  public static final int ARTL_ART_non_zero_digits_193 = 151;
-  public static final int ARTL_ART_non_zero_digits_195 = 152;
-  public static final int ARTL_ART_non_zero_digits_194 = 153;
-  public static final int ARTL_ART_non_zero_digits_197 = 154;
-  public static final int ARTL_ART_non_zero_digits_199 = 155;
-  public static final int ARTL_ART_non_zero_digits_198 = 156;
-  public static final int ARTL_ART_non_zero_digits_201 = 157;
-  public static final int ARTL_ART_non_zero_digits_203 = 158;
-  public static final int ARTL_ART_non_zero_digits_202 = 159;
-  public static final int ARTL_ART_non_zero_digits_205 = 160;
-  public static final int ARTL_ART_non_zero_digits_207 = 161;
-  public static final int ARTL_ART_non_zero_digits_206 = 162;
-  public static final int ARTL_ART_non_zero_digits_209 = 163;
-  public static final int ARTL_ART_non_zero_digits_211 = 164;
-  public static final int ARTL_ART_non_zero_digits_210 = 165;
-  public static final int ARTL_ART_non_zero_digits_213 = 166;
-  public static final int ARTL_ART_non_zero_digits_215 = 167;
-  public static final int ARTL_ART_non_zero_digits_214 = 168;
-  public static final int ARTL_ART_non_zero_digits_217 = 169;
-  public static final int ARTL_ART_non_zero_digits_219 = 170;
-  public static final int ARTL_ART_non_zero_digits_218 = 171;
-  public static final int ARTL_ART_null = 172;
-  public static final int ARTL_ART_null_222 = 173;
-  public static final int ARTL_ART_null_224 = 174;
-  public static final int ARTL_ART_null_223 = 175;
-  public static final int ARTL_ART_number = 176;
-  public static final int ARTL_ART_number_227 = 177;
-  public static final int ARTL_ART_number_229 = 178;
-  public static final int ARTL_ART_number_231 = 179;
-  public static final int ARTL_ART_number_233 = 180;
-  public static final int ARTL_ART_number_235 = 181;
-  public static final int ARTL_ART_object = 182;
-  public static final int ARTL_ART_object_238 = 183;
-  public static final int ARTL_ART_object_242 = 184;
-  public static final int ARTL_ART_object_244 = 185;
-  public static final int ARTL_ART_object_239 = 186;
-  public static final int ARTL_ART_object_240 = 187;
-  public static final int ARTL_ART_object_243 = 188;
-  public static final int ARTL_ART_pair = 189;
-  public static final int ARTL_ART_pair_247 = 190;
-  public static final int ARTL_ART_pair_249 = 191;
-  public static final int ARTL_ART_pair_251 = 192;
-  public static final int ARTL_ART_pair_253 = 193;
-  public static final int ARTL_ART_pair_250 = 194;
-  public static final int ARTL_ART_string = 195;
-  public static final int ARTL_ART_string_256 = 196;
-  public static final int ARTL_ART_string_258 = 197;
-  public static final int ARTL_ART_string_257 = 198;
-  public static final int ARTL_ART_value = 199;
-  public static final int ARTL_ART_value_261 = 200;
-  public static final int ARTL_ART_value_263 = 201;
-  public static final int ARTL_ART_value_265 = 202;
-  public static final int ARTL_ART_value_267 = 203;
-  public static final int ARTL_ART_value_269 = 204;
-  public static final int ARTL_ART_value_271 = 205;
-  public static final int ARTL_ART_value_273 = 206;
-  public static final int ARTL_ART_value_275 = 207;
-  public static final int ARTL_ART_value_277 = 208;
-  public static final int ARTL_ART_value_279 = 209;
-  public static final int ARTL_ART_value_281 = 210;
-  public static final int ARTL_ART_value_283 = 211;
-  public static final int ARTL_ART_value_285 = 212;
-  public static final int ARTL_ART_value_287 = 213;
-  public static final int ARTX_DESPATCH = 214;
-  public static final int ARTX_DUMMY = 215;
-  public static final int ARTX_LABEL_EXTENT = 216;
+  public static final int ARTTC__MINUS = 5;
+  public static final int ARTTS__RPAR = 6;
+  public static final int ARTTS__PLUS = 7;
+  public static final int ARTTS__COMMA = 8;
+  public static final int ARTTS__MINUS = 9;
+  public static final int ARTTS__PERIOD = 10;
+  public static final int ARTTS_0 = 11;
+  public static final int ARTTS_1 = 12;
+  public static final int ARTTS_2 = 13;
+  public static final int ARTTS_3 = 14;
+  public static final int ARTTS_4 = 15;
+  public static final int ARTTS_5 = 16;
+  public static final int ARTTS_6 = 17;
+  public static final int ARTTS_7 = 18;
+  public static final int ARTTS_8 = 19;
+  public static final int ARTTS_9 = 20;
+  public static final int ARTTS__COLON = 21;
+  public static final int ARTTS_ObjectId_LPAR = 22;
+  public static final int ARTTS__LBRACK = 23;
+  public static final int ARTTS__RBRACK = 24;
+  public static final int ARTTS_false = 25;
+  public static final int ARTTS_null = 26;
+  public static final int ARTTS_true = 27;
+  public static final int ARTTS__LBRACE = 28;
+  public static final int ARTTS__RBRACE = 29;
+  public static final int ARTTI_e = 30;
+  public static final int ARTX_EPSILON = 31;
+  public static final int ARTL_ART_O_array_values = 32;
+  public static final int ARTL_ART_O_array_values_5 = 33;
+  public static final int ARTL_ART_O_array_values_7 = 34;
+  public static final int ARTL_ART_O_array_values_9 = 35;
+  public static final int ARTL_ART_O_array_values_11 = 36;
+  public static final int ARTL_ART_O_exponent = 37;
+  public static final int ARTL_ART_O_exponent_14 = 38;
+  public static final int ARTL_ART_O_exponent_16 = 39;
+  public static final int ARTL_ART_O_exponent_18 = 40;
+  public static final int ARTL_ART_O_exponent_20 = 41;
+  public static final int ARTL_ART_O_exponent_22 = 42;
+  public static final int ARTL_ART_O_exponent_24 = 43;
+  public static final int ARTL_ART_O_fraction = 44;
+  public static final int ARTL_ART_O_fraction_27 = 45;
+  public static final int ARTL_ART_O_fraction_31 = 46;
+  public static final int ARTL_ART_O_fraction_28 = 47;
+  public static final int ARTL_ART_O_fraction_29 = 48;
+  public static final int ARTL_ART_O_fraction_33 = 49;
+  public static final int ARTL_ART_O_fraction_35 = 50;
+  public static final int ARTL_ART_O_members = 51;
+  public static final int ARTL_ART_O_members_38 = 52;
+  public static final int ARTL_ART_O_members_40 = 53;
+  public static final int ARTL_ART_O_members_42 = 54;
+  public static final int ARTL_ART_O_members_44 = 55;
+  public static final int ARTL_ART_O_minus = 56;
+  public static final int ARTL_ART_O_minus_47 = 57;
+  public static final int ARTL_ART_O_minus_49 = 58;
+  public static final int ARTL_ART_O_minus_48 = 59;
+  public static final int ARTL_ART_O_minus_51 = 60;
+  public static final int ARTL_ART_O_minus_53 = 61;
+  public static final int ARTL_ART_O_sign = 62;
+  public static final int ARTL_ART_O_sign_56 = 63;
+  public static final int ARTL_ART_O_sign_58 = 64;
+  public static final int ARTL_ART_O_sign_57 = 65;
+  public static final int ARTL_ART_O_sign_60 = 66;
+  public static final int ARTL_ART_O_sign_62 = 67;
+  public static final int ARTL_ART_array = 68;
+  public static final int ARTL_ART_array_65 = 69;
+  public static final int ARTL_ART_array_69 = 70;
+  public static final int ARTL_ART_array_71 = 71;
+  public static final int ARTL_ART_array_66 = 72;
+  public static final int ARTL_ART_array_67 = 73;
+  public static final int ARTL_ART_array_70 = 74;
+  public static final int ARTL_ART_array_values = 75;
+  public static final int ARTL_ART_array_values_74 = 76;
+  public static final int ARTL_ART_array_values_76 = 77;
+  public static final int ARTL_ART_array_values_78 = 78;
+  public static final int ARTL_ART_array_values_80 = 79;
+  public static final int ARTL_ART_array_values_82 = 80;
+  public static final int ARTL_ART_array_values_84 = 81;
+  public static final int ARTL_ART_array_values_81 = 82;
+  public static final int ARTL_ART_boolean = 83;
+  public static final int ARTL_ART_boolean_87 = 84;
+  public static final int ARTL_ART_boolean_89 = 85;
+  public static final int ARTL_ART_boolean_88 = 86;
+  public static final int ARTL_ART_boolean_91 = 87;
+  public static final int ARTL_ART_boolean_93 = 88;
+  public static final int ARTL_ART_boolean_92 = 89;
+  public static final int ARTL_ART_bson_id = 90;
+  public static final int ARTL_ART_bson_id_96 = 91;
+  public static final int ARTL_ART_bson_id_100 = 92;
+  public static final int ARTL_ART_bson_id_102 = 93;
+  public static final int ARTL_ART_bson_id_97 = 94;
+  public static final int ARTL_ART_bson_id_98 = 95;
+  public static final int ARTL_ART_bson_id_101 = 96;
+  public static final int ARTL_ART_bson_no_quote = 97;
+  public static final int ARTL_ART_bson_no_quote_105 = 98;
+  public static final int ARTL_ART_bson_no_quote_107 = 99;
+  public static final int ARTL_ART_bson_no_quote_106 = 100;
+  public static final int ARTL_ART_bson_no_quote_109 = 101;
+  public static final int ARTL_ART_bson_no_quote_111 = 102;
+  public static final int ARTL_ART_bson_no_quote_113 = 103;
+  public static final int ARTL_ART_bson_no_quote_117 = 104;
+  public static final int ARTL_ART_bson_no_quote_114 = 105;
+  public static final int ARTL_ART_bson_no_quote_115 = 106;
+  public static final int ARTL_ART_bson_no_quote_119 = 107;
+  public static final int ARTL_ART_bson_no_quote_121 = 108;
+  public static final int ARTL_ART_bson_no_quote_123 = 109;
+  public static final int ARTL_ART_bson_no_quote_125 = 110;
+  public static final int ARTL_ART_bson_no_quote_122 = 111;
+  public static final int ARTL_ART_digit = 112;
+  public static final int ARTL_ART_digit_128 = 113;
+  public static final int ARTL_ART_digit_130 = 114;
+  public static final int ARTL_ART_digit_129 = 115;
+  public static final int ARTL_ART_digit_132 = 116;
+  public static final int ARTL_ART_digit_134 = 117;
+  public static final int ARTL_ART_digits = 118;
+  public static final int ARTL_ART_digits_137 = 119;
+  public static final int ARTL_ART_digits_139 = 120;
+  public static final int ARTL_ART_digits_141 = 121;
+  public static final int ARTL_ART_digits_143 = 122;
+  public static final int ARTL_ART_digits_145 = 123;
+  public static final int ARTL_ART_exp_letter = 124;
+  public static final int ARTL_ART_exp_letter_148 = 125;
+  public static final int ARTL_ART_exp_letter_150 = 126;
+  public static final int ARTL_ART_exp_letter_149 = 127;
+  public static final int ARTL_ART_id_number = 128;
+  public static final int ARTL_ART_id_number_153 = 129;
+  public static final int ARTL_ART_id_number_157 = 130;
+  public static final int ARTL_ART_id_number_156 = 131;
+  public static final int ARTL_ART_key = 132;
+  public static final int ARTL_ART_key_160 = 133;
+  public static final int ARTL_ART_key_164 = 134;
+  public static final int ARTL_ART_key_166 = 135;
+  public static final int ARTL_ART_key_170 = 136;
+  public static final int ARTL_ART_members = 137;
+  public static final int ARTL_ART_members_173 = 138;
+  public static final int ARTL_ART_members_175 = 139;
+  public static final int ARTL_ART_members_177 = 140;
+  public static final int ARTL_ART_members_179 = 141;
+  public static final int ARTL_ART_members_176 = 142;
+  public static final int ARTL_ART_members_181 = 143;
+  public static final int ARTL_ART_members_183 = 144;
+  public static final int ARTL_ART_no_leading_zeros = 145;
+  public static final int ARTL_ART_no_leading_zeros_186 = 146;
+  public static final int ARTL_ART_no_leading_zeros_188 = 147;
+  public static final int ARTL_ART_no_leading_zeros_190 = 148;
+  public static final int ARTL_ART_no_leading_zeros_192 = 149;
+  public static final int ARTL_ART_no_leading_zeros_194 = 150;
+  public static final int ARTL_ART_non_zero_digits = 151;
+  public static final int ARTL_ART_non_zero_digits_197 = 152;
+  public static final int ARTL_ART_non_zero_digits_199 = 153;
+  public static final int ARTL_ART_non_zero_digits_198 = 154;
+  public static final int ARTL_ART_non_zero_digits_201 = 155;
+  public static final int ARTL_ART_non_zero_digits_203 = 156;
+  public static final int ARTL_ART_non_zero_digits_202 = 157;
+  public static final int ARTL_ART_non_zero_digits_205 = 158;
+  public static final int ARTL_ART_non_zero_digits_207 = 159;
+  public static final int ARTL_ART_non_zero_digits_206 = 160;
+  public static final int ARTL_ART_non_zero_digits_209 = 161;
+  public static final int ARTL_ART_non_zero_digits_211 = 162;
+  public static final int ARTL_ART_non_zero_digits_210 = 163;
+  public static final int ARTL_ART_non_zero_digits_213 = 164;
+  public static final int ARTL_ART_non_zero_digits_215 = 165;
+  public static final int ARTL_ART_non_zero_digits_214 = 166;
+  public static final int ARTL_ART_non_zero_digits_217 = 167;
+  public static final int ARTL_ART_non_zero_digits_219 = 168;
+  public static final int ARTL_ART_non_zero_digits_218 = 169;
+  public static final int ARTL_ART_non_zero_digits_221 = 170;
+  public static final int ARTL_ART_non_zero_digits_223 = 171;
+  public static final int ARTL_ART_non_zero_digits_222 = 172;
+  public static final int ARTL_ART_non_zero_digits_225 = 173;
+  public static final int ARTL_ART_non_zero_digits_227 = 174;
+  public static final int ARTL_ART_non_zero_digits_226 = 175;
+  public static final int ARTL_ART_non_zero_digits_229 = 176;
+  public static final int ARTL_ART_non_zero_digits_231 = 177;
+  public static final int ARTL_ART_non_zero_digits_230 = 178;
+  public static final int ARTL_ART_null = 179;
+  public static final int ARTL_ART_null_234 = 180;
+  public static final int ARTL_ART_null_236 = 181;
+  public static final int ARTL_ART_null_235 = 182;
+  public static final int ARTL_ART_number = 183;
+  public static final int ARTL_ART_number_239 = 184;
+  public static final int ARTL_ART_number_241 = 185;
+  public static final int ARTL_ART_number_243 = 186;
+  public static final int ARTL_ART_number_245 = 187;
+  public static final int ARTL_ART_number_247 = 188;
+  public static final int ARTL_ART_object = 189;
+  public static final int ARTL_ART_object_250 = 190;
+  public static final int ARTL_ART_object_254 = 191;
+  public static final int ARTL_ART_object_256 = 192;
+  public static final int ARTL_ART_object_251 = 193;
+  public static final int ARTL_ART_object_252 = 194;
+  public static final int ARTL_ART_object_255 = 195;
+  public static final int ARTL_ART_pair = 196;
+  public static final int ARTL_ART_pair_259 = 197;
+  public static final int ARTL_ART_pair_261 = 198;
+  public static final int ARTL_ART_pair_263 = 199;
+  public static final int ARTL_ART_pair_265 = 200;
+  public static final int ARTL_ART_pair_262 = 201;
+  public static final int ARTL_ART_string = 202;
+  public static final int ARTL_ART_string_268 = 203;
+  public static final int ARTL_ART_string_270 = 204;
+  public static final int ARTL_ART_string_269 = 205;
+  public static final int ARTL_ART_value = 206;
+  public static final int ARTL_ART_value_273 = 207;
+  public static final int ARTL_ART_value_275 = 208;
+  public static final int ARTL_ART_value_277 = 209;
+  public static final int ARTL_ART_value_279 = 210;
+  public static final int ARTL_ART_value_281 = 211;
+  public static final int ARTL_ART_value_283 = 212;
+  public static final int ARTL_ART_value_285 = 213;
+  public static final int ARTL_ART_value_287 = 214;
+  public static final int ARTL_ART_value_289 = 215;
+  public static final int ARTL_ART_value_291 = 216;
+  public static final int ARTL_ART_value_293 = 217;
+  public static final int ARTL_ART_value_295 = 218;
+  public static final int ARTL_ART_value_297 = 219;
+  public static final int ARTL_ART_value_299 = 220;
+  public static final int ARTX_DESPATCH = 221;
+  public static final int ARTX_DUMMY = 222;
+  public static final int ARTX_LABEL_EXTENT = 223;
   /* End of artLabel enumeration */
 
   /* Start of artName enumeration */
@@ -685,8 +694,12 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
       case ARTL_ART_bson_no_quote: 
         if (ARTSet34[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_bson_no_quote_105, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet35[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_bson_no_quote_109, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet35[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_bson_no_quote_113, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet32[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_bson_no_quote_119, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal bson_no_quote: match production*/
       case ARTL_ART_bson_no_quote_105: 
@@ -704,19 +717,55 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal bson_no_quote: match production*/
       case ARTL_ART_bson_no_quote_109: 
         /* Cat/unary template start */
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_bson_no_quote_111, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_digits; return; }
+      case ARTL_ART_bson_no_quote_111: 
+        /* Nonterminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet33[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal bson_no_quote: match production*/
+      case ARTL_ART_bson_no_quote_113: 
+        /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTC__DOLLAR, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_bson_no_quote_111, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_bson_no_quote_115, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
-        if (!ARTSet34[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet32[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_bson_no_quote_117, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_bson_no_quote; return; }
+      case ARTL_ART_bson_no_quote_117: 
+        /* Nonterminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet33[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal bson_no_quote: match production*/
+      case ARTL_ART_bson_no_quote_119: 
+        /* Cat/unary template start */
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_bson_no_quote_121, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_bson_no_quote; return; }
+      case ARTL_ART_bson_no_quote_121: 
+        /* Nonterminal template end */
+        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTB_ID, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTC__MINUS, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_bson_no_quote_113, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_bson_no_quote_123, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
+        if (!ARTSet32[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_bson_no_quote_125, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_bson_no_quote; return; }
+      case ARTL_ART_bson_no_quote_125: 
+        /* Nonterminal template end */
         /* Cat/unary template end */
         if (!ARTSet33[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
@@ -728,34 +777,34 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal digit production descriptor loads*/
       case ARTL_ART_digit: 
-        if (ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_digit_116, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         if (ARTSet38[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_digit_120, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_digit_128, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet39[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_digit_132, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal digit: match production*/
-      case ARTL_ART_digit_116: 
+      case ARTL_ART_digit_128: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_0, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_digit_118, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_digit_130, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal digit: match production*/
-      case ARTL_ART_digit_120: 
+      case ARTL_ART_digit_132: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_digit_122, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_digit_134, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_non_zero_digits; return; }
-      case ARTL_ART_digit_122: 
+      case ARTL_ART_digit_134: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -766,38 +815,38 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal digits production descriptor loads*/
       case ARTL_ART_digits: 
         if (ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_digits_125, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_digits_137, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         if (ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_digits_131, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_digits_143, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal digits: match production*/
-      case ARTL_ART_digits_125: 
+      case ARTL_ART_digits_137: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_digits_127, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_digits_139, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_digits; return; }
-      case ARTL_ART_digits_127: 
+      case ARTL_ART_digits_139: 
         /* Nonterminal template end */
         if (!ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_digits_129, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_digits_141, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_digit; return; }
-      case ARTL_ART_digits_129: 
+      case ARTL_ART_digits_141: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal digits: match production*/
-      case ARTL_ART_digits_131: 
+      case ARTL_ART_digits_143: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_digits_133, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_digits_145, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_digit; return; }
-      case ARTL_ART_digits_133: 
+      case ARTL_ART_digits_145: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -808,16 +857,16 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal exp_letter production descriptor loads*/
       case ARTL_ART_exp_letter: 
         if (ARTSet8[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_exp_letter_136, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_exp_letter_148, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal exp_letter: match production*/
-      case ARTL_ART_exp_letter_136: 
+      case ARTL_ART_exp_letter_148: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTI_e, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_exp_letter_138, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_exp_letter_150, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
         if (!ARTSet9[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
@@ -831,16 +880,16 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal id_number production descriptor loads*/
       case ARTL_ART_id_number: 
         if (ARTSet30[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_id_number_141, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_id_number_153, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal id_number: match production*/
-      case ARTL_ART_id_number_141: 
+      case ARTL_ART_id_number_153: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTB_STRING_SQ, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_id_number_145, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_id_number_157, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
         if (!ARTSet31[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
@@ -853,33 +902,33 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal key production descriptor loads*/
       case ARTL_ART_key: 
-        if (ARTSet39[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_key_148, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet41[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_key_160, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         if (ARTSet32[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_key_154, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_key_166, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal key: match production*/
-      case ARTL_ART_key_148: 
+      case ARTL_ART_key_160: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_key_152, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_key_164, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_string; return; }
-      case ARTL_ART_key_152: 
+      case ARTL_ART_key_164: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet33[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet40[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal key: match production*/
-      case ARTL_ART_key_154: 
+      case ARTL_ART_key_166: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_key_158, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_key_170, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_bson_no_quote; return; }
-      case ARTL_ART_key_158: 
+      case ARTL_ART_key_170: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet33[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet40[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -890,45 +939,45 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal members production descriptor loads*/
       case ARTL_ART_members: 
         if (ARTSet17[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_members_161, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_members_173, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         if (ARTSet17[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_members_169, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_members_181, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal members: match production*/
-      case ARTL_ART_members_161: 
+      case ARTL_ART_members_173: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_members_163, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_members_175, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_members; return; }
-      case ARTL_ART_members_163: 
+      case ARTL_ART_members_175: 
         /* Nonterminal template end */
         if (!ARTSet25[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS__COMMA, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_members_165, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_members_177, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         if (!ARTSet17[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_members_167, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_members_179, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_pair; return; }
-      case ARTL_ART_members_167: 
+      case ARTL_ART_members_179: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet40[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet42[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal members: match production*/
-      case ARTL_ART_members_169: 
+      case ARTL_ART_members_181: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_members_171, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_members_183, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_pair; return; }
-      case ARTL_ART_members_171: 
+      case ARTL_ART_members_183: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet40[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet42[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -939,38 +988,38 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal no_leading_zeros production descriptor loads*/
       case ARTL_ART_no_leading_zeros: 
         if (ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_no_leading_zeros_174, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet38[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_no_leading_zeros_178, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_no_leading_zeros_186, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet39[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_no_leading_zeros_190, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal no_leading_zeros: match production*/
-      case ARTL_ART_no_leading_zeros_174: 
+      case ARTL_ART_no_leading_zeros_186: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_no_leading_zeros_176, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_no_leading_zeros_188, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_digit; return; }
-      case ARTL_ART_no_leading_zeros_176: 
+      case ARTL_ART_no_leading_zeros_188: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet41[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet43[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal no_leading_zeros: match production*/
-      case ARTL_ART_no_leading_zeros_178: 
+      case ARTL_ART_no_leading_zeros_190: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_no_leading_zeros_180, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_no_leading_zeros_192, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_non_zero_digits; return; }
-      case ARTL_ART_no_leading_zeros_180: 
+      case ARTL_ART_no_leading_zeros_192: 
         /* Nonterminal template end */
         if (!ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_no_leading_zeros_182, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_no_leading_zeros_194, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_digits; return; }
-      case ARTL_ART_no_leading_zeros_182: 
+      case ARTL_ART_no_leading_zeros_194: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet41[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet43[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -980,75 +1029,36 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal non_zero_digits production descriptor loads*/
       case ARTL_ART_non_zero_digits: 
-        if (ARTSet42[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_non_zero_digits_185, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet43[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_non_zero_digits_189, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         if (ARTSet44[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_non_zero_digits_193, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet45[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_non_zero_digits_197, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet46[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet45[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_non_zero_digits_201, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet47[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet46[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_non_zero_digits_205, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet48[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet47[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_non_zero_digits_209, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet49[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet48[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_non_zero_digits_213, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet50[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet49[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_non_zero_digits_217, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet50[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_non_zero_digits_221, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet51[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_non_zero_digits_225, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet52[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_non_zero_digits_229, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        /* Nonterminal non_zero_digits: match production*/
-      case ARTL_ART_non_zero_digits_185: 
-        /* Cat/unary template start */
-        /* Terminal template start */
-        artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_1, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
-        artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_187, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
-        /* Terminal template end */
-        /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
-        /* Nonterminal non_zero_digits: match production*/
-      case ARTL_ART_non_zero_digits_189: 
-        /* Cat/unary template start */
-        /* Terminal template start */
-        artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_2, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
-        artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_191, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
-        /* Terminal template end */
-        /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
-        /* Nonterminal non_zero_digits: match production*/
-      case ARTL_ART_non_zero_digits_193: 
-        /* Cat/unary template start */
-        /* Terminal template start */
-        artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_3, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
-        artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_195, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
-        /* Terminal template end */
-        /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal non_zero_digits: match production*/
       case ARTL_ART_non_zero_digits_197: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_4, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_1, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
         artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_199, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal non_zero_digits: match production*/
@@ -1056,12 +1066,12 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_5, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_2, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
         artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_203, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal non_zero_digits: match production*/
@@ -1069,12 +1079,12 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_6, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_3, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
         artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_207, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal non_zero_digits: match production*/
@@ -1082,12 +1092,12 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_7, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_4, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
         artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_211, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal non_zero_digits: match production*/
@@ -1095,12 +1105,12 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_8, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_5, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
         artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_215, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal non_zero_digits: match production*/
@@ -1108,12 +1118,51 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
-        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_9, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_6, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
         artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_219, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet36[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal non_zero_digits: match production*/
+      case ARTL_ART_non_zero_digits_221: 
+        /* Cat/unary template start */
+        /* Terminal template start */
+        artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_7, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_223, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        /* Terminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal non_zero_digits: match production*/
+      case ARTL_ART_non_zero_digits_225: 
+        /* Cat/unary template start */
+        /* Terminal template start */
+        artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_8, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_227, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        /* Terminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal non_zero_digits: match production*/
+      case ARTL_ART_non_zero_digits_229: 
+        /* Cat/unary template start */
+        /* Terminal template start */
+        artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
+        artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_9, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
+        artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_non_zero_digits_231, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        /* Terminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet37[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -1123,17 +1172,17 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal null production descriptor loads*/
       case ARTL_ART_null: 
-        if (ARTSet51[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_null_222, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet53[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_null_234, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal null: match production*/
-      case ARTL_ART_null_222: 
+      case ARTL_ART_null_234: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS_null, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_null_224, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_null_236, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
         if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
@@ -1147,33 +1196,33 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal number production descriptor loads*/
       case ARTL_ART_number: 
         if (ARTSet21[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_number_227, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_number_239, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal number: match production*/
-      case ARTL_ART_number_227: 
+      case ARTL_ART_number_239: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_number_229, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_number_241, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_O_minus; return; }
-      case ARTL_ART_number_229: 
+      case ARTL_ART_number_241: 
         /* Nonterminal template end */
         if (!ARTSet11[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_number_231, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_number_243, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_no_leading_zeros; return; }
-      case ARTL_ART_number_231: 
+      case ARTL_ART_number_243: 
         /* Nonterminal template end */
-        if (!ARTSet41[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet43[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_number_233, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_number_245, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_O_fraction; return; }
-      case ARTL_ART_number_233: 
+      case ARTL_ART_number_245: 
         /* Nonterminal template end */
         if (!ARTSet13[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_number_235, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_number_247, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_O_exponent; return; }
-      case ARTL_ART_number_235: 
+      case ARTL_ART_number_247: 
         /* Nonterminal template end */
         /* Cat/unary template end */
         if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
@@ -1186,30 +1235,30 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal object production descriptor loads*/
       case ARTL_ART_object: 
-        if (ARTSet53[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_object_238, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet55[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_object_250, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal object: match production*/
-      case ARTL_ART_object_238: 
+      case ARTL_ART_object_250: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS__LBRACE, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_object_240, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_object_252, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
-        if (!ARTSet54[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet56[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_object_242, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_object_254, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_O_members; return; }
-      case ARTL_ART_object_242: 
+      case ARTL_ART_object_254: 
         /* Nonterminal template end */
         if (!ARTSet16[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS__RBRACE, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_object_244, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_object_256, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
         if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
@@ -1223,31 +1272,31 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Nonterminal pair production descriptor loads*/
       case ARTL_ART_pair: 
         if (ARTSet17[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_pair_247, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+          artFindDescriptor(ARTL_ART_pair_259, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal pair: match production*/
-      case ARTL_ART_pair_247: 
+      case ARTL_ART_pair_259: 
         /* Cat/unary template start */
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_pair_249, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_pair_261, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_key; return; }
-      case ARTL_ART_pair_249: 
+      case ARTL_ART_pair_261: 
         /* Nonterminal template end */
-        if (!ARTSet33[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet40[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTS__COLON, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_pair_251, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_pair_263, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         if (!ARTSet4[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_pair_253, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        artCurrentGSSNode = artFindGSS(ARTL_ART_pair_265, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTL_ART_value; return; }
-      case ARTL_ART_pair_253: 
+      case ARTL_ART_pair_265: 
         /* Nonterminal template end */
         /* Cat/unary template end */
-        if (!ARTSet40[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet42[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -1257,20 +1306,20 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal string production descriptor loads*/
       case ARTL_ART_string: 
-        if (ARTSet39[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_string_256, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet41[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_string_268, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         /* Nonterminal string: match production*/
-      case ARTL_ART_string_256: 
+      case ARTL_ART_string_268: 
         /* Cat/unary template start */
         /* Terminal template start */
         artLexer.artCurrentInputPairReference = artLexer.artInputSuccessorIndex[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]][artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]];
         artCurrentSPPFRightChildNode = artFindSPPFTerminal(ARTTB_STRING_DQ, artLexer.artCurrentInputIndex, artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1]);
         artLexer.artCurrentInputIndex = artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference + 1];
-        artCurrentSPPFNode = artFindSPPF(ARTL_ART_string_258, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
+        artCurrentSPPFNode = artFindSPPF(ARTL_ART_string_270, artCurrentSPPFNode, artCurrentSPPFRightChildNode);
         /* Terminal template end */
         /* Cat/unary template end */
-        if (!ARTSet55[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        if (!ARTSet57[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
         artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
     }
@@ -1280,63 +1329,27 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     switch (artCurrentRestartLabel) {
         /* Nonterminal value production descriptor loads*/
       case ARTL_ART_value: 
-        if (ARTSet39[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_value_261, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet21[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_value_265, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet53[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
-          artFindDescriptor(ARTL_ART_value_269, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet22[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet41[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_value_273, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet51[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet21[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_value_277, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet26[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet55[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_value_281, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
-        if (ARTSet29[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+        if (ARTSet22[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
           artFindDescriptor(ARTL_ART_value_285, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet53[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_value_289, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet26[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_value_293, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
+        if (ARTSet29[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) 
+          artFindDescriptor(ARTL_ART_value_297, artCurrentGSSNode, artLexer.artCurrentInputIndex, artDummySPPFNode);
         { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        /* Nonterminal value: match production*/
-      case ARTL_ART_value_261: 
-        /* Cat/unary template start */
-        /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_value_263, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_string; return; }
-      case ARTL_ART_value_263: 
-        /* Nonterminal template end */
-        /* Cat/unary template end */
-        if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
-        /* Nonterminal value: match production*/
-      case ARTL_ART_value_265: 
-        /* Cat/unary template start */
-        /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_value_267, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_number; return; }
-      case ARTL_ART_value_267: 
-        /* Nonterminal template end */
-        /* Cat/unary template end */
-        if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
-        /* Nonterminal value: match production*/
-      case ARTL_ART_value_269: 
-        /* Cat/unary template start */
-        /* Nonterminal template start */
-        artCurrentGSSNode = artFindGSS(ARTL_ART_value_271, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_object; return; }
-      case ARTL_ART_value_271: 
-        /* Nonterminal template end */
-        /* Cat/unary template end */
-        if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
-        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
         /* Nonterminal value: match production*/
       case ARTL_ART_value_273: 
         /* Cat/unary template start */
         /* Nonterminal template start */
         artCurrentGSSNode = artFindGSS(ARTL_ART_value_275, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_array; return; }
+        { artCurrentRestartLabel = ARTL_ART_string; return; }
       case ARTL_ART_value_275: 
         /* Nonterminal template end */
         /* Cat/unary template end */
@@ -1348,7 +1361,7 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Nonterminal template start */
         artCurrentGSSNode = artFindGSS(ARTL_ART_value_279, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_null; return; }
+        { artCurrentRestartLabel = ARTL_ART_number; return; }
       case ARTL_ART_value_279: 
         /* Nonterminal template end */
         /* Cat/unary template end */
@@ -1360,7 +1373,7 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Nonterminal template start */
         artCurrentGSSNode = artFindGSS(ARTL_ART_value_283, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_boolean; return; }
+        { artCurrentRestartLabel = ARTL_ART_object; return; }
       case ARTL_ART_value_283: 
         /* Nonterminal template end */
         /* Cat/unary template end */
@@ -1372,8 +1385,44 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
         /* Cat/unary template start */
         /* Nonterminal template start */
         artCurrentGSSNode = artFindGSS(ARTL_ART_value_287, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
-        { artCurrentRestartLabel = ARTL_ART_bson_id; return; }
+        { artCurrentRestartLabel = ARTL_ART_array; return; }
       case ARTL_ART_value_287: 
+        /* Nonterminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal value: match production*/
+      case ARTL_ART_value_289: 
+        /* Cat/unary template start */
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_value_291, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_null; return; }
+      case ARTL_ART_value_291: 
+        /* Nonterminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal value: match production*/
+      case ARTL_ART_value_293: 
+        /* Cat/unary template start */
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_value_295, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_boolean; return; }
+      case ARTL_ART_value_295: 
+        /* Nonterminal template end */
+        /* Cat/unary template end */
+        if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
+        artPop(artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTX_DESPATCH /* Top level pop */; return; }
+        /* Nonterminal value: match production*/
+      case ARTL_ART_value_297: 
+        /* Cat/unary template start */
+        /* Nonterminal template start */
+        artCurrentGSSNode = artFindGSS(ARTL_ART_value_299, artCurrentGSSNode, artLexer.artCurrentInputIndex, artCurrentSPPFNode);
+        { artCurrentRestartLabel = ARTL_ART_bson_id; return; }
+      case ARTL_ART_value_299: 
         /* Nonterminal template end */
         /* Cat/unary template end */
         if (!ARTSet7[artLexer.artInputPairBuffer[artLexer.artCurrentInputPairReference]]) { artCurrentRestartLabel = ARTX_DESPATCH; return; }
@@ -1490,14 +1539,14 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
   public void ARTSet8initialise() {
     ARTSet8 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet8, 0, artSetExtent, false);
-    ARTSet8[29] = true;
+    ARTSet8[30] = true;
   }
 
   public void ARTSet24initialise() {
     ARTSet24 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet24, 0, artSetExtent, false);
-    ARTSet24[7] = true;
-    ARTSet24[23] = true;
+    ARTSet24[8] = true;
+    ARTSet24[24] = true;
   }
 
   public void ARTSet35initialise() {
@@ -1506,12 +1555,30 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet35[4] = true;
   }
 
+  public void ARTSet15initialise() {
+    ARTSet15 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet15, 0, artSetExtent, false);
+    ARTSet15[1] = true;
+    ARTSet15[2] = true;
+    ARTSet15[4] = true;
+    ARTSet15[11] = true;
+    ARTSet15[12] = true;
+    ARTSet15[13] = true;
+    ARTSet15[14] = true;
+    ARTSet15[15] = true;
+    ARTSet15[16] = true;
+    ARTSet15[17] = true;
+    ARTSet15[18] = true;
+    ARTSet15[19] = true;
+    ARTSet15[20] = true;
+    ARTSet15[31] = true;
+  }
+
   public void ARTSet2initialise() {
     ARTSet2 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet2, 0, artSetExtent, false);
     ARTSet2[2] = true;
-    ARTSet2[8] = true;
-    ARTSet2[10] = true;
+    ARTSet2[9] = true;
     ARTSet2[11] = true;
     ARTSet2[12] = true;
     ARTSet2[13] = true;
@@ -1521,43 +1588,43 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet2[17] = true;
     ARTSet2[18] = true;
     ARTSet2[19] = true;
-    ARTSet2[21] = true;
+    ARTSet2[20] = true;
     ARTSet2[22] = true;
-    ARTSet2[24] = true;
+    ARTSet2[23] = true;
     ARTSet2[25] = true;
     ARTSet2[26] = true;
     ARTSet2[27] = true;
-    ARTSet2[30] = true;
+    ARTSet2[28] = true;
+    ARTSet2[31] = true;
   }
 
   public void ARTSet18initialise() {
     ARTSet18 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet18, 0, artSetExtent, false);
-    ARTSet18[8] = true;
-    ARTSet18[30] = true;
+    ARTSet18[9] = true;
+    ARTSet18[31] = true;
   }
 
   public void ARTSet12initialise() {
     ARTSet12 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet12, 0, artSetExtent, false);
-    ARTSet12[9] = true;
-    ARTSet12[30] = true;
+    ARTSet12[10] = true;
+    ARTSet12[31] = true;
   }
 
-  public void ARTSet52initialise() {
-    ARTSet52 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet52, 0, artSetExtent, false);
-    ARTSet52[9] = true;
-    ARTSet52[29] = true;
-    ARTSet52[30] = true;
+  public void ARTSet54initialise() {
+    ARTSet54 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet54, 0, artSetExtent, false);
+    ARTSet54[10] = true;
+    ARTSet54[30] = true;
+    ARTSet54[31] = true;
   }
 
   public void ARTSet23initialise() {
     ARTSet23 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet23, 0, artSetExtent, false);
     ARTSet23[2] = true;
-    ARTSet23[8] = true;
-    ARTSet23[10] = true;
+    ARTSet23[9] = true;
     ARTSet23[11] = true;
     ARTSet23[12] = true;
     ARTSet23[13] = true;
@@ -1567,20 +1634,49 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet23[17] = true;
     ARTSet23[18] = true;
     ARTSet23[19] = true;
-    ARTSet23[21] = true;
+    ARTSet23[20] = true;
     ARTSet23[22] = true;
     ARTSet23[23] = true;
     ARTSet23[24] = true;
     ARTSet23[25] = true;
     ARTSet23[26] = true;
     ARTSet23[27] = true;
+    ARTSet23[28] = true;
+  }
+
+  public void ARTSet36initialise() {
+    ARTSet36 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet36, 0, artSetExtent, false);
+    ARTSet36[5] = true;
+  }
+
+  public void ARTSet37initialise() {
+    ARTSet37 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet37, 0, artSetExtent, false);
+    ARTSet37[0] = true;
+    ARTSet37[5] = true;
+    ARTSet37[8] = true;
+    ARTSet37[10] = true;
+    ARTSet37[11] = true;
+    ARTSet37[12] = true;
+    ARTSet37[13] = true;
+    ARTSet37[14] = true;
+    ARTSet37[15] = true;
+    ARTSet37[16] = true;
+    ARTSet37[17] = true;
+    ARTSet37[18] = true;
+    ARTSet37[19] = true;
+    ARTSet37[20] = true;
+    ARTSet37[21] = true;
+    ARTSet37[24] = true;
+    ARTSet37[29] = true;
+    ARTSet37[30] = true;
   }
 
   public void ARTSet21initialise() {
     ARTSet21 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet21, 0, artSetExtent, false);
-    ARTSet21[8] = true;
-    ARTSet21[10] = true;
+    ARTSet21[9] = true;
     ARTSet21[11] = true;
     ARTSet21[12] = true;
     ARTSet21[13] = true;
@@ -1590,141 +1686,169 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet21[17] = true;
     ARTSet21[18] = true;
     ARTSet21[19] = true;
-  }
-
-  public void ARTSet15initialise() {
-    ARTSet15 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet15, 0, artSetExtent, false);
-    ARTSet15[1] = true;
-    ARTSet15[2] = true;
-    ARTSet15[4] = true;
-    ARTSet15[30] = true;
-  }
-
-  public void ARTSet40initialise() {
-    ARTSet40 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet40, 0, artSetExtent, false);
-    ARTSet40[7] = true;
-    ARTSet40[28] = true;
-  }
-
-  public void ARTSet29initialise() {
-    ARTSet29 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet29, 0, artSetExtent, false);
-    ARTSet29[21] = true;
-  }
-
-  public void ARTSet31initialise() {
-    ARTSet31 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet31, 0, artSetExtent, false);
-    ARTSet31[5] = true;
-  }
-
-  public void ARTSet20initialise() {
-    ARTSet20 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet20, 0, artSetExtent, false);
-    ARTSet20[6] = true;
-  }
-
-  public void ARTSet25initialise() {
-    ARTSet25 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet25, 0, artSetExtent, false);
-    ARTSet25[7] = true;
-  }
-
-  public void ARTSet26initialise() {
-    ARTSet26 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet26, 0, artSetExtent, false);
-    ARTSet26[24] = true;
-    ARTSet26[26] = true;
-  }
-
-  public void ARTSet19initialise() {
-    ARTSet19 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet19, 0, artSetExtent, false);
-    ARTSet19[8] = true;
-  }
-
-  public void ARTSet14initialise() {
-    ARTSet14 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet14, 0, artSetExtent, false);
-    ARTSet14[9] = true;
-  }
-
-  public void ARTSet37initialise() {
-    ARTSet37 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet37, 0, artSetExtent, false);
-    ARTSet37[10] = true;
-  }
-
-  public void ARTSet10initialise() {
-    ARTSet10 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet10, 0, artSetExtent, false);
-    ARTSet10[6] = true;
-    ARTSet10[8] = true;
-    ARTSet10[30] = true;
+    ARTSet21[20] = true;
   }
 
   public void ARTSet42initialise() {
     ARTSet42 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet42, 0, artSetExtent, false);
-    ARTSet42[11] = true;
+    ARTSet42[8] = true;
+    ARTSet42[29] = true;
   }
 
-  public void ARTSet43initialise() {
-    ARTSet43 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet43, 0, artSetExtent, false);
-    ARTSet43[12] = true;
+  public void ARTSet56initialise() {
+    ARTSet56 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet56, 0, artSetExtent, false);
+    ARTSet56[1] = true;
+    ARTSet56[2] = true;
+    ARTSet56[4] = true;
+    ARTSet56[11] = true;
+    ARTSet56[12] = true;
+    ARTSet56[13] = true;
+    ARTSet56[14] = true;
+    ARTSet56[15] = true;
+    ARTSet56[16] = true;
+    ARTSet56[17] = true;
+    ARTSet56[18] = true;
+    ARTSet56[19] = true;
+    ARTSet56[20] = true;
+    ARTSet56[29] = true;
+  }
+
+  public void ARTSet29initialise() {
+    ARTSet29 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet29, 0, artSetExtent, false);
+    ARTSet29[22] = true;
+  }
+
+  public void ARTSet31initialise() {
+    ARTSet31 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet31, 0, artSetExtent, false);
+    ARTSet31[6] = true;
+  }
+
+  public void ARTSet20initialise() {
+    ARTSet20 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet20, 0, artSetExtent, false);
+    ARTSet20[7] = true;
+  }
+
+  public void ARTSet17initialise() {
+    ARTSet17 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet17, 0, artSetExtent, false);
+    ARTSet17[1] = true;
+    ARTSet17[2] = true;
+    ARTSet17[4] = true;
+    ARTSet17[11] = true;
+    ARTSet17[12] = true;
+    ARTSet17[13] = true;
+    ARTSet17[14] = true;
+    ARTSet17[15] = true;
+    ARTSet17[16] = true;
+    ARTSet17[17] = true;
+    ARTSet17[18] = true;
+    ARTSet17[19] = true;
+    ARTSet17[20] = true;
+  }
+
+  public void ARTSet25initialise() {
+    ARTSet25 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet25, 0, artSetExtent, false);
+    ARTSet25[8] = true;
+  }
+
+  public void ARTSet26initialise() {
+    ARTSet26 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet26, 0, artSetExtent, false);
+    ARTSet26[25] = true;
+    ARTSet26[27] = true;
+  }
+
+  public void ARTSet19initialise() {
+    ARTSet19 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet19, 0, artSetExtent, false);
+    ARTSet19[9] = true;
+  }
+
+  public void ARTSet14initialise() {
+    ARTSet14 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet14, 0, artSetExtent, false);
+    ARTSet14[10] = true;
+  }
+
+  public void ARTSet38initialise() {
+    ARTSet38 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet38, 0, artSetExtent, false);
+    ARTSet38[11] = true;
+  }
+
+  public void ARTSet10initialise() {
+    ARTSet10 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet10, 0, artSetExtent, false);
+    ARTSet10[7] = true;
+    ARTSet10[9] = true;
+    ARTSet10[31] = true;
   }
 
   public void ARTSet44initialise() {
     ARTSet44 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet44, 0, artSetExtent, false);
-    ARTSet44[13] = true;
+    ARTSet44[12] = true;
   }
 
   public void ARTSet45initialise() {
     ARTSet45 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet45, 0, artSetExtent, false);
-    ARTSet45[14] = true;
-  }
-
-  public void ARTSet51initialise() {
-    ARTSet51 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet51, 0, artSetExtent, false);
-    ARTSet51[25] = true;
+    ARTSet45[13] = true;
   }
 
   public void ARTSet46initialise() {
     ARTSet46 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet46, 0, artSetExtent, false);
-    ARTSet46[15] = true;
+    ARTSet46[14] = true;
   }
 
   public void ARTSet47initialise() {
     ARTSet47 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet47, 0, artSetExtent, false);
-    ARTSet47[16] = true;
+    ARTSet47[15] = true;
+  }
+
+  public void ARTSet53initialise() {
+    ARTSet53 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet53, 0, artSetExtent, false);
+    ARTSet53[26] = true;
   }
 
   public void ARTSet48initialise() {
     ARTSet48 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet48, 0, artSetExtent, false);
-    ARTSet48[17] = true;
+    ARTSet48[16] = true;
   }
 
   public void ARTSet49initialise() {
     ARTSet49 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet49, 0, artSetExtent, false);
-    ARTSet49[18] = true;
+    ARTSet49[17] = true;
+  }
+
+  public void ARTSet50initialise() {
+    ARTSet50 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet50, 0, artSetExtent, false);
+    ARTSet50[18] = true;
+  }
+
+  public void ARTSet51initialise() {
+    ARTSet51 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet51, 0, artSetExtent, false);
+    ARTSet51[19] = true;
   }
 
   public void ARTSet9initialise() {
     ARTSet9 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet9, 0, artSetExtent, false);
-    ARTSet9[6] = true;
-    ARTSet9[8] = true;
-    ARTSet9[10] = true;
+    ARTSet9[7] = true;
+    ARTSet9[9] = true;
     ARTSet9[11] = true;
     ARTSet9[12] = true;
     ARTSet9[13] = true;
@@ -1734,104 +1858,100 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet9[17] = true;
     ARTSet9[18] = true;
     ARTSet9[19] = true;
+    ARTSet9[20] = true;
   }
 
-  public void ARTSet50initialise() {
-    ARTSet50 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet50, 0, artSetExtent, false);
-    ARTSet50[19] = true;
+  public void ARTSet52initialise() {
+    ARTSet52 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet52, 0, artSetExtent, false);
+    ARTSet52[20] = true;
   }
 
-  public void ARTSet33initialise() {
-    ARTSet33 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet33, 0, artSetExtent, false);
-    ARTSet33[20] = true;
+  public void ARTSet40initialise() {
+    ARTSet40 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet40, 0, artSetExtent, false);
+    ARTSet40[21] = true;
   }
 
-  public void ARTSet38initialise() {
-    ARTSet38 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet38, 0, artSetExtent, false);
-    ARTSet38[11] = true;
-    ARTSet38[12] = true;
-    ARTSet38[13] = true;
-    ARTSet38[14] = true;
-    ARTSet38[15] = true;
-    ARTSet38[16] = true;
-    ARTSet38[17] = true;
-    ARTSet38[18] = true;
-    ARTSet38[19] = true;
+  public void ARTSet39initialise() {
+    ARTSet39 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet39, 0, artSetExtent, false);
+    ARTSet39[12] = true;
+    ARTSet39[13] = true;
+    ARTSet39[14] = true;
+    ARTSet39[15] = true;
+    ARTSet39[16] = true;
+    ARTSet39[17] = true;
+    ARTSet39[18] = true;
+    ARTSet39[19] = true;
+    ARTSet39[20] = true;
   }
 
   public void ARTSet27initialise() {
     ARTSet27 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet27, 0, artSetExtent, false);
-    ARTSet27[26] = true;
+    ARTSet27[27] = true;
   }
 
   public void ARTSet7initialise() {
     ARTSet7 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet7, 0, artSetExtent, false);
     ARTSet7[0] = true;
-    ARTSet7[7] = true;
-    ARTSet7[23] = true;
-    ARTSet7[28] = true;
+    ARTSet7[8] = true;
+    ARTSet7[24] = true;
+    ARTSet7[29] = true;
   }
 
   public void ARTSet13initialise() {
     ARTSet13 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet13, 0, artSetExtent, false);
     ARTSet13[0] = true;
-    ARTSet13[7] = true;
-    ARTSet13[23] = true;
-    ARTSet13[28] = true;
+    ARTSet13[8] = true;
+    ARTSet13[24] = true;
     ARTSet13[29] = true;
+    ARTSet13[30] = true;
   }
 
-  public void ARTSet17initialise() {
-    ARTSet17 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet17, 0, artSetExtent, false);
-    ARTSet17[1] = true;
-    ARTSet17[2] = true;
-    ARTSet17[4] = true;
+  public void ARTSet32initialise() {
+    ARTSet32 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet32, 0, artSetExtent, false);
+    ARTSet32[1] = true;
+    ARTSet32[4] = true;
+    ARTSet32[11] = true;
+    ARTSet32[12] = true;
+    ARTSet32[13] = true;
+    ARTSet32[14] = true;
+    ARTSet32[15] = true;
+    ARTSet32[16] = true;
+    ARTSet32[17] = true;
+    ARTSet32[18] = true;
+    ARTSet32[19] = true;
+    ARTSet32[20] = true;
   }
 
-  public void ARTSet36initialise() {
-    ARTSet36 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet36, 0, artSetExtent, false);
-    ARTSet36[0] = true;
-    ARTSet36[7] = true;
-    ARTSet36[9] = true;
-    ARTSet36[10] = true;
-    ARTSet36[11] = true;
-    ARTSet36[12] = true;
-    ARTSet36[13] = true;
-    ARTSet36[14] = true;
-    ARTSet36[15] = true;
-    ARTSet36[16] = true;
-    ARTSet36[17] = true;
-    ARTSet36[18] = true;
-    ARTSet36[19] = true;
-    ARTSet36[23] = true;
-    ARTSet36[28] = true;
-    ARTSet36[29] = true;
+  public void ARTSet33initialise() {
+    ARTSet33 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet33, 0, artSetExtent, false);
+    ARTSet33[5] = true;
+    ARTSet33[21] = true;
   }
 
   public void ARTSet28initialise() {
     ARTSet28 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet28, 0, artSetExtent, false);
-    ARTSet28[24] = true;
+    ARTSet28[25] = true;
   }
 
   public void ARTSet22initialise() {
     ARTSet22 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet22, 0, artSetExtent, false);
-    ARTSet22[22] = true;
+    ARTSet22[23] = true;
   }
 
   public void ARTSet3initialise() {
     ARTSet3 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet3, 0, artSetExtent, false);
-    ARTSet3[23] = true;
+    ARTSet3[24] = true;
   }
 
   public void ARTSet34initialise() {
@@ -1846,41 +1966,24 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet30[3] = true;
   }
 
-  public void ARTSet32initialise() {
-    ARTSet32 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet32, 0, artSetExtent, false);
-    ARTSet32[1] = true;
-    ARTSet32[4] = true;
-  }
-
-  public void ARTSet54initialise() {
-    ARTSet54 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet54, 0, artSetExtent, false);
-    ARTSet54[1] = true;
-    ARTSet54[2] = true;
-    ARTSet54[4] = true;
-    ARTSet54[28] = true;
-  }
-
   public void ARTSet5initialise() {
     ARTSet5 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet5, 0, artSetExtent, false);
-    ARTSet5[30] = true;
+    ARTSet5[31] = true;
   }
 
   public void ARTSet6initialise() {
     ARTSet6 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet6, 0, artSetExtent, false);
-    ARTSet6[29] = true;
     ARTSet6[30] = true;
+    ARTSet6[31] = true;
   }
 
   public void ARTSet4initialise() {
     ARTSet4 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet4, 0, artSetExtent, false);
     ARTSet4[2] = true;
-    ARTSet4[8] = true;
-    ARTSet4[10] = true;
+    ARTSet4[9] = true;
     ARTSet4[11] = true;
     ARTSet4[12] = true;
     ARTSet4[13] = true;
@@ -1890,18 +1993,18 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet4[17] = true;
     ARTSet4[18] = true;
     ARTSet4[19] = true;
-    ARTSet4[21] = true;
+    ARTSet4[20] = true;
     ARTSet4[22] = true;
-    ARTSet4[24] = true;
+    ARTSet4[23] = true;
     ARTSet4[25] = true;
     ARTSet4[26] = true;
     ARTSet4[27] = true;
+    ARTSet4[28] = true;
   }
 
   public void ARTSet11initialise() {
     ARTSet11 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet11, 0, artSetExtent, false);
-    ARTSet11[10] = true;
     ARTSet11[11] = true;
     ARTSet11[12] = true;
     ARTSet11[13] = true;
@@ -1911,45 +2014,46 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet11[17] = true;
     ARTSet11[18] = true;
     ARTSet11[19] = true;
+    ARTSet11[20] = true;
+  }
+
+  public void ARTSet43initialise() {
+    ARTSet43 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet43, 0, artSetExtent, false);
+    ARTSet43[0] = true;
+    ARTSet43[8] = true;
+    ARTSet43[10] = true;
+    ARTSet43[24] = true;
+    ARTSet43[29] = true;
+    ARTSet43[30] = true;
   }
 
   public void ARTSet41initialise() {
     ARTSet41 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet41, 0, artSetExtent, false);
-    ARTSet41[0] = true;
-    ARTSet41[7] = true;
-    ARTSet41[9] = true;
-    ARTSet41[23] = true;
-    ARTSet41[28] = true;
-    ARTSet41[29] = true;
+    ARTSet41[2] = true;
   }
 
-  public void ARTSet39initialise() {
-    ARTSet39 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet39, 0, artSetExtent, false);
-    ARTSet39[2] = true;
+  public void ARTSet57initialise() {
+    ARTSet57 = new boolean[artSetExtent];
+    artInitialiseBooleanArray(ARTSet57, 0, artSetExtent, false);
+    ARTSet57[0] = true;
+    ARTSet57[8] = true;
+    ARTSet57[21] = true;
+    ARTSet57[24] = true;
+    ARTSet57[29] = true;
   }
 
   public void ARTSet55initialise() {
     ARTSet55 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet55, 0, artSetExtent, false);
-    ARTSet55[0] = true;
-    ARTSet55[7] = true;
-    ARTSet55[20] = true;
-    ARTSet55[23] = true;
     ARTSet55[28] = true;
-  }
-
-  public void ARTSet53initialise() {
-    ARTSet53 = new boolean[artSetExtent];
-    artInitialiseBooleanArray(ARTSet53, 0, artSetExtent, false);
-    ARTSet53[27] = true;
   }
 
   public void ARTSet16initialise() {
     ARTSet16 = new boolean[artSetExtent];
     artInitialiseBooleanArray(ARTSet16, 0, artSetExtent, false);
-    ARTSet16[28] = true;
+    ARTSet16[29] = true;
   }
 
   public void artSetInitialise() {
@@ -1957,56 +2061,58 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     ARTSet8initialise();
     ARTSet24initialise();
     ARTSet35initialise();
+    ARTSet15initialise();
     ARTSet2initialise();
     ARTSet18initialise();
     ARTSet12initialise();
-    ARTSet52initialise();
+    ARTSet54initialise();
     ARTSet23initialise();
+    ARTSet36initialise();
+    ARTSet37initialise();
     ARTSet21initialise();
-    ARTSet15initialise();
-    ARTSet40initialise();
+    ARTSet42initialise();
+    ARTSet56initialise();
     ARTSet29initialise();
     ARTSet31initialise();
     ARTSet20initialise();
+    ARTSet17initialise();
     ARTSet25initialise();
     ARTSet26initialise();
     ARTSet19initialise();
     ARTSet14initialise();
-    ARTSet37initialise();
+    ARTSet38initialise();
     ARTSet10initialise();
-    ARTSet42initialise();
-    ARTSet43initialise();
     ARTSet44initialise();
     ARTSet45initialise();
-    ARTSet51initialise();
     ARTSet46initialise();
     ARTSet47initialise();
+    ARTSet53initialise();
     ARTSet48initialise();
     ARTSet49initialise();
-    ARTSet9initialise();
     ARTSet50initialise();
-    ARTSet33initialise();
-    ARTSet38initialise();
+    ARTSet51initialise();
+    ARTSet9initialise();
+    ARTSet52initialise();
+    ARTSet40initialise();
+    ARTSet39initialise();
     ARTSet27initialise();
     ARTSet7initialise();
     ARTSet13initialise();
-    ARTSet17initialise();
-    ARTSet36initialise();
+    ARTSet32initialise();
+    ARTSet33initialise();
     ARTSet28initialise();
     ARTSet22initialise();
     ARTSet3initialise();
     ARTSet34initialise();
     ARTSet30initialise();
-    ARTSet32initialise();
-    ARTSet54initialise();
     ARTSet5initialise();
     ARTSet6initialise();
     ARTSet4initialise();
     ARTSet11initialise();
+    ARTSet43initialise();
     ARTSet41initialise();
-    ARTSet39initialise();
+    ARTSet57initialise();
     ARTSet55initialise();
-    ARTSet53initialise();
     ARTSet16initialise();
   }
 
@@ -2388,639 +2494,670 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     arteoRL[ARTL_ART_bson_no_quote_107] = true;
     arteoR_pL[ARTL_ART_bson_no_quote_107] = true;
     artPopD[ARTL_ART_bson_no_quote_107] = true;
-    artLabelInternalStrings[ARTL_ART_bson_no_quote_109] = "bson_no_quote ::= . `$ &ID ";
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_109] = "bson_no_quote ::= . digits ";
     artLabelStrings[ARTL_ART_bson_no_quote_109] = "";
     artlhsL[ARTL_ART_bson_no_quote_109] = ARTL_ART_bson_no_quote;
     artKindOfs[ARTL_ART_bson_no_quote_109] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_bson_no_quote_109] = true;
-    artLabelInternalStrings[ARTL_ART_bson_no_quote_110] = "bson_no_quote ::= `$ &ID ";
-    artLabelStrings[ARTL_ART_bson_no_quote_110] = "";
-    artlhsL[ARTL_ART_bson_no_quote_110] = ARTL_ART_bson_no_quote;
-    artPopD[ARTL_ART_bson_no_quote_110] = true;
-    artLabelInternalStrings[ARTL_ART_bson_no_quote_111] = "bson_no_quote ::= `$ . &ID ";
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_111] = "bson_no_quote ::= digits .";
     artLabelStrings[ARTL_ART_bson_no_quote_111] = "";
     artlhsL[ARTL_ART_bson_no_quote_111] = ARTL_ART_bson_no_quote;
+    artSlotInstanceOfs[ARTL_ART_bson_no_quote_111] = ARTL_ART_digits;
     artKindOfs[ARTL_ART_bson_no_quote_111] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_bson_no_quote_111] = true;
+    arteoRL[ARTL_ART_bson_no_quote_111] = true;
+    arteoR_pL[ARTL_ART_bson_no_quote_111] = true;
     artPopD[ARTL_ART_bson_no_quote_111] = true;
-    artLabelInternalStrings[ARTL_ART_bson_no_quote_112] = "bson_no_quote ::= `$ &ID ";
-    artLabelStrings[ARTL_ART_bson_no_quote_112] = "";
-    artlhsL[ARTL_ART_bson_no_quote_112] = ARTL_ART_bson_no_quote;
-    artPopD[ARTL_ART_bson_no_quote_112] = true;
-    artLabelInternalStrings[ARTL_ART_bson_no_quote_113] = "bson_no_quote ::= `$ &ID .";
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_113] = "bson_no_quote ::= . `$ bson_no_quote ";
     artLabelStrings[ARTL_ART_bson_no_quote_113] = "";
     artlhsL[ARTL_ART_bson_no_quote_113] = ARTL_ART_bson_no_quote;
     artKindOfs[ARTL_ART_bson_no_quote_113] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_bson_no_quote_113] = true;
-    arteoR_pL[ARTL_ART_bson_no_quote_113] = true;
-    artPopD[ARTL_ART_bson_no_quote_113] = true;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_114] = "bson_no_quote ::= `$ bson_no_quote ";
+    artLabelStrings[ARTL_ART_bson_no_quote_114] = "";
+    artlhsL[ARTL_ART_bson_no_quote_114] = ARTL_ART_bson_no_quote;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_115] = "bson_no_quote ::= `$ . bson_no_quote ";
+    artLabelStrings[ARTL_ART_bson_no_quote_115] = "";
+    artlhsL[ARTL_ART_bson_no_quote_115] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_bson_no_quote_115] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_bson_no_quote_115] = true;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_117] = "bson_no_quote ::= `$ bson_no_quote .";
+    artLabelStrings[ARTL_ART_bson_no_quote_117] = "";
+    artlhsL[ARTL_ART_bson_no_quote_117] = ARTL_ART_bson_no_quote;
+    artSlotInstanceOfs[ARTL_ART_bson_no_quote_117] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_bson_no_quote_117] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_bson_no_quote_117] = true;
+    arteoR_pL[ARTL_ART_bson_no_quote_117] = true;
+    artPopD[ARTL_ART_bson_no_quote_117] = true;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_119] = "bson_no_quote ::= . bson_no_quote `- bson_no_quote ";
+    artLabelStrings[ARTL_ART_bson_no_quote_119] = "";
+    artlhsL[ARTL_ART_bson_no_quote_119] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_bson_no_quote_119] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_121] = "bson_no_quote ::= bson_no_quote . `- bson_no_quote ";
+    artLabelStrings[ARTL_ART_bson_no_quote_121] = "";
+    artlhsL[ARTL_ART_bson_no_quote_121] = ARTL_ART_bson_no_quote;
+    artSlotInstanceOfs[ARTL_ART_bson_no_quote_121] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_bson_no_quote_121] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_bson_no_quote_121] = true;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_122] = "bson_no_quote ::= bson_no_quote `- bson_no_quote ";
+    artLabelStrings[ARTL_ART_bson_no_quote_122] = "";
+    artlhsL[ARTL_ART_bson_no_quote_122] = ARTL_ART_bson_no_quote;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_123] = "bson_no_quote ::= bson_no_quote `- . bson_no_quote ";
+    artLabelStrings[ARTL_ART_bson_no_quote_123] = "";
+    artlhsL[ARTL_ART_bson_no_quote_123] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_bson_no_quote_123] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_bson_no_quote_125] = "bson_no_quote ::= bson_no_quote `- bson_no_quote .";
+    artLabelStrings[ARTL_ART_bson_no_quote_125] = "";
+    artlhsL[ARTL_ART_bson_no_quote_125] = ARTL_ART_bson_no_quote;
+    artSlotInstanceOfs[ARTL_ART_bson_no_quote_125] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_bson_no_quote_125] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_bson_no_quote_125] = true;
+    arteoR_pL[ARTL_ART_bson_no_quote_125] = true;
+    artPopD[ARTL_ART_bson_no_quote_125] = true;
   }
 
   public void artTableInitialiser_ART_digit() {
     artLabelInternalStrings[ARTL_ART_digit] = "digit";
     artLabelStrings[ARTL_ART_digit] = "digit";
     artKindOfs[ARTL_ART_digit] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_digit_116] = "digit ::= . '0' ";
-    artLabelStrings[ARTL_ART_digit_116] = "";
-    artlhsL[ARTL_ART_digit_116] = ARTL_ART_digit;
-    artKindOfs[ARTL_ART_digit_116] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_digit_116] = true;
-    artLabelInternalStrings[ARTL_ART_digit_117] = "digit ::= '0' ";
-    artLabelStrings[ARTL_ART_digit_117] = "";
-    artlhsL[ARTL_ART_digit_117] = ARTL_ART_digit;
-    artPopD[ARTL_ART_digit_117] = true;
-    artLabelInternalStrings[ARTL_ART_digit_118] = "digit ::= '0' .";
-    artLabelStrings[ARTL_ART_digit_118] = "";
-    artlhsL[ARTL_ART_digit_118] = ARTL_ART_digit;
-    artKindOfs[ARTL_ART_digit_118] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_digit_118] = true;
-    arteoR_pL[ARTL_ART_digit_118] = true;
-    artPopD[ARTL_ART_digit_118] = true;
-    artLabelInternalStrings[ARTL_ART_digit_120] = "digit ::= . non_zero_digits ";
-    artLabelStrings[ARTL_ART_digit_120] = "";
-    artlhsL[ARTL_ART_digit_120] = ARTL_ART_digit;
-    artKindOfs[ARTL_ART_digit_120] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_digit_122] = "digit ::= non_zero_digits .";
-    artLabelStrings[ARTL_ART_digit_122] = "";
-    artlhsL[ARTL_ART_digit_122] = ARTL_ART_digit;
-    artSlotInstanceOfs[ARTL_ART_digit_122] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_digit_122] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_digit_122] = true;
-    arteoR_pL[ARTL_ART_digit_122] = true;
-    artPopD[ARTL_ART_digit_122] = true;
+    artLabelInternalStrings[ARTL_ART_digit_128] = "digit ::= . '0' ";
+    artLabelStrings[ARTL_ART_digit_128] = "";
+    artlhsL[ARTL_ART_digit_128] = ARTL_ART_digit;
+    artKindOfs[ARTL_ART_digit_128] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_digit_128] = true;
+    artLabelInternalStrings[ARTL_ART_digit_129] = "digit ::= '0' ";
+    artLabelStrings[ARTL_ART_digit_129] = "";
+    artlhsL[ARTL_ART_digit_129] = ARTL_ART_digit;
+    artPopD[ARTL_ART_digit_129] = true;
+    artLabelInternalStrings[ARTL_ART_digit_130] = "digit ::= '0' .";
+    artLabelStrings[ARTL_ART_digit_130] = "";
+    artlhsL[ARTL_ART_digit_130] = ARTL_ART_digit;
+    artKindOfs[ARTL_ART_digit_130] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_digit_130] = true;
+    arteoR_pL[ARTL_ART_digit_130] = true;
+    artPopD[ARTL_ART_digit_130] = true;
+    artLabelInternalStrings[ARTL_ART_digit_132] = "digit ::= . non_zero_digits ";
+    artLabelStrings[ARTL_ART_digit_132] = "";
+    artlhsL[ARTL_ART_digit_132] = ARTL_ART_digit;
+    artKindOfs[ARTL_ART_digit_132] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_digit_134] = "digit ::= non_zero_digits .";
+    artLabelStrings[ARTL_ART_digit_134] = "";
+    artlhsL[ARTL_ART_digit_134] = ARTL_ART_digit;
+    artSlotInstanceOfs[ARTL_ART_digit_134] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_digit_134] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_digit_134] = true;
+    arteoR_pL[ARTL_ART_digit_134] = true;
+    artPopD[ARTL_ART_digit_134] = true;
   }
 
   public void artTableInitialiser_ART_digits() {
     artLabelInternalStrings[ARTL_ART_digits] = "digits";
     artLabelStrings[ARTL_ART_digits] = "digits";
     artKindOfs[ARTL_ART_digits] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_digits_125] = "digits ::= . digits digit ";
-    artLabelStrings[ARTL_ART_digits_125] = "";
-    artlhsL[ARTL_ART_digits_125] = ARTL_ART_digits;
-    artKindOfs[ARTL_ART_digits_125] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_digits_127] = "digits ::= digits . digit ";
-    artLabelStrings[ARTL_ART_digits_127] = "";
-    artlhsL[ARTL_ART_digits_127] = ARTL_ART_digits;
-    artSlotInstanceOfs[ARTL_ART_digits_127] = ARTL_ART_digits;
-    artKindOfs[ARTL_ART_digits_127] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_digits_127] = true;
-    artLabelInternalStrings[ARTL_ART_digits_129] = "digits ::= digits digit .";
-    artLabelStrings[ARTL_ART_digits_129] = "";
-    artlhsL[ARTL_ART_digits_129] = ARTL_ART_digits;
-    artSlotInstanceOfs[ARTL_ART_digits_129] = ARTL_ART_digit;
-    artKindOfs[ARTL_ART_digits_129] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_digits_129] = true;
-    arteoR_pL[ARTL_ART_digits_129] = true;
-    artPopD[ARTL_ART_digits_129] = true;
-    artLabelInternalStrings[ARTL_ART_digits_131] = "digits ::= . digit ";
-    artLabelStrings[ARTL_ART_digits_131] = "";
-    artlhsL[ARTL_ART_digits_131] = ARTL_ART_digits;
-    artKindOfs[ARTL_ART_digits_131] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_digits_133] = "digits ::= digit .";
-    artLabelStrings[ARTL_ART_digits_133] = "";
-    artlhsL[ARTL_ART_digits_133] = ARTL_ART_digits;
-    artSlotInstanceOfs[ARTL_ART_digits_133] = ARTL_ART_digit;
-    artKindOfs[ARTL_ART_digits_133] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_digits_133] = true;
-    arteoR_pL[ARTL_ART_digits_133] = true;
-    artPopD[ARTL_ART_digits_133] = true;
+    artLabelInternalStrings[ARTL_ART_digits_137] = "digits ::= . digits digit ";
+    artLabelStrings[ARTL_ART_digits_137] = "";
+    artlhsL[ARTL_ART_digits_137] = ARTL_ART_digits;
+    artKindOfs[ARTL_ART_digits_137] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_digits_139] = "digits ::= digits . digit ";
+    artLabelStrings[ARTL_ART_digits_139] = "";
+    artlhsL[ARTL_ART_digits_139] = ARTL_ART_digits;
+    artSlotInstanceOfs[ARTL_ART_digits_139] = ARTL_ART_digits;
+    artKindOfs[ARTL_ART_digits_139] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_digits_139] = true;
+    artLabelInternalStrings[ARTL_ART_digits_141] = "digits ::= digits digit .";
+    artLabelStrings[ARTL_ART_digits_141] = "";
+    artlhsL[ARTL_ART_digits_141] = ARTL_ART_digits;
+    artSlotInstanceOfs[ARTL_ART_digits_141] = ARTL_ART_digit;
+    artKindOfs[ARTL_ART_digits_141] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_digits_141] = true;
+    arteoR_pL[ARTL_ART_digits_141] = true;
+    artPopD[ARTL_ART_digits_141] = true;
+    artLabelInternalStrings[ARTL_ART_digits_143] = "digits ::= . digit ";
+    artLabelStrings[ARTL_ART_digits_143] = "";
+    artlhsL[ARTL_ART_digits_143] = ARTL_ART_digits;
+    artKindOfs[ARTL_ART_digits_143] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_digits_145] = "digits ::= digit .";
+    artLabelStrings[ARTL_ART_digits_145] = "";
+    artlhsL[ARTL_ART_digits_145] = ARTL_ART_digits;
+    artSlotInstanceOfs[ARTL_ART_digits_145] = ARTL_ART_digit;
+    artKindOfs[ARTL_ART_digits_145] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_digits_145] = true;
+    arteoR_pL[ARTL_ART_digits_145] = true;
+    artPopD[ARTL_ART_digits_145] = true;
   }
 
   public void artTableInitialiser_ART_exp_letter() {
     artLabelInternalStrings[ARTL_ART_exp_letter] = "exp_letter";
     artLabelStrings[ARTL_ART_exp_letter] = "exp_letter";
     artKindOfs[ARTL_ART_exp_letter] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_exp_letter_136] = "exp_letter ::= . \"e\" ";
-    artLabelStrings[ARTL_ART_exp_letter_136] = "";
-    artlhsL[ARTL_ART_exp_letter_136] = ARTL_ART_exp_letter;
-    artKindOfs[ARTL_ART_exp_letter_136] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_exp_letter_136] = true;
-    artLabelInternalStrings[ARTL_ART_exp_letter_137] = "exp_letter ::= \"e\" ";
-    artLabelStrings[ARTL_ART_exp_letter_137] = "";
-    artlhsL[ARTL_ART_exp_letter_137] = ARTL_ART_exp_letter;
-    artPopD[ARTL_ART_exp_letter_137] = true;
-    artLabelInternalStrings[ARTL_ART_exp_letter_138] = "exp_letter ::= \"e\" .";
-    artLabelStrings[ARTL_ART_exp_letter_138] = "";
-    artlhsL[ARTL_ART_exp_letter_138] = ARTL_ART_exp_letter;
-    artKindOfs[ARTL_ART_exp_letter_138] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_exp_letter_138] = true;
-    arteoR_pL[ARTL_ART_exp_letter_138] = true;
-    artPopD[ARTL_ART_exp_letter_138] = true;
+    artLabelInternalStrings[ARTL_ART_exp_letter_148] = "exp_letter ::= . \"e\" ";
+    artLabelStrings[ARTL_ART_exp_letter_148] = "";
+    artlhsL[ARTL_ART_exp_letter_148] = ARTL_ART_exp_letter;
+    artKindOfs[ARTL_ART_exp_letter_148] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_exp_letter_148] = true;
+    artLabelInternalStrings[ARTL_ART_exp_letter_149] = "exp_letter ::= \"e\" ";
+    artLabelStrings[ARTL_ART_exp_letter_149] = "";
+    artlhsL[ARTL_ART_exp_letter_149] = ARTL_ART_exp_letter;
+    artPopD[ARTL_ART_exp_letter_149] = true;
+    artLabelInternalStrings[ARTL_ART_exp_letter_150] = "exp_letter ::= \"e\" .";
+    artLabelStrings[ARTL_ART_exp_letter_150] = "";
+    artlhsL[ARTL_ART_exp_letter_150] = ARTL_ART_exp_letter;
+    artKindOfs[ARTL_ART_exp_letter_150] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_exp_letter_150] = true;
+    arteoR_pL[ARTL_ART_exp_letter_150] = true;
+    artPopD[ARTL_ART_exp_letter_150] = true;
   }
 
   public void artTableInitialiser_ART_id_number() {
     artLabelInternalStrings[ARTL_ART_id_number] = "id_number";
     artLabelStrings[ARTL_ART_id_number] = "id_number";
     artKindOfs[ARTL_ART_id_number] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_id_number_141] = "id_number ::= . &STRING_SQ ";
-    artLabelStrings[ARTL_ART_id_number_141] = "";
-    artlhsL[ARTL_ART_id_number_141] = ARTL_ART_id_number;
-    artKindOfs[ARTL_ART_id_number_141] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_id_number_141] = true;
-    artLabelInternalStrings[ARTL_ART_id_number_144] = "id_number ::= &STRING_SQ ";
-    artLabelStrings[ARTL_ART_id_number_144] = "";
-    artlhsL[ARTL_ART_id_number_144] = ARTL_ART_id_number;
-    artPopD[ARTL_ART_id_number_144] = true;
-    artLabelInternalStrings[ARTL_ART_id_number_145] = "id_number ::= &STRING_SQ .";
-    artLabelStrings[ARTL_ART_id_number_145] = "";
-    artlhsL[ARTL_ART_id_number_145] = ARTL_ART_id_number;
-    artKindOfs[ARTL_ART_id_number_145] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_id_number_145] = true;
-    arteoR_pL[ARTL_ART_id_number_145] = true;
-    artPopD[ARTL_ART_id_number_145] = true;
+    artLabelInternalStrings[ARTL_ART_id_number_153] = "id_number ::= . &STRING_SQ ";
+    artLabelStrings[ARTL_ART_id_number_153] = "";
+    artlhsL[ARTL_ART_id_number_153] = ARTL_ART_id_number;
+    artKindOfs[ARTL_ART_id_number_153] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_id_number_153] = true;
+    artLabelInternalStrings[ARTL_ART_id_number_156] = "id_number ::= &STRING_SQ ";
+    artLabelStrings[ARTL_ART_id_number_156] = "";
+    artlhsL[ARTL_ART_id_number_156] = ARTL_ART_id_number;
+    artPopD[ARTL_ART_id_number_156] = true;
+    artLabelInternalStrings[ARTL_ART_id_number_157] = "id_number ::= &STRING_SQ .";
+    artLabelStrings[ARTL_ART_id_number_157] = "";
+    artlhsL[ARTL_ART_id_number_157] = ARTL_ART_id_number;
+    artKindOfs[ARTL_ART_id_number_157] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_id_number_157] = true;
+    arteoR_pL[ARTL_ART_id_number_157] = true;
+    artPopD[ARTL_ART_id_number_157] = true;
   }
 
   public void artTableInitialiser_ART_key() {
     artLabelInternalStrings[ARTL_ART_key] = "key";
     artLabelStrings[ARTL_ART_key] = "key";
     artKindOfs[ARTL_ART_key] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_key_148] = "key ::= . string ";
-    artLabelStrings[ARTL_ART_key_148] = "";
-    artlhsL[ARTL_ART_key_148] = ARTL_ART_key;
-    artKindOfs[ARTL_ART_key_148] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_key_152] = "key ::= string .";
-    artLabelStrings[ARTL_ART_key_152] = "";
-    artlhsL[ARTL_ART_key_152] = ARTL_ART_key;
-    artSlotInstanceOfs[ARTL_ART_key_152] = ARTL_ART_string;
-    artKindOfs[ARTL_ART_key_152] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_key_152] = true;
-    arteoR_pL[ARTL_ART_key_152] = true;
-    artPopD[ARTL_ART_key_152] = true;
-    artLabelInternalStrings[ARTL_ART_key_154] = "key ::= . bson_no_quote ";
-    artLabelStrings[ARTL_ART_key_154] = "";
-    artlhsL[ARTL_ART_key_154] = ARTL_ART_key;
-    artKindOfs[ARTL_ART_key_154] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_key_158] = "key ::= bson_no_quote .";
-    artLabelStrings[ARTL_ART_key_158] = "";
-    artlhsL[ARTL_ART_key_158] = ARTL_ART_key;
-    artSlotInstanceOfs[ARTL_ART_key_158] = ARTL_ART_bson_no_quote;
-    artKindOfs[ARTL_ART_key_158] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_key_158] = true;
-    arteoR_pL[ARTL_ART_key_158] = true;
-    artPopD[ARTL_ART_key_158] = true;
+    artLabelInternalStrings[ARTL_ART_key_160] = "key ::= . string ";
+    artLabelStrings[ARTL_ART_key_160] = "";
+    artlhsL[ARTL_ART_key_160] = ARTL_ART_key;
+    artKindOfs[ARTL_ART_key_160] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_key_164] = "key ::= string .";
+    artLabelStrings[ARTL_ART_key_164] = "";
+    artlhsL[ARTL_ART_key_164] = ARTL_ART_key;
+    artSlotInstanceOfs[ARTL_ART_key_164] = ARTL_ART_string;
+    artKindOfs[ARTL_ART_key_164] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_key_164] = true;
+    arteoR_pL[ARTL_ART_key_164] = true;
+    artPopD[ARTL_ART_key_164] = true;
+    artLabelInternalStrings[ARTL_ART_key_166] = "key ::= . bson_no_quote ";
+    artLabelStrings[ARTL_ART_key_166] = "";
+    artlhsL[ARTL_ART_key_166] = ARTL_ART_key;
+    artKindOfs[ARTL_ART_key_166] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_key_170] = "key ::= bson_no_quote .";
+    artLabelStrings[ARTL_ART_key_170] = "";
+    artlhsL[ARTL_ART_key_170] = ARTL_ART_key;
+    artSlotInstanceOfs[ARTL_ART_key_170] = ARTL_ART_bson_no_quote;
+    artKindOfs[ARTL_ART_key_170] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_key_170] = true;
+    arteoR_pL[ARTL_ART_key_170] = true;
+    artPopD[ARTL_ART_key_170] = true;
   }
 
   public void artTableInitialiser_ART_members() {
     artLabelInternalStrings[ARTL_ART_members] = "members";
     artLabelStrings[ARTL_ART_members] = "members";
     artKindOfs[ARTL_ART_members] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_members_161] = "members ::= . members ',' pair ";
-    artLabelStrings[ARTL_ART_members_161] = "";
-    artlhsL[ARTL_ART_members_161] = ARTL_ART_members;
-    artKindOfs[ARTL_ART_members_161] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_members_163] = "members ::= members . ',' pair ";
-    artLabelStrings[ARTL_ART_members_163] = "";
-    artlhsL[ARTL_ART_members_163] = ARTL_ART_members;
-    artSlotInstanceOfs[ARTL_ART_members_163] = ARTL_ART_members;
-    artKindOfs[ARTL_ART_members_163] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_members_163] = true;
-    artLabelInternalStrings[ARTL_ART_members_164] = "members ::= members ',' pair ";
-    artLabelStrings[ARTL_ART_members_164] = "";
-    artlhsL[ARTL_ART_members_164] = ARTL_ART_members;
-    artLabelInternalStrings[ARTL_ART_members_165] = "members ::= members ',' . pair ";
-    artLabelStrings[ARTL_ART_members_165] = "";
-    artlhsL[ARTL_ART_members_165] = ARTL_ART_members;
-    artKindOfs[ARTL_ART_members_165] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_members_167] = "members ::= members ',' pair .";
-    artLabelStrings[ARTL_ART_members_167] = "";
-    artlhsL[ARTL_ART_members_167] = ARTL_ART_members;
-    artSlotInstanceOfs[ARTL_ART_members_167] = ARTL_ART_pair;
-    artKindOfs[ARTL_ART_members_167] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_members_167] = true;
-    arteoR_pL[ARTL_ART_members_167] = true;
-    artPopD[ARTL_ART_members_167] = true;
-    artLabelInternalStrings[ARTL_ART_members_169] = "members ::= . pair ";
-    artLabelStrings[ARTL_ART_members_169] = "";
-    artlhsL[ARTL_ART_members_169] = ARTL_ART_members;
-    artKindOfs[ARTL_ART_members_169] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_members_171] = "members ::= pair .";
-    artLabelStrings[ARTL_ART_members_171] = "";
-    artlhsL[ARTL_ART_members_171] = ARTL_ART_members;
-    artSlotInstanceOfs[ARTL_ART_members_171] = ARTL_ART_pair;
-    artKindOfs[ARTL_ART_members_171] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_members_171] = true;
-    arteoR_pL[ARTL_ART_members_171] = true;
-    artPopD[ARTL_ART_members_171] = true;
+    artLabelInternalStrings[ARTL_ART_members_173] = "members ::= . members ',' pair ";
+    artLabelStrings[ARTL_ART_members_173] = "";
+    artlhsL[ARTL_ART_members_173] = ARTL_ART_members;
+    artKindOfs[ARTL_ART_members_173] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_members_175] = "members ::= members . ',' pair ";
+    artLabelStrings[ARTL_ART_members_175] = "";
+    artlhsL[ARTL_ART_members_175] = ARTL_ART_members;
+    artSlotInstanceOfs[ARTL_ART_members_175] = ARTL_ART_members;
+    artKindOfs[ARTL_ART_members_175] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_members_175] = true;
+    artLabelInternalStrings[ARTL_ART_members_176] = "members ::= members ',' pair ";
+    artLabelStrings[ARTL_ART_members_176] = "";
+    artlhsL[ARTL_ART_members_176] = ARTL_ART_members;
+    artLabelInternalStrings[ARTL_ART_members_177] = "members ::= members ',' . pair ";
+    artLabelStrings[ARTL_ART_members_177] = "";
+    artlhsL[ARTL_ART_members_177] = ARTL_ART_members;
+    artKindOfs[ARTL_ART_members_177] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_members_179] = "members ::= members ',' pair .";
+    artLabelStrings[ARTL_ART_members_179] = "";
+    artlhsL[ARTL_ART_members_179] = ARTL_ART_members;
+    artSlotInstanceOfs[ARTL_ART_members_179] = ARTL_ART_pair;
+    artKindOfs[ARTL_ART_members_179] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_members_179] = true;
+    arteoR_pL[ARTL_ART_members_179] = true;
+    artPopD[ARTL_ART_members_179] = true;
+    artLabelInternalStrings[ARTL_ART_members_181] = "members ::= . pair ";
+    artLabelStrings[ARTL_ART_members_181] = "";
+    artlhsL[ARTL_ART_members_181] = ARTL_ART_members;
+    artKindOfs[ARTL_ART_members_181] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_members_183] = "members ::= pair .";
+    artLabelStrings[ARTL_ART_members_183] = "";
+    artlhsL[ARTL_ART_members_183] = ARTL_ART_members;
+    artSlotInstanceOfs[ARTL_ART_members_183] = ARTL_ART_pair;
+    artKindOfs[ARTL_ART_members_183] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_members_183] = true;
+    arteoR_pL[ARTL_ART_members_183] = true;
+    artPopD[ARTL_ART_members_183] = true;
   }
 
   public void artTableInitialiser_ART_no_leading_zeros() {
     artLabelInternalStrings[ARTL_ART_no_leading_zeros] = "no_leading_zeros";
     artLabelStrings[ARTL_ART_no_leading_zeros] = "no_leading_zeros";
     artKindOfs[ARTL_ART_no_leading_zeros] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_no_leading_zeros_174] = "no_leading_zeros ::= . digit ";
-    artLabelStrings[ARTL_ART_no_leading_zeros_174] = "";
-    artlhsL[ARTL_ART_no_leading_zeros_174] = ARTL_ART_no_leading_zeros;
-    artKindOfs[ARTL_ART_no_leading_zeros_174] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_no_leading_zeros_176] = "no_leading_zeros ::= digit .";
-    artLabelStrings[ARTL_ART_no_leading_zeros_176] = "";
-    artlhsL[ARTL_ART_no_leading_zeros_176] = ARTL_ART_no_leading_zeros;
-    artSlotInstanceOfs[ARTL_ART_no_leading_zeros_176] = ARTL_ART_digit;
-    artKindOfs[ARTL_ART_no_leading_zeros_176] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_no_leading_zeros_176] = true;
-    arteoR_pL[ARTL_ART_no_leading_zeros_176] = true;
-    artPopD[ARTL_ART_no_leading_zeros_176] = true;
-    artLabelInternalStrings[ARTL_ART_no_leading_zeros_178] = "no_leading_zeros ::= . non_zero_digits digits ";
-    artLabelStrings[ARTL_ART_no_leading_zeros_178] = "";
-    artlhsL[ARTL_ART_no_leading_zeros_178] = ARTL_ART_no_leading_zeros;
-    artKindOfs[ARTL_ART_no_leading_zeros_178] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_no_leading_zeros_180] = "no_leading_zeros ::= non_zero_digits . digits ";
-    artLabelStrings[ARTL_ART_no_leading_zeros_180] = "";
-    artlhsL[ARTL_ART_no_leading_zeros_180] = ARTL_ART_no_leading_zeros;
-    artSlotInstanceOfs[ARTL_ART_no_leading_zeros_180] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_no_leading_zeros_180] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_no_leading_zeros_180] = true;
-    artLabelInternalStrings[ARTL_ART_no_leading_zeros_182] = "no_leading_zeros ::= non_zero_digits digits .";
-    artLabelStrings[ARTL_ART_no_leading_zeros_182] = "";
-    artlhsL[ARTL_ART_no_leading_zeros_182] = ARTL_ART_no_leading_zeros;
-    artSlotInstanceOfs[ARTL_ART_no_leading_zeros_182] = ARTL_ART_digits;
-    artKindOfs[ARTL_ART_no_leading_zeros_182] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_no_leading_zeros_182] = true;
-    arteoR_pL[ARTL_ART_no_leading_zeros_182] = true;
-    artPopD[ARTL_ART_no_leading_zeros_182] = true;
+    artLabelInternalStrings[ARTL_ART_no_leading_zeros_186] = "no_leading_zeros ::= . digit ";
+    artLabelStrings[ARTL_ART_no_leading_zeros_186] = "";
+    artlhsL[ARTL_ART_no_leading_zeros_186] = ARTL_ART_no_leading_zeros;
+    artKindOfs[ARTL_ART_no_leading_zeros_186] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_no_leading_zeros_188] = "no_leading_zeros ::= digit .";
+    artLabelStrings[ARTL_ART_no_leading_zeros_188] = "";
+    artlhsL[ARTL_ART_no_leading_zeros_188] = ARTL_ART_no_leading_zeros;
+    artSlotInstanceOfs[ARTL_ART_no_leading_zeros_188] = ARTL_ART_digit;
+    artKindOfs[ARTL_ART_no_leading_zeros_188] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_no_leading_zeros_188] = true;
+    arteoR_pL[ARTL_ART_no_leading_zeros_188] = true;
+    artPopD[ARTL_ART_no_leading_zeros_188] = true;
+    artLabelInternalStrings[ARTL_ART_no_leading_zeros_190] = "no_leading_zeros ::= . non_zero_digits digits ";
+    artLabelStrings[ARTL_ART_no_leading_zeros_190] = "";
+    artlhsL[ARTL_ART_no_leading_zeros_190] = ARTL_ART_no_leading_zeros;
+    artKindOfs[ARTL_ART_no_leading_zeros_190] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_no_leading_zeros_192] = "no_leading_zeros ::= non_zero_digits . digits ";
+    artLabelStrings[ARTL_ART_no_leading_zeros_192] = "";
+    artlhsL[ARTL_ART_no_leading_zeros_192] = ARTL_ART_no_leading_zeros;
+    artSlotInstanceOfs[ARTL_ART_no_leading_zeros_192] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_no_leading_zeros_192] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_no_leading_zeros_192] = true;
+    artLabelInternalStrings[ARTL_ART_no_leading_zeros_194] = "no_leading_zeros ::= non_zero_digits digits .";
+    artLabelStrings[ARTL_ART_no_leading_zeros_194] = "";
+    artlhsL[ARTL_ART_no_leading_zeros_194] = ARTL_ART_no_leading_zeros;
+    artSlotInstanceOfs[ARTL_ART_no_leading_zeros_194] = ARTL_ART_digits;
+    artKindOfs[ARTL_ART_no_leading_zeros_194] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_no_leading_zeros_194] = true;
+    arteoR_pL[ARTL_ART_no_leading_zeros_194] = true;
+    artPopD[ARTL_ART_no_leading_zeros_194] = true;
   }
 
   public void artTableInitialiser_ART_non_zero_digits() {
     artLabelInternalStrings[ARTL_ART_non_zero_digits] = "non_zero_digits";
     artLabelStrings[ARTL_ART_non_zero_digits] = "non_zero_digits";
     artKindOfs[ARTL_ART_non_zero_digits] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_185] = "non_zero_digits ::= . '1' ";
-    artLabelStrings[ARTL_ART_non_zero_digits_185] = "";
-    artlhsL[ARTL_ART_non_zero_digits_185] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_non_zero_digits_185] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_non_zero_digits_185] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_186] = "non_zero_digits ::= '1' ";
-    artLabelStrings[ARTL_ART_non_zero_digits_186] = "";
-    artlhsL[ARTL_ART_non_zero_digits_186] = ARTL_ART_non_zero_digits;
-    artPopD[ARTL_ART_non_zero_digits_186] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_187] = "non_zero_digits ::= '1' .";
-    artLabelStrings[ARTL_ART_non_zero_digits_187] = "";
-    artlhsL[ARTL_ART_non_zero_digits_187] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_non_zero_digits_187] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_non_zero_digits_187] = true;
-    arteoR_pL[ARTL_ART_non_zero_digits_187] = true;
-    artPopD[ARTL_ART_non_zero_digits_187] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_189] = "non_zero_digits ::= . '2' ";
-    artLabelStrings[ARTL_ART_non_zero_digits_189] = "";
-    artlhsL[ARTL_ART_non_zero_digits_189] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_non_zero_digits_189] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_non_zero_digits_189] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_190] = "non_zero_digits ::= '2' ";
-    artLabelStrings[ARTL_ART_non_zero_digits_190] = "";
-    artlhsL[ARTL_ART_non_zero_digits_190] = ARTL_ART_non_zero_digits;
-    artPopD[ARTL_ART_non_zero_digits_190] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_191] = "non_zero_digits ::= '2' .";
-    artLabelStrings[ARTL_ART_non_zero_digits_191] = "";
-    artlhsL[ARTL_ART_non_zero_digits_191] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_non_zero_digits_191] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_non_zero_digits_191] = true;
-    arteoR_pL[ARTL_ART_non_zero_digits_191] = true;
-    artPopD[ARTL_ART_non_zero_digits_191] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_193] = "non_zero_digits ::= . '3' ";
-    artLabelStrings[ARTL_ART_non_zero_digits_193] = "";
-    artlhsL[ARTL_ART_non_zero_digits_193] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_non_zero_digits_193] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_non_zero_digits_193] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_194] = "non_zero_digits ::= '3' ";
-    artLabelStrings[ARTL_ART_non_zero_digits_194] = "";
-    artlhsL[ARTL_ART_non_zero_digits_194] = ARTL_ART_non_zero_digits;
-    artPopD[ARTL_ART_non_zero_digits_194] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_195] = "non_zero_digits ::= '3' .";
-    artLabelStrings[ARTL_ART_non_zero_digits_195] = "";
-    artlhsL[ARTL_ART_non_zero_digits_195] = ARTL_ART_non_zero_digits;
-    artKindOfs[ARTL_ART_non_zero_digits_195] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_non_zero_digits_195] = true;
-    arteoR_pL[ARTL_ART_non_zero_digits_195] = true;
-    artPopD[ARTL_ART_non_zero_digits_195] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_197] = "non_zero_digits ::= . '4' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_197] = "non_zero_digits ::= . '1' ";
     artLabelStrings[ARTL_ART_non_zero_digits_197] = "";
     artlhsL[ARTL_ART_non_zero_digits_197] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_197] = ARTK_INTERMEDIATE;
     artPopD[ARTL_ART_non_zero_digits_197] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_198] = "non_zero_digits ::= '4' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_198] = "non_zero_digits ::= '1' ";
     artLabelStrings[ARTL_ART_non_zero_digits_198] = "";
     artlhsL[ARTL_ART_non_zero_digits_198] = ARTL_ART_non_zero_digits;
     artPopD[ARTL_ART_non_zero_digits_198] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_199] = "non_zero_digits ::= '4' .";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_199] = "non_zero_digits ::= '1' .";
     artLabelStrings[ARTL_ART_non_zero_digits_199] = "";
     artlhsL[ARTL_ART_non_zero_digits_199] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_199] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_non_zero_digits_199] = true;
     arteoR_pL[ARTL_ART_non_zero_digits_199] = true;
     artPopD[ARTL_ART_non_zero_digits_199] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_201] = "non_zero_digits ::= . '5' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_201] = "non_zero_digits ::= . '2' ";
     artLabelStrings[ARTL_ART_non_zero_digits_201] = "";
     artlhsL[ARTL_ART_non_zero_digits_201] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_201] = ARTK_INTERMEDIATE;
     artPopD[ARTL_ART_non_zero_digits_201] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_202] = "non_zero_digits ::= '5' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_202] = "non_zero_digits ::= '2' ";
     artLabelStrings[ARTL_ART_non_zero_digits_202] = "";
     artlhsL[ARTL_ART_non_zero_digits_202] = ARTL_ART_non_zero_digits;
     artPopD[ARTL_ART_non_zero_digits_202] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_203] = "non_zero_digits ::= '5' .";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_203] = "non_zero_digits ::= '2' .";
     artLabelStrings[ARTL_ART_non_zero_digits_203] = "";
     artlhsL[ARTL_ART_non_zero_digits_203] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_203] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_non_zero_digits_203] = true;
     arteoR_pL[ARTL_ART_non_zero_digits_203] = true;
     artPopD[ARTL_ART_non_zero_digits_203] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_205] = "non_zero_digits ::= . '6' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_205] = "non_zero_digits ::= . '3' ";
     artLabelStrings[ARTL_ART_non_zero_digits_205] = "";
     artlhsL[ARTL_ART_non_zero_digits_205] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_205] = ARTK_INTERMEDIATE;
     artPopD[ARTL_ART_non_zero_digits_205] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_206] = "non_zero_digits ::= '6' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_206] = "non_zero_digits ::= '3' ";
     artLabelStrings[ARTL_ART_non_zero_digits_206] = "";
     artlhsL[ARTL_ART_non_zero_digits_206] = ARTL_ART_non_zero_digits;
     artPopD[ARTL_ART_non_zero_digits_206] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_207] = "non_zero_digits ::= '6' .";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_207] = "non_zero_digits ::= '3' .";
     artLabelStrings[ARTL_ART_non_zero_digits_207] = "";
     artlhsL[ARTL_ART_non_zero_digits_207] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_207] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_non_zero_digits_207] = true;
     arteoR_pL[ARTL_ART_non_zero_digits_207] = true;
     artPopD[ARTL_ART_non_zero_digits_207] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_209] = "non_zero_digits ::= . '7' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_209] = "non_zero_digits ::= . '4' ";
     artLabelStrings[ARTL_ART_non_zero_digits_209] = "";
     artlhsL[ARTL_ART_non_zero_digits_209] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_209] = ARTK_INTERMEDIATE;
     artPopD[ARTL_ART_non_zero_digits_209] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_210] = "non_zero_digits ::= '7' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_210] = "non_zero_digits ::= '4' ";
     artLabelStrings[ARTL_ART_non_zero_digits_210] = "";
     artlhsL[ARTL_ART_non_zero_digits_210] = ARTL_ART_non_zero_digits;
     artPopD[ARTL_ART_non_zero_digits_210] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_211] = "non_zero_digits ::= '7' .";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_211] = "non_zero_digits ::= '4' .";
     artLabelStrings[ARTL_ART_non_zero_digits_211] = "";
     artlhsL[ARTL_ART_non_zero_digits_211] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_211] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_non_zero_digits_211] = true;
     arteoR_pL[ARTL_ART_non_zero_digits_211] = true;
     artPopD[ARTL_ART_non_zero_digits_211] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_213] = "non_zero_digits ::= . '8' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_213] = "non_zero_digits ::= . '5' ";
     artLabelStrings[ARTL_ART_non_zero_digits_213] = "";
     artlhsL[ARTL_ART_non_zero_digits_213] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_213] = ARTK_INTERMEDIATE;
     artPopD[ARTL_ART_non_zero_digits_213] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_214] = "non_zero_digits ::= '8' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_214] = "non_zero_digits ::= '5' ";
     artLabelStrings[ARTL_ART_non_zero_digits_214] = "";
     artlhsL[ARTL_ART_non_zero_digits_214] = ARTL_ART_non_zero_digits;
     artPopD[ARTL_ART_non_zero_digits_214] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_215] = "non_zero_digits ::= '8' .";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_215] = "non_zero_digits ::= '5' .";
     artLabelStrings[ARTL_ART_non_zero_digits_215] = "";
     artlhsL[ARTL_ART_non_zero_digits_215] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_215] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_non_zero_digits_215] = true;
     arteoR_pL[ARTL_ART_non_zero_digits_215] = true;
     artPopD[ARTL_ART_non_zero_digits_215] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_217] = "non_zero_digits ::= . '9' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_217] = "non_zero_digits ::= . '6' ";
     artLabelStrings[ARTL_ART_non_zero_digits_217] = "";
     artlhsL[ARTL_ART_non_zero_digits_217] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_217] = ARTK_INTERMEDIATE;
     artPopD[ARTL_ART_non_zero_digits_217] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_218] = "non_zero_digits ::= '9' ";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_218] = "non_zero_digits ::= '6' ";
     artLabelStrings[ARTL_ART_non_zero_digits_218] = "";
     artlhsL[ARTL_ART_non_zero_digits_218] = ARTL_ART_non_zero_digits;
     artPopD[ARTL_ART_non_zero_digits_218] = true;
-    artLabelInternalStrings[ARTL_ART_non_zero_digits_219] = "non_zero_digits ::= '9' .";
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_219] = "non_zero_digits ::= '6' .";
     artLabelStrings[ARTL_ART_non_zero_digits_219] = "";
     artlhsL[ARTL_ART_non_zero_digits_219] = ARTL_ART_non_zero_digits;
     artKindOfs[ARTL_ART_non_zero_digits_219] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_non_zero_digits_219] = true;
     arteoR_pL[ARTL_ART_non_zero_digits_219] = true;
     artPopD[ARTL_ART_non_zero_digits_219] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_221] = "non_zero_digits ::= . '7' ";
+    artLabelStrings[ARTL_ART_non_zero_digits_221] = "";
+    artlhsL[ARTL_ART_non_zero_digits_221] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_non_zero_digits_221] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_non_zero_digits_221] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_222] = "non_zero_digits ::= '7' ";
+    artLabelStrings[ARTL_ART_non_zero_digits_222] = "";
+    artlhsL[ARTL_ART_non_zero_digits_222] = ARTL_ART_non_zero_digits;
+    artPopD[ARTL_ART_non_zero_digits_222] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_223] = "non_zero_digits ::= '7' .";
+    artLabelStrings[ARTL_ART_non_zero_digits_223] = "";
+    artlhsL[ARTL_ART_non_zero_digits_223] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_non_zero_digits_223] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_non_zero_digits_223] = true;
+    arteoR_pL[ARTL_ART_non_zero_digits_223] = true;
+    artPopD[ARTL_ART_non_zero_digits_223] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_225] = "non_zero_digits ::= . '8' ";
+    artLabelStrings[ARTL_ART_non_zero_digits_225] = "";
+    artlhsL[ARTL_ART_non_zero_digits_225] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_non_zero_digits_225] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_non_zero_digits_225] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_226] = "non_zero_digits ::= '8' ";
+    artLabelStrings[ARTL_ART_non_zero_digits_226] = "";
+    artlhsL[ARTL_ART_non_zero_digits_226] = ARTL_ART_non_zero_digits;
+    artPopD[ARTL_ART_non_zero_digits_226] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_227] = "non_zero_digits ::= '8' .";
+    artLabelStrings[ARTL_ART_non_zero_digits_227] = "";
+    artlhsL[ARTL_ART_non_zero_digits_227] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_non_zero_digits_227] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_non_zero_digits_227] = true;
+    arteoR_pL[ARTL_ART_non_zero_digits_227] = true;
+    artPopD[ARTL_ART_non_zero_digits_227] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_229] = "non_zero_digits ::= . '9' ";
+    artLabelStrings[ARTL_ART_non_zero_digits_229] = "";
+    artlhsL[ARTL_ART_non_zero_digits_229] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_non_zero_digits_229] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_non_zero_digits_229] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_230] = "non_zero_digits ::= '9' ";
+    artLabelStrings[ARTL_ART_non_zero_digits_230] = "";
+    artlhsL[ARTL_ART_non_zero_digits_230] = ARTL_ART_non_zero_digits;
+    artPopD[ARTL_ART_non_zero_digits_230] = true;
+    artLabelInternalStrings[ARTL_ART_non_zero_digits_231] = "non_zero_digits ::= '9' .";
+    artLabelStrings[ARTL_ART_non_zero_digits_231] = "";
+    artlhsL[ARTL_ART_non_zero_digits_231] = ARTL_ART_non_zero_digits;
+    artKindOfs[ARTL_ART_non_zero_digits_231] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_non_zero_digits_231] = true;
+    arteoR_pL[ARTL_ART_non_zero_digits_231] = true;
+    artPopD[ARTL_ART_non_zero_digits_231] = true;
   }
 
   public void artTableInitialiser_ART_null() {
     artLabelInternalStrings[ARTL_ART_null] = "null";
     artLabelStrings[ARTL_ART_null] = "null";
     artKindOfs[ARTL_ART_null] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_null_222] = "null ::= . 'null' ";
-    artLabelStrings[ARTL_ART_null_222] = "";
-    artlhsL[ARTL_ART_null_222] = ARTL_ART_null;
-    artKindOfs[ARTL_ART_null_222] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_null_222] = true;
-    artLabelInternalStrings[ARTL_ART_null_223] = "null ::= 'null' ";
-    artLabelStrings[ARTL_ART_null_223] = "";
-    artlhsL[ARTL_ART_null_223] = ARTL_ART_null;
-    artPopD[ARTL_ART_null_223] = true;
-    artLabelInternalStrings[ARTL_ART_null_224] = "null ::= 'null' .";
-    artLabelStrings[ARTL_ART_null_224] = "";
-    artlhsL[ARTL_ART_null_224] = ARTL_ART_null;
-    artKindOfs[ARTL_ART_null_224] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_null_224] = true;
-    arteoR_pL[ARTL_ART_null_224] = true;
-    artPopD[ARTL_ART_null_224] = true;
+    artLabelInternalStrings[ARTL_ART_null_234] = "null ::= . 'null' ";
+    artLabelStrings[ARTL_ART_null_234] = "";
+    artlhsL[ARTL_ART_null_234] = ARTL_ART_null;
+    artKindOfs[ARTL_ART_null_234] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_null_234] = true;
+    artLabelInternalStrings[ARTL_ART_null_235] = "null ::= 'null' ";
+    artLabelStrings[ARTL_ART_null_235] = "";
+    artlhsL[ARTL_ART_null_235] = ARTL_ART_null;
+    artPopD[ARTL_ART_null_235] = true;
+    artLabelInternalStrings[ARTL_ART_null_236] = "null ::= 'null' .";
+    artLabelStrings[ARTL_ART_null_236] = "";
+    artlhsL[ARTL_ART_null_236] = ARTL_ART_null;
+    artKindOfs[ARTL_ART_null_236] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_null_236] = true;
+    arteoR_pL[ARTL_ART_null_236] = true;
+    artPopD[ARTL_ART_null_236] = true;
   }
 
   public void artTableInitialiser_ART_number() {
     artLabelInternalStrings[ARTL_ART_number] = "number";
     artLabelStrings[ARTL_ART_number] = "number";
     artKindOfs[ARTL_ART_number] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_number_227] = "number ::= . O_minus no_leading_zeros O_fraction O_exponent ";
-    artLabelStrings[ARTL_ART_number_227] = "";
-    artlhsL[ARTL_ART_number_227] = ARTL_ART_number;
-    artKindOfs[ARTL_ART_number_227] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_number_229] = "number ::= O_minus . no_leading_zeros O_fraction O_exponent ";
-    artLabelStrings[ARTL_ART_number_229] = "";
-    artlhsL[ARTL_ART_number_229] = ARTL_ART_number;
-    artSlotInstanceOfs[ARTL_ART_number_229] = ARTL_ART_O_minus;
-    artKindOfs[ARTL_ART_number_229] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_number_229] = true;
-    artLabelInternalStrings[ARTL_ART_number_231] = "number ::= O_minus no_leading_zeros . O_fraction O_exponent ";
-    artLabelStrings[ARTL_ART_number_231] = "";
-    artlhsL[ARTL_ART_number_231] = ARTL_ART_number;
-    artSlotInstanceOfs[ARTL_ART_number_231] = ARTL_ART_no_leading_zeros;
-    artKindOfs[ARTL_ART_number_231] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_number_233] = "number ::= O_minus no_leading_zeros O_fraction . O_exponent ";
-    artLabelStrings[ARTL_ART_number_233] = "";
-    artlhsL[ARTL_ART_number_233] = ARTL_ART_number;
-    artSlotInstanceOfs[ARTL_ART_number_233] = ARTL_ART_O_fraction;
-    artKindOfs[ARTL_ART_number_233] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_number_235] = "number ::= O_minus no_leading_zeros O_fraction O_exponent .";
-    artLabelStrings[ARTL_ART_number_235] = "";
-    artlhsL[ARTL_ART_number_235] = ARTL_ART_number;
-    artSlotInstanceOfs[ARTL_ART_number_235] = ARTL_ART_O_exponent;
-    artKindOfs[ARTL_ART_number_235] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_number_235] = true;
-    arteoR_pL[ARTL_ART_number_235] = true;
-    artPopD[ARTL_ART_number_235] = true;
+    artLabelInternalStrings[ARTL_ART_number_239] = "number ::= . O_minus no_leading_zeros O_fraction O_exponent ";
+    artLabelStrings[ARTL_ART_number_239] = "";
+    artlhsL[ARTL_ART_number_239] = ARTL_ART_number;
+    artKindOfs[ARTL_ART_number_239] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_number_241] = "number ::= O_minus . no_leading_zeros O_fraction O_exponent ";
+    artLabelStrings[ARTL_ART_number_241] = "";
+    artlhsL[ARTL_ART_number_241] = ARTL_ART_number;
+    artSlotInstanceOfs[ARTL_ART_number_241] = ARTL_ART_O_minus;
+    artKindOfs[ARTL_ART_number_241] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_number_241] = true;
+    artLabelInternalStrings[ARTL_ART_number_243] = "number ::= O_minus no_leading_zeros . O_fraction O_exponent ";
+    artLabelStrings[ARTL_ART_number_243] = "";
+    artlhsL[ARTL_ART_number_243] = ARTL_ART_number;
+    artSlotInstanceOfs[ARTL_ART_number_243] = ARTL_ART_no_leading_zeros;
+    artKindOfs[ARTL_ART_number_243] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_number_245] = "number ::= O_minus no_leading_zeros O_fraction . O_exponent ";
+    artLabelStrings[ARTL_ART_number_245] = "";
+    artlhsL[ARTL_ART_number_245] = ARTL_ART_number;
+    artSlotInstanceOfs[ARTL_ART_number_245] = ARTL_ART_O_fraction;
+    artKindOfs[ARTL_ART_number_245] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_number_247] = "number ::= O_minus no_leading_zeros O_fraction O_exponent .";
+    artLabelStrings[ARTL_ART_number_247] = "";
+    artlhsL[ARTL_ART_number_247] = ARTL_ART_number;
+    artSlotInstanceOfs[ARTL_ART_number_247] = ARTL_ART_O_exponent;
+    artKindOfs[ARTL_ART_number_247] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_number_247] = true;
+    arteoR_pL[ARTL_ART_number_247] = true;
+    artPopD[ARTL_ART_number_247] = true;
   }
 
   public void artTableInitialiser_ART_object() {
     artLabelInternalStrings[ARTL_ART_object] = "object";
     artLabelStrings[ARTL_ART_object] = "object";
     artKindOfs[ARTL_ART_object] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_object_238] = "object ::= . '{' O_members '}' ";
-    artLabelStrings[ARTL_ART_object_238] = "";
-    artlhsL[ARTL_ART_object_238] = ARTL_ART_object;
-    artKindOfs[ARTL_ART_object_238] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_object_239] = "object ::= '{' O_members '}' ";
-    artLabelStrings[ARTL_ART_object_239] = "";
-    artlhsL[ARTL_ART_object_239] = ARTL_ART_object;
-    artLabelInternalStrings[ARTL_ART_object_240] = "object ::= '{' . O_members '}' ";
-    artLabelStrings[ARTL_ART_object_240] = "";
-    artlhsL[ARTL_ART_object_240] = ARTL_ART_object;
-    artKindOfs[ARTL_ART_object_240] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_object_240] = true;
-    artLabelInternalStrings[ARTL_ART_object_242] = "object ::= '{' O_members . '}' ";
-    artLabelStrings[ARTL_ART_object_242] = "";
-    artlhsL[ARTL_ART_object_242] = ARTL_ART_object;
-    artSlotInstanceOfs[ARTL_ART_object_242] = ARTL_ART_O_members;
-    artKindOfs[ARTL_ART_object_242] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_object_242] = true;
-    artLabelInternalStrings[ARTL_ART_object_243] = "object ::= '{' O_members '}' ";
-    artLabelStrings[ARTL_ART_object_243] = "";
-    artlhsL[ARTL_ART_object_243] = ARTL_ART_object;
-    artPopD[ARTL_ART_object_243] = true;
-    artLabelInternalStrings[ARTL_ART_object_244] = "object ::= '{' O_members '}' .";
-    artLabelStrings[ARTL_ART_object_244] = "";
-    artlhsL[ARTL_ART_object_244] = ARTL_ART_object;
-    artKindOfs[ARTL_ART_object_244] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_object_244] = true;
-    arteoR_pL[ARTL_ART_object_244] = true;
-    artPopD[ARTL_ART_object_244] = true;
+    artLabelInternalStrings[ARTL_ART_object_250] = "object ::= . '{' O_members '}' ";
+    artLabelStrings[ARTL_ART_object_250] = "";
+    artlhsL[ARTL_ART_object_250] = ARTL_ART_object;
+    artKindOfs[ARTL_ART_object_250] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_object_251] = "object ::= '{' O_members '}' ";
+    artLabelStrings[ARTL_ART_object_251] = "";
+    artlhsL[ARTL_ART_object_251] = ARTL_ART_object;
+    artLabelInternalStrings[ARTL_ART_object_252] = "object ::= '{' . O_members '}' ";
+    artLabelStrings[ARTL_ART_object_252] = "";
+    artlhsL[ARTL_ART_object_252] = ARTL_ART_object;
+    artKindOfs[ARTL_ART_object_252] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_object_252] = true;
+    artLabelInternalStrings[ARTL_ART_object_254] = "object ::= '{' O_members . '}' ";
+    artLabelStrings[ARTL_ART_object_254] = "";
+    artlhsL[ARTL_ART_object_254] = ARTL_ART_object;
+    artSlotInstanceOfs[ARTL_ART_object_254] = ARTL_ART_O_members;
+    artKindOfs[ARTL_ART_object_254] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_object_254] = true;
+    artLabelInternalStrings[ARTL_ART_object_255] = "object ::= '{' O_members '}' ";
+    artLabelStrings[ARTL_ART_object_255] = "";
+    artlhsL[ARTL_ART_object_255] = ARTL_ART_object;
+    artPopD[ARTL_ART_object_255] = true;
+    artLabelInternalStrings[ARTL_ART_object_256] = "object ::= '{' O_members '}' .";
+    artLabelStrings[ARTL_ART_object_256] = "";
+    artlhsL[ARTL_ART_object_256] = ARTL_ART_object;
+    artKindOfs[ARTL_ART_object_256] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_object_256] = true;
+    arteoR_pL[ARTL_ART_object_256] = true;
+    artPopD[ARTL_ART_object_256] = true;
   }
 
   public void artTableInitialiser_ART_pair() {
     artLabelInternalStrings[ARTL_ART_pair] = "pair";
     artLabelStrings[ARTL_ART_pair] = "pair";
     artKindOfs[ARTL_ART_pair] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_pair_247] = "pair ::= . key ':' value ";
-    artLabelStrings[ARTL_ART_pair_247] = "";
-    artlhsL[ARTL_ART_pair_247] = ARTL_ART_pair;
-    artKindOfs[ARTL_ART_pair_247] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_pair_249] = "pair ::= key . ':' value ";
-    artLabelStrings[ARTL_ART_pair_249] = "";
-    artlhsL[ARTL_ART_pair_249] = ARTL_ART_pair;
-    artSlotInstanceOfs[ARTL_ART_pair_249] = ARTL_ART_key;
-    artKindOfs[ARTL_ART_pair_249] = ARTK_INTERMEDIATE;
-    artfiRL[ARTL_ART_pair_249] = true;
-    artLabelInternalStrings[ARTL_ART_pair_250] = "pair ::= key ':' value ";
-    artLabelStrings[ARTL_ART_pair_250] = "";
-    artlhsL[ARTL_ART_pair_250] = ARTL_ART_pair;
-    artLabelInternalStrings[ARTL_ART_pair_251] = "pair ::= key ':' . value ";
-    artLabelStrings[ARTL_ART_pair_251] = "";
-    artlhsL[ARTL_ART_pair_251] = ARTL_ART_pair;
-    artKindOfs[ARTL_ART_pair_251] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_pair_253] = "pair ::= key ':' value .";
-    artLabelStrings[ARTL_ART_pair_253] = "";
-    artlhsL[ARTL_ART_pair_253] = ARTL_ART_pair;
-    artSlotInstanceOfs[ARTL_ART_pair_253] = ARTL_ART_value;
-    artKindOfs[ARTL_ART_pair_253] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_pair_253] = true;
-    arteoR_pL[ARTL_ART_pair_253] = true;
-    artPopD[ARTL_ART_pair_253] = true;
+    artLabelInternalStrings[ARTL_ART_pair_259] = "pair ::= . key ':' value ";
+    artLabelStrings[ARTL_ART_pair_259] = "";
+    artlhsL[ARTL_ART_pair_259] = ARTL_ART_pair;
+    artKindOfs[ARTL_ART_pair_259] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_pair_261] = "pair ::= key . ':' value ";
+    artLabelStrings[ARTL_ART_pair_261] = "";
+    artlhsL[ARTL_ART_pair_261] = ARTL_ART_pair;
+    artSlotInstanceOfs[ARTL_ART_pair_261] = ARTL_ART_key;
+    artKindOfs[ARTL_ART_pair_261] = ARTK_INTERMEDIATE;
+    artfiRL[ARTL_ART_pair_261] = true;
+    artLabelInternalStrings[ARTL_ART_pair_262] = "pair ::= key ':' value ";
+    artLabelStrings[ARTL_ART_pair_262] = "";
+    artlhsL[ARTL_ART_pair_262] = ARTL_ART_pair;
+    artLabelInternalStrings[ARTL_ART_pair_263] = "pair ::= key ':' . value ";
+    artLabelStrings[ARTL_ART_pair_263] = "";
+    artlhsL[ARTL_ART_pair_263] = ARTL_ART_pair;
+    artKindOfs[ARTL_ART_pair_263] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_pair_265] = "pair ::= key ':' value .";
+    artLabelStrings[ARTL_ART_pair_265] = "";
+    artlhsL[ARTL_ART_pair_265] = ARTL_ART_pair;
+    artSlotInstanceOfs[ARTL_ART_pair_265] = ARTL_ART_value;
+    artKindOfs[ARTL_ART_pair_265] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_pair_265] = true;
+    arteoR_pL[ARTL_ART_pair_265] = true;
+    artPopD[ARTL_ART_pair_265] = true;
   }
 
   public void artTableInitialiser_ART_string() {
     artLabelInternalStrings[ARTL_ART_string] = "string";
     artLabelStrings[ARTL_ART_string] = "string";
     artKindOfs[ARTL_ART_string] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_string_256] = "string ::= . &STRING_DQ ";
-    artLabelStrings[ARTL_ART_string_256] = "";
-    artlhsL[ARTL_ART_string_256] = ARTL_ART_string;
-    artKindOfs[ARTL_ART_string_256] = ARTK_INTERMEDIATE;
-    artPopD[ARTL_ART_string_256] = true;
-    artLabelInternalStrings[ARTL_ART_string_257] = "string ::= &STRING_DQ ";
-    artLabelStrings[ARTL_ART_string_257] = "";
-    artlhsL[ARTL_ART_string_257] = ARTL_ART_string;
-    artPopD[ARTL_ART_string_257] = true;
-    artLabelInternalStrings[ARTL_ART_string_258] = "string ::= &STRING_DQ .";
-    artLabelStrings[ARTL_ART_string_258] = "";
-    artlhsL[ARTL_ART_string_258] = ARTL_ART_string;
-    artKindOfs[ARTL_ART_string_258] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_string_258] = true;
-    arteoR_pL[ARTL_ART_string_258] = true;
-    artPopD[ARTL_ART_string_258] = true;
+    artLabelInternalStrings[ARTL_ART_string_268] = "string ::= . &STRING_DQ ";
+    artLabelStrings[ARTL_ART_string_268] = "";
+    artlhsL[ARTL_ART_string_268] = ARTL_ART_string;
+    artKindOfs[ARTL_ART_string_268] = ARTK_INTERMEDIATE;
+    artPopD[ARTL_ART_string_268] = true;
+    artLabelInternalStrings[ARTL_ART_string_269] = "string ::= &STRING_DQ ";
+    artLabelStrings[ARTL_ART_string_269] = "";
+    artlhsL[ARTL_ART_string_269] = ARTL_ART_string;
+    artPopD[ARTL_ART_string_269] = true;
+    artLabelInternalStrings[ARTL_ART_string_270] = "string ::= &STRING_DQ .";
+    artLabelStrings[ARTL_ART_string_270] = "";
+    artlhsL[ARTL_ART_string_270] = ARTL_ART_string;
+    artKindOfs[ARTL_ART_string_270] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_string_270] = true;
+    arteoR_pL[ARTL_ART_string_270] = true;
+    artPopD[ARTL_ART_string_270] = true;
   }
 
   public void artTableInitialiser_ART_value() {
     artLabelInternalStrings[ARTL_ART_value] = "value";
     artLabelStrings[ARTL_ART_value] = "value";
     artKindOfs[ARTL_ART_value] = ARTK_NONTERMINAL;
-    artLabelInternalStrings[ARTL_ART_value_261] = "value ::= . string ";
-    artLabelStrings[ARTL_ART_value_261] = "";
-    artlhsL[ARTL_ART_value_261] = ARTL_ART_value;
-    artKindOfs[ARTL_ART_value_261] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_263] = "value ::= string .";
-    artLabelStrings[ARTL_ART_value_263] = "";
-    artlhsL[ARTL_ART_value_263] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_263] = ARTL_ART_string;
-    artKindOfs[ARTL_ART_value_263] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_value_263] = true;
-    arteoR_pL[ARTL_ART_value_263] = true;
-    artPopD[ARTL_ART_value_263] = true;
-    artLabelInternalStrings[ARTL_ART_value_265] = "value ::= . number ";
-    artLabelStrings[ARTL_ART_value_265] = "";
-    artlhsL[ARTL_ART_value_265] = ARTL_ART_value;
-    artKindOfs[ARTL_ART_value_265] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_267] = "value ::= number .";
-    artLabelStrings[ARTL_ART_value_267] = "";
-    artlhsL[ARTL_ART_value_267] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_267] = ARTL_ART_number;
-    artKindOfs[ARTL_ART_value_267] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_value_267] = true;
-    arteoR_pL[ARTL_ART_value_267] = true;
-    artPopD[ARTL_ART_value_267] = true;
-    artLabelInternalStrings[ARTL_ART_value_269] = "value ::= . object ";
-    artLabelStrings[ARTL_ART_value_269] = "";
-    artlhsL[ARTL_ART_value_269] = ARTL_ART_value;
-    artKindOfs[ARTL_ART_value_269] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_271] = "value ::= object .";
-    artLabelStrings[ARTL_ART_value_271] = "";
-    artlhsL[ARTL_ART_value_271] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_271] = ARTL_ART_object;
-    artKindOfs[ARTL_ART_value_271] = ARTK_INTERMEDIATE;
-    arteoRL[ARTL_ART_value_271] = true;
-    arteoR_pL[ARTL_ART_value_271] = true;
-    artPopD[ARTL_ART_value_271] = true;
-    artLabelInternalStrings[ARTL_ART_value_273] = "value ::= . array ";
+    artLabelInternalStrings[ARTL_ART_value_273] = "value ::= . string ";
     artLabelStrings[ARTL_ART_value_273] = "";
     artlhsL[ARTL_ART_value_273] = ARTL_ART_value;
     artKindOfs[ARTL_ART_value_273] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_275] = "value ::= array .";
+    artLabelInternalStrings[ARTL_ART_value_275] = "value ::= string .";
     artLabelStrings[ARTL_ART_value_275] = "";
     artlhsL[ARTL_ART_value_275] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_275] = ARTL_ART_array;
+    artSlotInstanceOfs[ARTL_ART_value_275] = ARTL_ART_string;
     artKindOfs[ARTL_ART_value_275] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_value_275] = true;
     arteoR_pL[ARTL_ART_value_275] = true;
     artPopD[ARTL_ART_value_275] = true;
-    artLabelInternalStrings[ARTL_ART_value_277] = "value ::= . null ";
+    artLabelInternalStrings[ARTL_ART_value_277] = "value ::= . number ";
     artLabelStrings[ARTL_ART_value_277] = "";
     artlhsL[ARTL_ART_value_277] = ARTL_ART_value;
     artKindOfs[ARTL_ART_value_277] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_279] = "value ::= null .";
+    artLabelInternalStrings[ARTL_ART_value_279] = "value ::= number .";
     artLabelStrings[ARTL_ART_value_279] = "";
     artlhsL[ARTL_ART_value_279] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_279] = ARTL_ART_null;
+    artSlotInstanceOfs[ARTL_ART_value_279] = ARTL_ART_number;
     artKindOfs[ARTL_ART_value_279] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_value_279] = true;
     arteoR_pL[ARTL_ART_value_279] = true;
     artPopD[ARTL_ART_value_279] = true;
-    artLabelInternalStrings[ARTL_ART_value_281] = "value ::= . boolean ";
+    artLabelInternalStrings[ARTL_ART_value_281] = "value ::= . object ";
     artLabelStrings[ARTL_ART_value_281] = "";
     artlhsL[ARTL_ART_value_281] = ARTL_ART_value;
     artKindOfs[ARTL_ART_value_281] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_283] = "value ::= boolean .";
+    artLabelInternalStrings[ARTL_ART_value_283] = "value ::= object .";
     artLabelStrings[ARTL_ART_value_283] = "";
     artlhsL[ARTL_ART_value_283] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_283] = ARTL_ART_boolean;
+    artSlotInstanceOfs[ARTL_ART_value_283] = ARTL_ART_object;
     artKindOfs[ARTL_ART_value_283] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_value_283] = true;
     arteoR_pL[ARTL_ART_value_283] = true;
     artPopD[ARTL_ART_value_283] = true;
-    artLabelInternalStrings[ARTL_ART_value_285] = "value ::= . bson_id ";
+    artLabelInternalStrings[ARTL_ART_value_285] = "value ::= . array ";
     artLabelStrings[ARTL_ART_value_285] = "";
     artlhsL[ARTL_ART_value_285] = ARTL_ART_value;
     artKindOfs[ARTL_ART_value_285] = ARTK_INTERMEDIATE;
-    artLabelInternalStrings[ARTL_ART_value_287] = "value ::= bson_id .";
+    artLabelInternalStrings[ARTL_ART_value_287] = "value ::= array .";
     artLabelStrings[ARTL_ART_value_287] = "";
     artlhsL[ARTL_ART_value_287] = ARTL_ART_value;
-    artSlotInstanceOfs[ARTL_ART_value_287] = ARTL_ART_bson_id;
+    artSlotInstanceOfs[ARTL_ART_value_287] = ARTL_ART_array;
     artKindOfs[ARTL_ART_value_287] = ARTK_INTERMEDIATE;
     arteoRL[ARTL_ART_value_287] = true;
     arteoR_pL[ARTL_ART_value_287] = true;
     artPopD[ARTL_ART_value_287] = true;
+    artLabelInternalStrings[ARTL_ART_value_289] = "value ::= . null ";
+    artLabelStrings[ARTL_ART_value_289] = "";
+    artlhsL[ARTL_ART_value_289] = ARTL_ART_value;
+    artKindOfs[ARTL_ART_value_289] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_value_291] = "value ::= null .";
+    artLabelStrings[ARTL_ART_value_291] = "";
+    artlhsL[ARTL_ART_value_291] = ARTL_ART_value;
+    artSlotInstanceOfs[ARTL_ART_value_291] = ARTL_ART_null;
+    artKindOfs[ARTL_ART_value_291] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_value_291] = true;
+    arteoR_pL[ARTL_ART_value_291] = true;
+    artPopD[ARTL_ART_value_291] = true;
+    artLabelInternalStrings[ARTL_ART_value_293] = "value ::= . boolean ";
+    artLabelStrings[ARTL_ART_value_293] = "";
+    artlhsL[ARTL_ART_value_293] = ARTL_ART_value;
+    artKindOfs[ARTL_ART_value_293] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_value_295] = "value ::= boolean .";
+    artLabelStrings[ARTL_ART_value_295] = "";
+    artlhsL[ARTL_ART_value_295] = ARTL_ART_value;
+    artSlotInstanceOfs[ARTL_ART_value_295] = ARTL_ART_boolean;
+    artKindOfs[ARTL_ART_value_295] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_value_295] = true;
+    arteoR_pL[ARTL_ART_value_295] = true;
+    artPopD[ARTL_ART_value_295] = true;
+    artLabelInternalStrings[ARTL_ART_value_297] = "value ::= . bson_id ";
+    artLabelStrings[ARTL_ART_value_297] = "";
+    artlhsL[ARTL_ART_value_297] = ARTL_ART_value;
+    artKindOfs[ARTL_ART_value_297] = ARTK_INTERMEDIATE;
+    artLabelInternalStrings[ARTL_ART_value_299] = "value ::= bson_id .";
+    artLabelStrings[ARTL_ART_value_299] = "";
+    artlhsL[ARTL_ART_value_299] = ARTL_ART_value;
+    artSlotInstanceOfs[ARTL_ART_value_299] = ARTL_ART_bson_id;
+    artKindOfs[ARTL_ART_value_299] = ARTK_INTERMEDIATE;
+    arteoRL[ARTL_ART_value_299] = true;
+    arteoR_pL[ARTL_ART_value_299] = true;
+    artPopD[ARTL_ART_value_299] = true;
   }
 
   public void artTableInitialise() {
@@ -3116,6 +3253,9 @@ public class ARTGLLParser extends uk.ac.rhul.cs.csle.artgll.ARTGLLParserHashPool
     artLabelStrings[ARTTC__DOLLAR] = "$";
     artLabelInternalStrings[ARTTC__DOLLAR] = "`$";
     artKindOfs[ARTTC__DOLLAR] = ARTK_CHARACTER_TERMINAL;
+    artLabelStrings[ARTTC__MINUS] = "-";
+    artLabelInternalStrings[ARTTC__MINUS] = "`-";
+    artKindOfs[ARTTC__MINUS] = ARTK_CHARACTER_TERMINAL;
     artLabelStrings[ARTTS__RPAR] = ")";
     artLabelInternalStrings[ARTTS__RPAR] = "')'";
     artKindOfs[ARTTS__RPAR] = ARTK_CASE_SENSITIVE_TERMINAL;
@@ -3518,9 +3658,28 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
     case ARTL_ART_bson_no_quote_107: 
             ARTRD_bson_no_quote(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
-    /*bson_no_quote ::= `$ &ID .*/
-    case ARTL_ART_bson_no_quote_113: 
-                                    break;
+    /*bson_no_quote ::= digits .*/
+    case ARTL_ART_bson_no_quote_111: 
+            ARTRD_bson_no_quote(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
+      artNewWriteable = true; artNewParent = artParent.addChild(artNextFreeNodeNumber++, new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
+      ARTRD_digits(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
+            break;
+    /*bson_no_quote ::= `$ bson_no_quote .*/
+    case ARTL_ART_bson_no_quote_117: 
+                        artNewWriteable = false; artNewParent = artParent;
+      ARTRD_bson_no_quote(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
+            break;
+    /*bson_no_quote ::= bson_no_quote `- . bson_no_quote */
+    case ARTL_ART_bson_no_quote_123: 
+      artNewWriteable = false; artNewParent = artParent;
+      ARTRD_bson_no_quote(artSPPFPackNodeLeftChild(artPackNode), artNewParent, artNewWriteable);
+                        break;
+    /*bson_no_quote ::= bson_no_quote `- bson_no_quote .*/
+    case ARTL_ART_bson_no_quote_125: 
+            ARTRD_bson_no_quote(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
+      artNewWriteable = false; artNewParent = artParent;
+      ARTRD_bson_no_quote(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
+            break;
         default:
           throw new ARTException("ARTRD_bson_no_quote: unhandled pack node " + artPackNode + " with label " + artSPPFPackNodeLabel(artPackNode) + " - " + artLabelInternalStrings[artSPPFPackNodeLabel(artPackNode)]);
         }
@@ -3534,11 +3693,11 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*digit ::= '0' .*/
-    case ARTL_ART_digit_118: 
+    case ARTL_ART_digit_130: 
             ARTRD_digit(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
     /*digit ::= non_zero_digits .*/
-    case ARTL_ART_digit_122: 
+    case ARTL_ART_digit_134: 
             ARTRD_digit(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_non_zero_digits(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
@@ -3556,14 +3715,14 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*digits ::= digits digit .*/
-    case ARTL_ART_digits_129: 
+    case ARTL_ART_digits_141: 
             artNewWriteable = false; artNewParent = artParent;
       ARTRD_digits(artSPPFPackNodeLeftChild(artPackNode), artNewParent, artNewWriteable);
             artNewWriteable = false; artNewParent = artParent;
       ARTRD_digit(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*digits ::= digit .*/
-    case ARTL_ART_digits_133: 
+    case ARTL_ART_digits_145: 
             ARTRD_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_digit(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
@@ -3581,7 +3740,7 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*exp_letter ::= "e" .*/
-    case ARTL_ART_exp_letter_138: 
+    case ARTL_ART_exp_letter_150: 
             ARTRD_exp_letter(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
         default:
@@ -3597,7 +3756,7 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*id_number ::= &STRING_SQ .*/
-    case ARTL_ART_id_number_145: 
+    case ARTL_ART_id_number_157: 
       id_number.STYLE_COLOUR = "red";
       ARTRD_id_number(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable, id_number);
                   break;
@@ -3614,14 +3773,14 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*key ::= string .*/
-    case ARTL_ART_key_152: 
+    case ARTL_ART_key_164: 
       key.STYLE_COLOUR = "blue";
       ARTRD_key(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable, key);
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_string(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*key ::= bson_no_quote .*/
-    case ARTL_ART_key_158: 
+    case ARTL_ART_key_170: 
       key.STYLE_COLOUR = "blue";
       ARTRD_key(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable, key);
       artNewWriteable = false; artNewParent = artParent;
@@ -3640,18 +3799,18 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*members ::= members ',' . pair */
-    case ARTL_ART_members_165: 
+    case ARTL_ART_members_177: 
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_members(artSPPFPackNodeLeftChild(artPackNode), artNewParent, artNewWriteable);
                         break;
     /*members ::= members ',' pair .*/
-    case ARTL_ART_members_167: 
+    case ARTL_ART_members_179: 
             ARTRD_members(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = true; artNewParent = artParent.addChild(artNextFreeNodeNumber++, new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_pair(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable, null);
             break;
     /*members ::= pair .*/
-    case ARTL_ART_members_171: 
+    case ARTL_ART_members_183: 
             ARTRD_members(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = true; artNewParent = artParent.addChild(artNextFreeNodeNumber++, new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_pair(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable, null);
@@ -3669,13 +3828,13 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*no_leading_zeros ::= digit .*/
-    case ARTL_ART_no_leading_zeros_176: 
+    case ARTL_ART_no_leading_zeros_188: 
             ARTRD_no_leading_zeros(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_digit(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*no_leading_zeros ::= non_zero_digits digits .*/
-    case ARTL_ART_no_leading_zeros_182: 
+    case ARTL_ART_no_leading_zeros_194: 
             artNewWriteable = false; artNewParent = artParent;
       ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artNewParent, artNewWriteable);
             artNewWriteable = false; artNewParent = artParent;
@@ -3694,39 +3853,39 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*non_zero_digits ::= '1' .*/
-    case ARTL_ART_non_zero_digits_187: 
-            ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
-                  break;
-    /*non_zero_digits ::= '2' .*/
-    case ARTL_ART_non_zero_digits_191: 
-            ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
-                  break;
-    /*non_zero_digits ::= '3' .*/
-    case ARTL_ART_non_zero_digits_195: 
-            ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
-                  break;
-    /*non_zero_digits ::= '4' .*/
     case ARTL_ART_non_zero_digits_199: 
             ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
-    /*non_zero_digits ::= '5' .*/
+    /*non_zero_digits ::= '2' .*/
     case ARTL_ART_non_zero_digits_203: 
             ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
-    /*non_zero_digits ::= '6' .*/
+    /*non_zero_digits ::= '3' .*/
     case ARTL_ART_non_zero_digits_207: 
             ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
-    /*non_zero_digits ::= '7' .*/
+    /*non_zero_digits ::= '4' .*/
     case ARTL_ART_non_zero_digits_211: 
             ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
-    /*non_zero_digits ::= '8' .*/
+    /*non_zero_digits ::= '5' .*/
     case ARTL_ART_non_zero_digits_215: 
             ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
-    /*non_zero_digits ::= '9' .*/
+    /*non_zero_digits ::= '6' .*/
     case ARTL_ART_non_zero_digits_219: 
+            ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
+                  break;
+    /*non_zero_digits ::= '7' .*/
+    case ARTL_ART_non_zero_digits_223: 
+            ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
+                  break;
+    /*non_zero_digits ::= '8' .*/
+    case ARTL_ART_non_zero_digits_227: 
+            ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
+                  break;
+    /*non_zero_digits ::= '9' .*/
+    case ARTL_ART_non_zero_digits_231: 
             ARTRD_non_zero_digits(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
         default:
@@ -3742,7 +3901,7 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*null ::= 'null' .*/
-    case ARTL_ART_null_224: 
+    case ARTL_ART_null_236: 
             ARTRD_null(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
         default:
@@ -3758,20 +3917,20 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*number ::= O_minus no_leading_zeros . O_fraction O_exponent */
-    case ARTL_ART_number_231: 
+    case ARTL_ART_number_243: 
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_O_minus(artSPPFPackNodeLeftChild(artPackNode), artNewParent, artNewWriteable);
             artNewWriteable = false; artNewParent = artParent;
       ARTRD_no_leading_zeros(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*number ::= O_minus no_leading_zeros O_fraction . O_exponent */
-    case ARTL_ART_number_233: 
+    case ARTL_ART_number_245: 
       ARTRD_number(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_O_fraction(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*number ::= O_minus no_leading_zeros O_fraction O_exponent .*/
-    case ARTL_ART_number_235: 
+    case ARTL_ART_number_247: 
             ARTRD_number(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = false; artNewParent = artParent;
       ARTRD_O_exponent(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
@@ -3789,12 +3948,12 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*object ::= '{' O_members . '}' */
-    case ARTL_ART_object_242: 
+    case ARTL_ART_object_254: 
                   artNewWriteable = false; artNewParent = artParent;
       ARTRD_O_members(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*object ::= '{' O_members '}' .*/
-    case ARTL_ART_object_244: 
+    case ARTL_ART_object_256: 
             ARTRD_object(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
         default:
@@ -3810,12 +3969,12 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*pair ::= key ':' . value */
-    case ARTL_ART_pair_251: 
+    case ARTL_ART_pair_263: 
       artNewWriteable = true; artNewParent = artParent.addChild(artNextFreeNodeNumber++, new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeLeftChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeLeftChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeLeftChild(artPackNode)), key1));
       ARTRD_key(artSPPFPackNodeLeftChild(artPackNode), artNewParent, artNewWriteable, key1);
                         break;
     /*pair ::= key ':' value .*/
-    case ARTL_ART_pair_253: 
+    case ARTL_ART_pair_265: 
       key1 = new ARTAT_ART_key();
             ARTRD_pair(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable, key1);
       artNewWriteable = true; artNewParent = artParent.addChild(artNextFreeNodeNumber++, new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
@@ -3834,7 +3993,7 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*string ::= &STRING_DQ .*/
-    case ARTL_ART_string_258: 
+    case ARTL_ART_string_270: 
             ARTRD_string(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
                   break;
         default:
@@ -3850,43 +4009,43 @@ ARTGLLRDTVertex artNewParent; boolean artNewWriteable = true;
       if (artSPPFPackNodeSelected(artPackNode)) {
         switch (artSPPFPackNodeLabel(artPackNode)) {
     /*value ::= string .*/
-    case ARTL_ART_value_263: 
+    case ARTL_ART_value_275: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_string(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*value ::= number .*/
-    case ARTL_ART_value_267: 
+    case ARTL_ART_value_279: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_number(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*value ::= object .*/
-    case ARTL_ART_value_271: 
+    case ARTL_ART_value_283: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_object(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*value ::= array .*/
-    case ARTL_ART_value_275: 
+    case ARTL_ART_value_287: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_array(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*value ::= null .*/
-    case ARTL_ART_value_279: 
+    case ARTL_ART_value_291: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_null(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*value ::= boolean .*/
-    case ARTL_ART_value_283: 
+    case ARTL_ART_value_295: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_boolean(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable);
             break;
     /*value ::= bson_id .*/
-    case ARTL_ART_value_287: 
+    case ARTL_ART_value_299: 
             ARTRD_value(artSPPFPackNodeLeftChild(artPackNode), artParent, artWriteable);
       artNewWriteable = artWriteable; artNewParent = artParent;      if (artWriteable) artParent.setPayload(new ARTGLLRDTPayload(artRDT, artSPPFNodeLeftExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeRightExtent(artSPPFPackNodeRightChild(artPackNode)), artSPPFNodeLabel(artSPPFPackNodeRightChild(artPackNode)), null));
       ARTRD_bson_id(artSPPFPackNodeRightChild(artPackNode), artNewParent, artNewWriteable, null);

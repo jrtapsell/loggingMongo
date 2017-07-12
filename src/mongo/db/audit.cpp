@@ -38,7 +38,7 @@ namespace mongo {
                                StringData mechanism,
                                const UserName &user,
                                ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logAuthentication");
+            AuditServer::instance().logAuthentication(client, mechanism, user, result);
         }
 
         void logCommandAuthzCheck(Client *client,
@@ -81,7 +81,7 @@ namespace mongo {
                                 const NamespaceString &ns,
                                 const BSONObj &query,
                                 ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logQueryAuthzCheck");
+            AuditServer::instance().logQueryAuthzCheck(client, ns, query, result);
         }
 
         void logUpdateAuthzCheck(Client *client,

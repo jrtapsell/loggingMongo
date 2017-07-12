@@ -9,6 +9,7 @@
 #include "../mongo/db/audit.h"
 #include "../mongo/db/commands.h"
 #include "../../build/opt/mongo/base/error_codes.h"
+#include "../mongo/util/net/hostandport.h"
 
 using namespace std;
 using namespace mongo;
@@ -32,6 +33,25 @@ public:
         cout << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
         cout << command->getName() << "\", \"commandData\":";
         cout << cmdObj.toString(false) << "}" << endl;
+    }
+
+    void logQueryAuthzCheck(Client *client,
+                            const NamespaceString &ns,
+                            const BSONObj &query,
+                            ErrorCodes::Error result) {
+        cout << "{\"event\":\"logQueryAuthzCheck\", \"query\":";
+        cout << query.toString(false) << "}" << endl;
+    }
+
+
+    void logAuthentication(Client *client,
+                           StringData mechanism,
+                           const UserName &user,
+                           ErrorCodes::Error result) {
+        cout << "{\"event\":\"logAuthentication\",";
+        cout << "\"mechanism\":\"" << mechanism.toString();
+        cout << "\",\"user\":\"" << user.toString();
+        cout << "\"}" << endl;
     }
 };
 
