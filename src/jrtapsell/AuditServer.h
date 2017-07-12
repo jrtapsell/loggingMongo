@@ -52,7 +52,8 @@ public:
         cout << "{\"event\":\"logAuthentication\",";
         cout << "\"mechanism\":\"" << mechanism.toString();
         cout << "\",\"user\":\"" << user.toString();
-        cout << "\"}" << endl;
+        cout << "\",\"error\":" << result;
+        cout << "}" << endl;
     }
 };
 
