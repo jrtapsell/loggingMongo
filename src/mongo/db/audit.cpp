@@ -26,162 +26,234 @@
  *    it in the license file.
  */
 
-#include "mongo/db/audit.h"
+#include "audit.h"
+#include "jrtapsell/AuditServer.h"
 
-#if MONGO_ENTERPRISE_VERSION
-#define MONGO_AUDIT_STUB ;
-#else
-#define MONGO_AUDIT_STUB \
-    {}
-#endif
+using namespace std;
 
 namespace mongo {
-namespace audit {
+    namespace audit {
 
-void logAuthentication(Client* client,
-                       StringData mechanism,
-                       const UserName& user,
-                       ErrorCodes::Error result) MONGO_AUDIT_STUB
+        void logAuthentication(Client *client,
+                               StringData mechanism,
+                               const UserName &user,
+                               ErrorCodes::Error result) {
+            AuditServer::instance().logAuthentication(client, mechanism, user, result);
+        }
 
-    void logCommandAuthzCheck(Client* client,
-                              const std::string& dbname,
-                              const BSONObj& cmdObj,
-                              CommandInterface* command,
-                              ErrorCodes::Error result) MONGO_AUDIT_STUB
+        void logCommandAuthzCheck(Client *client,
+                                  const std::string &dbname,
+                                  const BSONObj &cmdObj,
+                                  CommandInterface *command,
+                                  ErrorCodes::Error result) {
+            AuditServer::instance().logCommandAuthzCheck(client, dbname, cmdObj, command, result);
+        }
 
-    void logDeleteAuthzCheck(Client* client,
-                             const NamespaceString& ns,
-                             const BSONObj& pattern,
-                             ErrorCodes::Error result) MONGO_AUDIT_STUB
+        void logDeleteAuthzCheck(Client *client,
+                                 const NamespaceString &ns,
+                                 const BSONObj &pattern,
+                                 ErrorCodes::Error result) {
+            AuditServer::instance().generalEvent("logDeleteAuthzCheck");
+        }
 
-    void logGetMoreAuthzCheck(Client* client,
-                              const NamespaceString& ns,
-                              long long cursorId,
-                              ErrorCodes::Error result) MONGO_AUDIT_STUB
-
-    void logInsertAuthzCheck(Client* client,
-                             const NamespaceString& ns,
-                             const BSONObj& insertedObj,
-                             ErrorCodes::Error result) MONGO_AUDIT_STUB
-
-    void logKillCursorsAuthzCheck(Client* client,
-                                  const NamespaceString& ns,
+        void logGetMoreAuthzCheck(Client *client,
+                                  const NamespaceString &ns,
                                   long long cursorId,
-                                  ErrorCodes::Error result) MONGO_AUDIT_STUB
+                                  ErrorCodes::Error result) {
+            AuditServer::instance().generalEvent("logGetMoreAuthzCheck");
+        }
 
-    void logQueryAuthzCheck(Client* client,
-                            const NamespaceString& ns,
-                            const BSONObj& query,
-                            ErrorCodes::Error result) MONGO_AUDIT_STUB
+        void logInsertAuthzCheck(Client *client,
+                                 const NamespaceString &ns,
+                                 const BSONObj &insertedObj,
+                                 ErrorCodes::Error result) {
+            AuditServer::instance().generalEvent("logInsertAuthzCheck");
+        }
 
-    void logUpdateAuthzCheck(Client* client,
-                             const NamespaceString& ns,
-                             const BSONObj& query,
-                             const BSONObj& updateObj,
-                             bool isUpsert,
-                             bool isMulti,
-                             ErrorCodes::Error result) MONGO_AUDIT_STUB
+        void logKillCursorsAuthzCheck(Client *client,
+                                      const NamespaceString &ns,
+                                      long long cursorId,
+                                      ErrorCodes::Error result) {
+            AuditServer::instance().generalEvent("logKillCursorsAuthzCheck");
+        }
 
-    void logCreateUser(Client* client,
-                       const UserName& username,
-                       bool password,
-                       const BSONObj* customData,
-                       const std::vector<RoleName>& roles) MONGO_AUDIT_STUB
+        void logQueryAuthzCheck(Client *client,
+                                const NamespaceString &ns,
+                                const BSONObj &query,
+                                ErrorCodes::Error result) {
+            AuditServer::instance().logQueryAuthzCheck(client, ns, query, result);
+        }
 
-    void logDropUser(Client* client, const UserName& username) MONGO_AUDIT_STUB
+        void logUpdateAuthzCheck(Client *client,
+                                 const NamespaceString &ns,
+                                 const BSONObj &query,
+                                 const BSONObj &updateObj,
+                                 bool isUpsert,
+                                 bool isMulti,
+                                 ErrorCodes::Error result) {
+            AuditServer::instance().generalEvent("logUpdateAuthzCheck");
+        }
 
-    void logDropAllUsersFromDatabase(Client* client, StringData dbname) MONGO_AUDIT_STUB
+        void logCreateUser(Client *client,
+                           const UserName &username,
+                           bool password,
+                           const BSONObj *customData,
+                           const std::vector <RoleName> &roles) {
+            AuditServer::instance().generalEvent("logCreateUser");
+        }
 
-    void logUpdateUser(Client* client,
-                       const UserName& username,
-                       bool password,
-                       const BSONObj* customData,
-                       const std::vector<RoleName>* roles) MONGO_AUDIT_STUB
+        void logDropUser(Client *client, const UserName &username) {
+            AuditServer::instance().generalEvent("logDropUser");
+        }
 
-    void logGrantRolesToUser(Client* client,
-                             const UserName& username,
-                             const std::vector<RoleName>& roles) MONGO_AUDIT_STUB
+        void logDropAllUsersFromDatabase(Client *client, StringData dbname) {
+            AuditServer::instance().generalEvent("logDropAllUsersFromDatabase");
+        }
 
-    void logRevokeRolesFromUser(Client* client,
-                                const UserName& username,
-                                const std::vector<RoleName>& roles) MONGO_AUDIT_STUB
+        void logUpdateUser(Client *client,
+                           const UserName &username,
+                           bool password,
+                           const BSONObj *customData,
+                           const std::vector <RoleName> *roles) {
+            AuditServer::instance().generalEvent("logUpdateUser");
+        }
 
-    void logCreateRole(Client* client,
-                       const RoleName& role,
-                       const std::vector<RoleName>& roles,
-                       const PrivilegeVector& privileges) MONGO_AUDIT_STUB
+        void logGrantRolesToUser(Client *client,
+                                 const UserName &username,
+                                 const std::vector <RoleName> &roles) {
+            AuditServer::instance().generalEvent("logGrantRolesToUser");
+        }
 
-    void logUpdateRole(Client* client,
-                       const RoleName& role,
-                       const std::vector<RoleName>* roles,
-                       const PrivilegeVector* privileges) MONGO_AUDIT_STUB
+        void logRevokeRolesFromUser(Client *client,
+                                    const UserName &username,
+                                    const std::vector <RoleName> &roles) {
+            AuditServer::instance().generalEvent("logRevokeRolesFromUser");
+        }
 
-    void logDropRole(Client* client, const RoleName& role) MONGO_AUDIT_STUB
+        void logCreateRole(Client *client,
+                           const RoleName &role,
+                           const std::vector <RoleName> &roles,
+                           const PrivilegeVector &privileges) {
+            AuditServer::instance().generalEvent("logCreateRole");
+        }
 
-    void logDropAllRolesFromDatabase(Client* client, StringData dbname) MONGO_AUDIT_STUB
+        void logUpdateRole(Client *client,
+                           const RoleName &role,
+                           const std::vector <RoleName> *roles,
+                           const PrivilegeVector *privileges) {
+            AuditServer::instance().generalEvent("logUpdateRole");
+        }
 
-    void logGrantRolesToRole(Client* client,
-                             const RoleName& role,
-                             const std::vector<RoleName>& roles) MONGO_AUDIT_STUB
+        void logDropRole(Client *client, const RoleName &role) {
+            AuditServer::instance().generalEvent("logDropRole");
+        }
 
-    void logRevokeRolesFromRole(Client* client,
-                                const RoleName& role,
-                                const std::vector<RoleName>& roles) MONGO_AUDIT_STUB
+        void logDropAllRolesFromDatabase(Client *client, StringData dbname) {
+            AuditServer::instance().generalEvent("logDropAllRolesFromDatabase");
+        }
 
-    void logGrantPrivilegesToRole(Client* client,
-                                  const RoleName& role,
-                                  const PrivilegeVector& privileges) MONGO_AUDIT_STUB
+        void logGrantRolesToRole(Client *client,
+                                 const RoleName &role,
+                                 const std::vector <RoleName> &roles) {
+            AuditServer::instance().generalEvent("logGrantRolesToRole");
+        }
 
-    void logRevokePrivilegesFromRole(Client* client,
-                                     const RoleName& role,
-                                     const PrivilegeVector& privileges) MONGO_AUDIT_STUB
+        void logRevokeRolesFromRole(Client *client,
+                                    const RoleName &role,
+                                    const std::vector <RoleName> &roles) {
+            AuditServer::instance().generalEvent("logRevokeRolesFromRole");
+        }
 
-    void logReplSetReconfig(Client* client,
-                            const BSONObj* oldConfig,
-                            const BSONObj* newConfig) MONGO_AUDIT_STUB
+        void logGrantPrivilegesToRole(Client *client,
+                                      const RoleName &role,
+                                      const PrivilegeVector &privileges) {
+            AuditServer::instance().generalEvent("logGrantPrivilegesToRole");
+        }
 
-    void logApplicationMessage(Client* client, StringData msg) MONGO_AUDIT_STUB
+        void logRevokePrivilegesFromRole(Client *client,
+                                         const RoleName &role,
+                                         const PrivilegeVector &privileges) {
+            AuditServer::instance().generalEvent("logRevokePrivilegesFromRole");
+        }
 
-    void logShutdown(Client* client) MONGO_AUDIT_STUB
+        void logReplSetReconfig(Client *client,
+                                const BSONObj *oldConfig,
+                                const BSONObj *newConfig) {
+            AuditServer::instance().generalEvent("logReplSetReconfig");
+        }
 
-    void logCreateIndex(Client* client,
-                        const BSONObj* indexSpec,
-                        StringData indexname,
-                        StringData nsname) MONGO_AUDIT_STUB
+        void logApplicationMessage(Client *client, StringData msg) {
+            AuditServer::instance().generalEvent("logApplicationMessage");
+        }
 
-    void logCreateCollection(Client* client, StringData nsname) MONGO_AUDIT_STUB
+        void logShutdown(Client *client) {
+            AuditServer::instance().generalEvent("logShutdown");
+        }
 
-    void logCreateDatabase(Client* client, StringData dbname) MONGO_AUDIT_STUB
+        void logCreateIndex(Client *client,
+                            const BSONObj *indexSpec,
+                            StringData indexname,
+                            StringData nsname) {
+            AuditServer::instance().generalEvent("logCreateIndex");
+        }
+
+        void logCreateCollection(Client *client, StringData nsname) {
+            AuditServer::instance().generalEvent("logCreateCollection");
+        }
+
+        void logCreateDatabase(Client *client, StringData dbname) {
+            AuditServer::instance().generalEvent("logCreateDatabase");
+        }
 
 
-    void logDropIndex(Client* client, StringData indexname, StringData nsname) MONGO_AUDIT_STUB
+        void logDropIndex(Client *client, StringData indexname, StringData nsname) {
+            AuditServer::instance().generalEvent("logDropIndex");
+        }
 
-    void logDropCollection(Client* client, StringData nsname) MONGO_AUDIT_STUB
+        void logDropCollection(Client *client, StringData nsname) {
+            AuditServer::instance().generalEvent("logDropCollection");
+        }
 
-    void logDropDatabase(Client* client, StringData dbname) MONGO_AUDIT_STUB
+        void logDropDatabase(Client *client, StringData dbname) {
+            AuditServer::instance().generalEvent("logDropDatabase");
+        }
 
-    void logRenameCollection(Client* client, StringData source, StringData target) MONGO_AUDIT_STUB
+        void logRenameCollection(Client *client, StringData source, StringData target) {
+            AuditServer::instance().generalEvent("logRenameCollection");
+        }
 
-    void logEnableSharding(Client* client, StringData dbname) MONGO_AUDIT_STUB
+        void logEnableSharding(Client *client, StringData dbname) {
+            AuditServer::instance().generalEvent("logEnableSharding");
+        }
 
-    void logAddShard(Client* client, StringData name, const std::string& servers, long long maxSize)
-        MONGO_AUDIT_STUB
+        void logAddShard(Client *client, StringData name, const std::string &servers, long long maxSize) {
+            AuditServer::instance().generalEvent("logAddShard");
+        }
 
-    void logRemoveShard(Client* client, StringData shardname) MONGO_AUDIT_STUB
+        void logRemoveShard(Client *client, StringData shardname) {
+            AuditServer::instance().generalEvent("logRemoveShard");
+        }
 
-    void logShardCollection(Client* client, StringData ns, const BSONObj& keyPattern, bool unique)
-        MONGO_AUDIT_STUB
+        void logShardCollection(Client *client, StringData ns, const BSONObj &keyPattern, bool unique) {
+            AuditServer::instance().generalEvent("logShardCollection");
+        }
 
-    void writeImpersonatedUsersToMetadata(OperationContext* opCtx,
-                                          BSONObjBuilder* metadata) MONGO_AUDIT_STUB
+        void writeImpersonatedUsersToMetadata(OperationContext *opCtx,
+                                              BSONObjBuilder *metadata) {
+            AuditServer::instance().generalEvent("writeImpersonatedUsersToMetadata");
+        }
 
-    void parseAndRemoveImpersonatedUsersField(BSONObj cmdObj,
-                                              std::vector<UserName>* parsedUserNames,
-                                              bool* fieldIsPresent) MONGO_AUDIT_STUB
+        void parseAndRemoveImpersonatedUsersField(BSONObj cmdObj,
+                                                  std::vector <UserName> *parsedUserNames,
+                                                  bool *fieldIsPresent) {
+            AuditServer::instance().generalEvent("parseAndRemoveImpersonatedUsersField");
+        }
 
-    void parseAndRemoveImpersonatedRolesField(BSONObj cmdObj,
-                                              std::vector<RoleName>* parsedRoleNames,
-                                              bool* fieldIsPresent) MONGO_AUDIT_STUB
+        void parseAndRemoveImpersonatedRolesField(BSONObj cmdObj,
+                                                  std::vector <RoleName> *parsedRoleNames,
+                                                  bool *fieldIsPresent) {
+            AuditServer::instance().generalEvent("parseAndRemoveImpersonatedRolesField");
+        }
 
-}  // namespace audit
+    }  // namespace audit
 }  // namespace mongo
