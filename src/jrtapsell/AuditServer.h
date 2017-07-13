@@ -32,7 +32,7 @@ public:
                               ErrorCodes::Error result) {
         cout << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
         cout << command->getName() << "\", \"commandData\":";
-        cout << cmdObj.toString(false) << "}" << endl;
+        cout << cmdObj.toString(false) << ", \"client\": " << client->getConnectionId() << "}" << endl;
     }
 
     void logQueryAuthzCheck(Client *client,
@@ -41,7 +41,7 @@ public:
                             ErrorCodes::Error result) {
         cout << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
         cout << "\",\"query\":";
-        cout << query.toString(false) << "}" << endl;
+        cout << query.toString(false) << ", \"client\": " << client->getConnectionId() << "}" << endl;
     }
 
 
@@ -52,7 +52,9 @@ public:
         cout << "{\"event\":\"logAuthentication\",";
         cout << "\"mechanism\":\"" << mechanism.toString();
         cout << "\",\"user\":\"" << user.toString();
-        cout << "\",\"error\":" << result;
+        cout << "\",\"error\":\"" << result;
+        cout << "\", \"client\": {\"id\":" << client->getConnectionId();
+        cout << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
         cout << "}" << endl;
     }
 };
