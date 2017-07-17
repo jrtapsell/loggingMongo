@@ -30,7 +30,7 @@ public:
     void logClient(Client *client) {
         cout << "\"client\":{";
             cout << "\"id\": " << client->getConnectionId(),
-            cout << "\"isSystem\": " << !client->hasRemote() ? "true" : "false";
+            cout << "\"isSystem\": " << (!client->hasRemote() ? "true" : "false");
         cout << "}";
     }
 
