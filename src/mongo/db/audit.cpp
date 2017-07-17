@@ -28,17 +28,18 @@
 
 #include "audit.h"
 #include "jrtapsell/AuditServer.h"
+#include "../../jrtapsell/AuditServer.h"
 
 using namespace std;
 
 namespace mongo {
     namespace audit {
-
+        AuditServer as = AuditServer::instance();
         void logAuthentication(Client *client,
                                StringData mechanism,
                                const UserName &user,
                                ErrorCodes::Error result) {
-            AuditServer::instance().logAuthentication(client, mechanism, user, result);
+            as.logAuthentication(client, mechanism, user, result);
         }
 
         void logCommandAuthzCheck(Client *client,
@@ -46,42 +47,42 @@ namespace mongo {
                                   const BSONObj &cmdObj,
                                   CommandInterface *command,
                                   ErrorCodes::Error result) {
-            AuditServer::instance().logCommandAuthzCheck(client, dbname, cmdObj, command, result);
+            as.logCommandAuthzCheck(client, dbname, cmdObj, command, result);
         }
 
         void logDeleteAuthzCheck(Client *client,
                                  const NamespaceString &ns,
                                  const BSONObj &pattern,
                                  ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logDeleteAuthzCheck");
+            as.generalEvent("logDeleteAuthzCheck", client);
         }
 
         void logGetMoreAuthzCheck(Client *client,
                                   const NamespaceString &ns,
                                   long long cursorId,
                                   ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logGetMoreAuthzCheck");
+            as.generalEvent("logGetMoreAuthzCheck", client);
         }
 
         void logInsertAuthzCheck(Client *client,
                                  const NamespaceString &ns,
                                  const BSONObj &insertedObj,
                                  ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logInsertAuthzCheck");
+            as.generalEvent("logInsertAuthzCheck", client);
         }
 
         void logKillCursorsAuthzCheck(Client *client,
                                       const NamespaceString &ns,
                                       long long cursorId,
                                       ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logKillCursorsAuthzCheck");
+            as.generalEvent("logKillCursorsAuthzCheck", client);
         }
 
         void logQueryAuthzCheck(Client *client,
                                 const NamespaceString &ns,
                                 const BSONObj &query,
                                 ErrorCodes::Error result) {
-            AuditServer::instance().logQueryAuthzCheck(client, ns, query, result);
+            as.logQueryAuthzCheck(client, ns, query, result);
         }
 
         void logUpdateAuthzCheck(Client *client,
@@ -91,7 +92,7 @@ namespace mongo {
                                  bool isUpsert,
                                  bool isMulti,
                                  ErrorCodes::Error result) {
-            AuditServer::instance().generalEvent("logUpdateAuthzCheck");
+            as.generalEvent("logUpdateAuthzCheck", client);
         }
 
         void logCreateUser(Client *client,
@@ -99,15 +100,15 @@ namespace mongo {
                            bool password,
                            const BSONObj *customData,
                            const std::vector <RoleName> &roles) {
-            AuditServer::instance().generalEvent("logCreateUser");
+            as.generalEvent("logCreateUser", client);
         }
 
         void logDropUser(Client *client, const UserName &username) {
-            AuditServer::instance().generalEvent("logDropUser");
+            as.generalEvent("logDropUser", client);
         }
 
         void logDropAllUsersFromDatabase(Client *client, StringData dbname) {
-            AuditServer::instance().generalEvent("logDropAllUsersFromDatabase");
+            as.generalEvent("logDropAllUsersFromDatabase", client);
         }
 
         void logUpdateUser(Client *client,
@@ -115,144 +116,144 @@ namespace mongo {
                            bool password,
                            const BSONObj *customData,
                            const std::vector <RoleName> *roles) {
-            AuditServer::instance().generalEvent("logUpdateUser");
+            as.generalEvent("logUpdateUser", client);
         }
 
         void logGrantRolesToUser(Client *client,
                                  const UserName &username,
                                  const std::vector <RoleName> &roles) {
-            AuditServer::instance().generalEvent("logGrantRolesToUser");
+            as.generalEvent("logGrantRolesToUser", client);
         }
 
         void logRevokeRolesFromUser(Client *client,
                                     const UserName &username,
                                     const std::vector <RoleName> &roles) {
-            AuditServer::instance().generalEvent("logRevokeRolesFromUser");
+            as.generalEvent("logRevokeRolesFromUser", client);
         }
 
         void logCreateRole(Client *client,
                            const RoleName &role,
                            const std::vector <RoleName> &roles,
                            const PrivilegeVector &privileges) {
-            AuditServer::instance().generalEvent("logCreateRole");
+            as.generalEvent("logCreateRole", client);
         }
 
         void logUpdateRole(Client *client,
                            const RoleName &role,
                            const std::vector <RoleName> *roles,
                            const PrivilegeVector *privileges) {
-            AuditServer::instance().generalEvent("logUpdateRole");
+            as.generalEvent("logUpdateRole", client);
         }
 
         void logDropRole(Client *client, const RoleName &role) {
-            AuditServer::instance().generalEvent("logDropRole");
+            as.generalEvent("logDropRole", client);
         }
 
         void logDropAllRolesFromDatabase(Client *client, StringData dbname) {
-            AuditServer::instance().generalEvent("logDropAllRolesFromDatabase");
+            as.generalEvent("logDropAllRolesFromDatabase", client);
         }
 
         void logGrantRolesToRole(Client *client,
                                  const RoleName &role,
                                  const std::vector <RoleName> &roles) {
-            AuditServer::instance().generalEvent("logGrantRolesToRole");
+            as.generalEvent("logGrantRolesToRole", client);
         }
 
         void logRevokeRolesFromRole(Client *client,
                                     const RoleName &role,
                                     const std::vector <RoleName> &roles) {
-            AuditServer::instance().generalEvent("logRevokeRolesFromRole");
+            as.generalEvent("logRevokeRolesFromRole", client);
         }
 
         void logGrantPrivilegesToRole(Client *client,
                                       const RoleName &role,
                                       const PrivilegeVector &privileges) {
-            AuditServer::instance().generalEvent("logGrantPrivilegesToRole");
+            as.generalEvent("logGrantPrivilegesToRole", client);
         }
 
         void logRevokePrivilegesFromRole(Client *client,
                                          const RoleName &role,
                                          const PrivilegeVector &privileges) {
-            AuditServer::instance().generalEvent("logRevokePrivilegesFromRole");
+            as.generalEvent("logRevokePrivilegesFromRole", client);
         }
 
         void logReplSetReconfig(Client *client,
                                 const BSONObj *oldConfig,
                                 const BSONObj *newConfig) {
-            AuditServer::instance().generalEvent("logReplSetReconfig");
+            as.generalEvent("logReplSetReconfig", client);
         }
 
         void logApplicationMessage(Client *client, StringData msg) {
-            AuditServer::instance().generalEvent("logApplicationMessage");
+            as.generalEvent("logApplicationMessage", client);
         }
 
         void logShutdown(Client *client) {
-            AuditServer::instance().generalEvent("logShutdown");
+            as.generalEvent("logShutdown", client);
         }
 
         void logCreateIndex(Client *client,
                             const BSONObj *indexSpec,
                             StringData indexname,
                             StringData nsname) {
-            AuditServer::instance().generalEvent("logCreateIndex");
+            as.generalEvent("logCreateIndex", client);
         }
 
         void logCreateCollection(Client *client, StringData nsname) {
-            AuditServer::instance().generalEvent("logCreateCollection");
+            as.logCreateCollection(client, nsname);
         }
 
         void logCreateDatabase(Client *client, StringData dbname) {
-            AuditServer::instance().generalEvent("logCreateDatabase");
+            as.logCreateDatabase(client, dbname);
         }
 
 
         void logDropIndex(Client *client, StringData indexname, StringData nsname) {
-            AuditServer::instance().generalEvent("logDropIndex");
+            as.generalEvent("logDropIndex", client);
         }
 
         void logDropCollection(Client *client, StringData nsname) {
-            AuditServer::instance().generalEvent("logDropCollection");
+            as.generalEvent("logDropCollection", client);
         }
 
         void logDropDatabase(Client *client, StringData dbname) {
-            AuditServer::instance().generalEvent("logDropDatabase");
+            as.generalEvent("logDropDatabase", client);
         }
 
         void logRenameCollection(Client *client, StringData source, StringData target) {
-            AuditServer::instance().generalEvent("logRenameCollection");
+            as.generalEvent("logRenameCollection", client);
         }
 
         void logEnableSharding(Client *client, StringData dbname) {
-            AuditServer::instance().generalEvent("logEnableSharding");
+            as.generalEvent("logEnableSharding", client);
         }
 
         void logAddShard(Client *client, StringData name, const std::string &servers, long long maxSize) {
-            AuditServer::instance().generalEvent("logAddShard");
+            as.generalEvent("logAddShard", client);
         }
 
         void logRemoveShard(Client *client, StringData shardname) {
-            AuditServer::instance().generalEvent("logRemoveShard");
+            as.generalEvent("logRemoveShard", client);
         }
 
         void logShardCollection(Client *client, StringData ns, const BSONObj &keyPattern, bool unique) {
-            AuditServer::instance().generalEvent("logShardCollection");
+            as.generalEvent("logShardCollection", client);
         }
 
         void writeImpersonatedUsersToMetadata(OperationContext *opCtx,
                                               BSONObjBuilder *metadata) {
-            AuditServer::instance().generalEvent("writeImpersonatedUsersToMetadata");
+            as.generalEvent("writeImpersonatedUsersToMetadata", NULL);
         }
 
         void parseAndRemoveImpersonatedUsersField(BSONObj cmdObj,
                                                   std::vector <UserName> *parsedUserNames,
                                                   bool *fieldIsPresent) {
-            AuditServer::instance().generalEvent("parseAndRemoveImpersonatedUsersField");
+            as.generalEvent("parseAndRemoveImpersonatedUsersField", NULL);
         }
 
         void parseAndRemoveImpersonatedRolesField(BSONObj cmdObj,
                                                   std::vector <RoleName> *parsedRoleNames,
                                                   bool *fieldIsPresent) {
-            AuditServer::instance().generalEvent("parseAndRemoveImpersonatedRolesField");
+            as.generalEvent("parseAndRemoveImpersonatedRolesField", NULL);
         }
 
     }  // namespace audit
