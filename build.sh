@@ -1,6 +1,6 @@
 #!/bin/bash
 export start=$(date +%s)
-python2 buildscripts/scons.py all
+python2 buildscripts/scons.py -j 8 all
 export end=$(date +%s)
 export delta=$(expr $end - $start)
 echo $start > timeLog/start
