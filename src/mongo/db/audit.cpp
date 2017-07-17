@@ -100,7 +100,7 @@ namespace mongo {
                            bool password,
                            const BSONObj *customData,
                            const std::vector <RoleName> &roles) {
-            as.generalEvent("logCreateUser", client);
+            as.logCreateUser(client, username, password, customData, roles);
         }
 
         void logDropUser(Client *client, const UserName &username) {
