@@ -31,6 +31,7 @@ public:
     void logLine(std::stringstream *msg) {
         *msg << endl;
         cout << (*msg).str();
+        cout << flush;
     }
 
     void logClient(std::stringstream *msg, Client *client) {
