@@ -28,7 +28,7 @@ public:
         return INSTANCE;
     }
 
-    void log(std::stringstream msg) {
+    void logLine(std::stringstream msg) {
         msg << endl;
         cout << msg.str();
     }
@@ -45,7 +45,7 @@ public:
         msg << "{\"event\": \"" << event << "\",";
         logClient(msg, client);
         msg << "}";
-        log(msg);
+        logLine(msg);
     }
     void logCommandAuthzCheck(Client *client,
                               const std::string &dbname,
@@ -58,7 +58,7 @@ public:
         msg << cmdObj.toString(false) << ",";
         logClient(msg, client);
         msg << "}";
-        log(msg);
+        logLine(msg);
     }
 
     void logQueryAuthzCheck(Client *client,
@@ -71,7 +71,7 @@ public:
         msg << query.toString(false) << ",";
         logClient(msg, client);
         msg << "}";
-        log(msg);
+        logLine(msg);
     }
 
 
@@ -86,7 +86,7 @@ public:
         msg << "\",\"error\":\"" << result << "\", ";
         logClient(msg, client);
         msg << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
-        log(msg);
+        logLine(msg);
     }
 
     void logCreateDatabase(Client *client, StringData dbname) {
@@ -94,7 +94,7 @@ public:
         msg << "{\"event\": \"logCreateDatabase\", ";
         logClient(msg, client);
         msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
-        log(msg);
+        logLine(msg);
     }
 
 
@@ -103,7 +103,7 @@ public:
         msg << "{\"event\": \"logCreateCollection\", ";
         logClient(msg, client);
         msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
-        log(msg);
+        logLine(msg);
     }
 
     void logCreateUser(Client *client,
@@ -119,7 +119,7 @@ public:
         msg << ", \"db\": \"" << username.getDB() << "\"}";
         msg << ", \"roles\": \"" << customData << "\"}";
         msg << "}";
-        log(msg);
+        logLine(msg);
     }
 };
 
