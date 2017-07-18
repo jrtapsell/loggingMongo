@@ -118,7 +118,7 @@ public:
         msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
-        msg << ", \"customData\": \"" << (customData != NULL ? customData->toString(false) : "null") << "\"";
+        msg << ", \"customData\": " << (customData != NULL ? customData->toString(false) : "\"null\"") << "";
         msg << ", \"roles\": ";
         if (&roles != NULL) {
             msg << "[";
