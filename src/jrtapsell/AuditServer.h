@@ -6,6 +6,7 @@
 #define LOGGINGMONGO_AUDITSERVER_H
 
 #include <iostream>
+#include <sstream>
 #include "../mongo/db/commands.h"
 #include "../../build/opt/mongo/base/error_codes.h"
 #include "../mongo/util/net/hostandport.h"
@@ -27,39 +28,50 @@ public:
         return INSTANCE;
     }
 
-    void logClient(Client *client) {
-        cout << "\"client\":{";
-            cout << "\"id\": " << client->getConnectionId(),
-            cout << ", \"isSystem\": " << (!client->hasRemote() ? "true" : "false");
-        cout << "}";
+    void log(std::stringstream msg) {
+        msg << endl;
+        cout << msg.str();
+    }
+
+    void logClient(std::stringstream msg, Client *client) {
+        msg << "\"client\":{";
+            msg << "\"id\": " << client->getConnectionId(),
+            msg << ", \"isSystem\": " << (!client->hasRemote() ? "true" : "false");
+        msg << "}";
     }
 
     void generalEvent(const char *event, Client *client) {
-        cout << "{\"event\": \"" << event << "\",";
-        logClient(client);
-        cout << "}" << endl;
+        std::stringstream msg;
+        msg << "{\"event\": \"" << event << "\",";
+        logClient(msg, client);
+        msg << "}";
+        log(msg);
     }
     void logCommandAuthzCheck(Client *client,
                               const std::string &dbname,
                               const BSONObj &cmdObj,
                               CommandInterface *command,
                               ErrorCodes::Error result) {
-        cout << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
-        cout << command->getName() << "\", \"commandData\":";
-        cout << cmdObj.toString(false) << ",";
-        logClient(client);
-        cout << "}" << endl;
+        std::stringstream msg;
+        msg << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
+        msg << command->getName() << "\", \"commandData\":";
+        msg << cmdObj.toString(false) << ",";
+        logClient(msg, client);
+        msg << "}";
+        log(msg);
     }
 
     void logQueryAuthzCheck(Client *client,
                             const NamespaceString &ns,
                             const BSONObj &query,
                             ErrorCodes::Error result) {
-        cout << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
-        cout << "\",\"query\":";
-        cout << query.toString(false) << ",";
-        logClient(client);
-        cout << "}" << endl;
+        std::stringstream msg;
+        msg << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
+        msg << "\",\"query\":";
+        msg << query.toString(false) << ",";
+        logClient(msg, client);
+        msg << "}";
+        log(msg);
     }
 
 
@@ -67,26 +79,31 @@ public:
                            StringData mechanism,
                            const UserName &user,
                            ErrorCodes::Error result) {
-        cout << "{\"event\":\"logAuthentication\"";
-        cout << ",\"mechanism\":\"" << mechanism.toString();
-        cout << "\",\"user\":\"" << user.toString();
-        cout << "\",\"error\":\"" << result << "\", ";
-        logClient(client);
-        cout << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
-        cout << "}" << endl;
+        std::stringstream msg;
+        msg << "{\"event\":\"logAuthentication\"";
+        msg << ",\"mechanism\":\"" << mechanism.toString();
+        msg << "\",\"user\":\"" << user.toString();
+        msg << "\",\"error\":\"" << result << "\", ";
+        logClient(msg, client);
+        msg << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
+        log(msg);
     }
 
     void logCreateDatabase(Client *client, StringData dbname) {
-        cout << "{\"event\": \"logCreateDatabase\", ";
-        logClient(client);
-        cout << ", \"dbname\": \"" << dbname.toString() << "\"}" << endl;
+        std::stringstream msg;
+        msg << "{\"event\": \"logCreateDatabase\", ";
+        logClient(msg, client);
+        msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
+        log(msg);
     }
 
 
     void logCreateCollection(Client *client, StringData nsname) {
-        cout << "{\"event\": \"logCreateCollection\", ";
-        logClient(client);
-        cout << ", \"nsname\": \"" << nsname.toString() << "\"}" << endl;
+        std::stringstream msg;
+        msg << "{\"event\": \"logCreateCollection\", ";
+        logClient(msg, client);
+        msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
+        log(msg);
     }
 
     void logCreateUser(Client *client,
@@ -94,14 +111,15 @@ public:
                        bool password,
                        const BSONObj *customData,
                        const std::vector <RoleName> &roles) {
-        cout << "{\"event\": \"logCreateCollection\", ";
-        logClient(client);
-        cout << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
-        cout << ", \"full\": \"" << username.getFullName() << "\"";
-        cout << ", \"db\": \"" << username.getDB() << "\"}";
-        cout << ", \"roles\": \"" << customData << "\"}";
-        cout << "}";
-        cout << endl;
+        std::stringstream msg;
+        msg << "{\"event\": \"logCreateCollection\", ";
+        logClient(msg, client);
+        msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
+        msg << ", \"full\": \"" << username.getFullName() << "\"";
+        msg << ", \"db\": \"" << username.getDB() << "\"}";
+        msg << ", \"roles\": \"" << customData << "\"}";
+        msg << "}";
+        log(msg);
     }
 };
 
