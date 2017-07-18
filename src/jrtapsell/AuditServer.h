@@ -119,14 +119,19 @@ public:
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
         msg << ", \"customData\": \"" << customData->toString(false) << "\"";
-        msg << ", \"roles\": [";
-        for (unsigned int i = 0; i < roles.size(); i++) {
-            msg << "\"" << roles[i].toString() << "\"";
-            if (i < (roles.size() - 1)) {
-                msg << ",";
+        msg << ", \"roles\": ";
+        if (&roles != NULL) {
+            msg << "[";
+            for (std::vector<int>::size_type i = 0; i < roles.size(); i++) {
+                msg << "\"" << roles[i].toString() << "\"";
+                if (i < (roles.size() - 1)) {
+                    msg << ",";
+                }
             }
+            msg << "]";
+        } else {
+            msg << "null";
         }
-        msg << "]";
         msg << "}";
         logLine(&msg);
     }
