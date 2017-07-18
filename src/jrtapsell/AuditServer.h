@@ -67,7 +67,7 @@ public:
                            StringData mechanism,
                            const UserName &user,
                            ErrorCodes::Error result) {
-        cout << "{\"event\":\"logAuthentication\", \"client\": " << client->getConnectionId();
+        cout << "{\"event\":\"logAuthentication\"";
         cout << ",\"mechanism\":\"" << mechanism.toString();
         cout << "\",\"user\":\"" << user.toString();
         cout << "\",\"error\":\"" << result << "\", ";
