@@ -113,13 +113,12 @@ public:
                        const BSONObj *customData,
                        const std::vector <RoleName> &roles) {
         std::stringstream msg;
-        msg << "{\"event\": \"logCreateCollection\", ";
+        msg << "{\"event\": \"logCreateUser\", ";
         logClient(&msg, client);
         msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
         msg << ", \"roles\": \"" << customData << "\"}";
-        msg << "}";
         logLine(&msg);
     }
 };
