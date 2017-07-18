@@ -118,7 +118,20 @@ public:
         msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
-        msg << ", \"customData\": \"" << customData->toString(false) << "\"";
+        msg << ", \"customData\": \"" << (customData != NULL ? customData->toString(false) : "null") << "\"";
+        msg << ", \"roles\": ";
+        if (&roles != NULL) {
+            msg << "[";
+            for (std::vector<int>::size_type i = 0; i < roles.size(); i++) {
+                msg << "\"" << roles[i].toString() << "\"";
+                if (i < (roles.size() - 1)) {
+                    msg << ",";
+                }
+            }
+            msg << "]";
+        } else {
+            msg << "null";
+        }
         msg << "}";
         logLine(&msg);
     }
