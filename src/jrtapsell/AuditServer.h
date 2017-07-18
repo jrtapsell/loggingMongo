@@ -120,7 +120,7 @@ public:
         msg << ", \"db\": \"" << username.getDB() << "\"}";
         msg << ", \"customData\": \"" << customData->toString(false) << "\"";
         msg << ", \"roles\": [";
-        for (int i = 0; i < roles.size(); i++) {
+        for (unsigned int i = 0; i < roles.size(); i++) {
             msg << "\"" << roles[i].toString() << "\"";
             if (i < (roles.size() - 1)) {
                 msg << ",";
