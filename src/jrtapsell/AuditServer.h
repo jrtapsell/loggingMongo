@@ -22,6 +22,7 @@ using namespace mongo;
 
 class AuditServer {
 public:
+
     static AuditServer& instance()
     {
         static AuditServer INSTANCE;
@@ -49,8 +50,7 @@ public:
         logLine(&msg);
     }
 
-
-    std::vector<std::string> mylist{"isMaster", "buildInfo", "getLastError"};
+    std::set<std::string> str = {"isMaster", "buildInfo", "getLastError", "whatsmyuri"};
     
     void logCommandAuthzCheck(Client *client,
                               const std::string &dbname,
@@ -59,7 +59,7 @@ public:
                               ErrorCodes::Error result) {
 
         const string &commandName = command->getName();
-        if (std::find(std::begin(mylist), std::end(mylist), commandName) != std::end(mylist)) {
+        if (std::find(std::begin(str), std::end(str), commandName) != std::end(str)) {
             return;
         }
         std::stringstream msg;
