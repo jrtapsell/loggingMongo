@@ -57,7 +57,11 @@ public:
             "whatsmyuri",
             "saslContinue",
             "saslStart",
-            "replSetGetStatus"};
+            "replSetGetStatus",
+            "getMore",
+            "listCollections",
+            "listDatabases"
+    };
 
     void logCommandAuthzCheck(Client *client,
                               const std::string &dbname,
