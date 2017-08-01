@@ -157,3 +157,5 @@ compile_commands.json
 cmake-build-debug
 timeLog
 servers
+
+*.xz

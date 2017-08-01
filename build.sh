@@ -7,3 +7,5 @@ echo $start > timeLog/start
 echo $end > timeLog/end
 echo $delta > timeLog/delta
 echo $start,$end,$delta >> timeLog/all.csv
+rm mongod.gz
+gzip -k mongod
