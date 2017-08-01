@@ -48,14 +48,23 @@ public:
         msg << "}";
         logLine(&msg);
     }
+
+
+    std::vector<std::string> mylist{"isMaster", "buildInfo", "getLastError"};
+    
     void logCommandAuthzCheck(Client *client,
                               const std::string &dbname,
                               const BSONObj &cmdObj,
                               CommandInterface *command,
                               ErrorCodes::Error result) {
+
+        const string &commandName = command->getName();
+        if (std::find(std::begin(mylist), std::end(mylist), commandName) != std::end(mylist)) {
+            return;
+        }
         std::stringstream msg;
         msg << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
-        msg << command->getName() << "\", \"commandData\":";
+        msg << commandName << "\", \"commandData\":";
         msg << cmdObj.toString(false) << ",";
         logClient(&msg, client);
         msg << "}";
