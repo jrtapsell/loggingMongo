@@ -50,8 +50,15 @@ public:
         logLine(&msg);
     }
 
-    std::set<std::string> str = {"isMaster", "buildInfo", "getLastError", "whatsmyuri"};
-    
+    std::set<std::string> str = {
+            "isMaster",
+            "buildInfo",
+            "getLastError",
+            "whatsmyuri",
+            "saslContinue",
+            "saslStart",
+            "replSetGetStatus"};
+
     void logCommandAuthzCheck(Client *client,
                               const std::string &dbname,
                               const BSONObj &cmdObj,
