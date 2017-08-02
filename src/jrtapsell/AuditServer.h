@@ -23,6 +23,11 @@ using namespace mongo;
 class AuditServer {
 public:
 
+    AuditServer() {
+        std::stringstream msg;
+        msg << "{\"event\": \"serverStartup\"}";
+        logLine(&msg);
+    }
     static AuditServer& instance()
     {
         static AuditServer INSTANCE;
