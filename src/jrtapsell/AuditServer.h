@@ -23,7 +23,8 @@ using namespace mongo;
 typedef std::stringstream StringStream;
 
 class AuditServer {
-public:
+
+private:
 
     static std::set<std::string> IGNORED_COMMANDS = {
             "isMaster",
@@ -46,7 +47,7 @@ public:
         static AuditServer INSTANCE;
         return INSTANCE;
     }
-    
+
     AuditServer() {
         StringStream msg;
         msg << "{\"event\": \"serverStartup\",";
@@ -54,6 +55,8 @@ public:
         msg << "}";
         logLine(&msg);
     }
+
+
     void logLine(StringStream *msg) {
         *msg << endl;
         cout << (*msg).str();
@@ -72,6 +75,8 @@ public:
                 *msg << ", \"isSystem\": " << (isSystem ? "true" : "false");
         *msg << "}";
     }
+    
+public:
 
     void generalEvent(const char *event, Client *client) {
         StringStream msg;
