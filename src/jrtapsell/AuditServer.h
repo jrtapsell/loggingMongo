@@ -43,11 +43,6 @@ private:
         return find(std::begin(set), std::end(set), target) != std::end(set);
     }
 
-    static AuditServer &instance() {
-        static AuditServer INSTANCE;
-        return INSTANCE;
-    }
-
     AuditServer() {
         StringStream msg;
         msg << "{\"event\": \"serverStartup\",";
@@ -75,8 +70,13 @@ private:
                 *msg << ", \"isSystem\": " << (isSystem ? "true" : "false");
         *msg << "}";
     }
-    
+
 public:
+
+    static AuditServer &instance() {
+        static AuditServer INSTANCE;
+        return INSTANCE;
+    }
 
     void generalEvent(const char *event, Client *client) {
         StringStream msg;
