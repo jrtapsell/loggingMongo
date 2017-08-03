@@ -27,8 +27,7 @@ class AuditServer {
 private:
 
     bool containsValue(const string &target, const set<string> &set) const {
-        //return find(std::begin(set), std::end(set), target) != std::end(set);
-        return false;
+        return find(std::begin(set), std::end(set), target) != std::end(set);
     }
 
     AuditServer() {
