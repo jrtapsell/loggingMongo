@@ -60,7 +60,7 @@ private:
 
 public:
 
-    static std::set<std::string> IGNORED_COMMANDS = {
+    std::set<std::string> IGNORED_COMMANDS = {
             "isMaster",
             "buildInfo",
             "getLastError",
