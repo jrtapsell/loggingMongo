@@ -26,19 +26,6 @@ class AuditServer {
 
 private:
 
-    static std::set<std::string> IGNORED_COMMANDS = {
-            "isMaster",
-            "buildInfo",
-            "getLastError",
-            "whatsmyuri",
-            "saslContinue",
-            "saslStart",
-            "replSetGetStatus",
-            "getMore",
-            "listCollections",
-            "listDatabases"
-    };
-
     bool containsValue(const string &target, const set<string> &set) const {
         return find(std::begin(set), std::end(set), target) != std::end(set);
     }
@@ -72,6 +59,19 @@ private:
     }
 
 public:
+
+    static std::set<std::string> IGNORED_COMMANDS = {
+            "isMaster",
+            "buildInfo",
+            "getLastError",
+            "whatsmyuri",
+            "saslContinue",
+            "saslStart",
+            "replSetGetStatus",
+            "getMore",
+            "listCollections",
+            "listDatabases"
+    };
 
     static AuditServer &instance() {
         static AuditServer INSTANCE;
