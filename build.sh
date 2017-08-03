@@ -7,5 +7,5 @@ echo $start > timeLog/start
 echo $end > timeLog/end
 echo $delta > timeLog/delta
 echo $start,$end,$delta >> timeLog/all.csv
-rm -rf mongod.xz
-xz -k9 mongod
+#rm -rf mongod.xz
+#xz -k9 mongod
