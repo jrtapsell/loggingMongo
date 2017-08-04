@@ -104,7 +104,7 @@ namespace mongo {
         }
 
         void logDropUser(Client *client, const UserName &username) {
-            as.generalEvent("logDropUser", client);
+            as.logDropUser(client, username);
         }
 
         void logDropAllUsersFromDatabase(Client *client, StringData dbname) {
@@ -212,11 +212,11 @@ namespace mongo {
         }
 
         void logDropCollection(Client *client, StringData nsname) {
-            as.generalEvent("logDropCollection", client);
+            as.logDropCollection(client, nsname);
         }
 
         void logDropDatabase(Client *client, StringData dbname) {
-            as.generalEvent("logDropDatabase", client);
+            as.logDropDatabase(client, dbname);
         }
 
         void logRenameCollection(Client *client, StringData source, StringData target) {

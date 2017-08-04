@@ -33,7 +33,7 @@ private:
     AuditServer() {
         StringStream msg;
         msg << "{\"event\": \"serverStartup\",";
-        writeClient(&msg, -1, true);
+        writeClient(&msg, -1, true, NULL, -1);
         msg << "}";
         logLine(&msg);
     }
@@ -48,13 +48,25 @@ private:
     void logClient(StringStream *msg, Client *client) {
         ConnectionId connection_id = client->getConnectionId();
         bool isSystem = !client->hasRemote();
-        writeClient(msg, connection_id, isSystem);
+        if (isSystem) {
+            writeClient(msg, connection_id, isSystem, NULL, -1);
+        } else {
+            const HostAndPort remote = client->getRemote();
+            writeClient(msg, connection_id, isSystem, &(remote.host()), remote.port());
+        }
     }
 
-    void writeClient(StringStream *msg, ConnectionId connection_id, bool isSystem) const {
+    void writeClient(StringStream *msg, ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
         *msg << "\"client\":{";
-        *msg << "\"id\": " << connection_id,
-                *msg << ", \"isSystem\": " << (isSystem ? "true" : "false");
+        *msg << "\"id\": " << connection_id;
+        *msg << ", \"isSystem\": " << (isSystem ? "true" : "false");
+        *msg << ", \"remote\": ";
+        if (basicString == NULL) {
+            *msg << "null";
+        } else {
+            *msg << "\"" << (*basicString) << "\"";
+        }
+        *msg << ", \"port\": " << i;
         *msg << "}";
     }
 
@@ -70,7 +82,14 @@ public:
             "replSetGetStatus",
             "getMore",
             "listCollections",
-            "listDatabases"
+            "listDatabases",
+            "createUser",
+            "drop",
+            "dropDatabase"
+    };
+
+    std::set<std::string> IGNORED_EVENTS = {
+            "logDropIndex"
     };
 
     static AuditServer &instance() {
@@ -78,7 +97,36 @@ public:
         return INSTANCE;
     }
 
+    void logDropUser(Client *client, const UserName &username) {
+        StringStream msg;
+        msg << "{\"event\": \"logDropUser\", ";
+        logClient(&msg, client);
+        msg << ", \"username\": \"" << username.toString() << "\"}";
+        logLine(&msg);
+    }
+
+
+
+    void logDropCollection(Client *client, StringData nsname) {
+        StringStream msg;
+        msg << "{\"event\": \"logDropCollection\", ";
+        logClient(&msg, client);
+        msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
+        logLine(&msg);
+    }
+
+    void logDropDatabase(Client *client, StringData dbname) {
+        StringStream msg;
+        msg << "{\"event\": \"logDropDatabase\", ";
+        logClient(&msg, client);
+        msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
+        logLine(&msg);
+    }
+
     void generalEvent(const char *event, Client *client) {
+        if (containsValue(event, IGNORED_EVENTS)) {
+            return;
+        }
         StringStream msg;
         msg << "{\"event\": \"" << event << "\",";
         logClient(&msg, client);
