@@ -10,4 +10,4 @@ export mongoServ=$!
 sleep 5
 mongo -port $2 < ../../makeUser.js > /dev/null
 
-kill $mongoServ
+kill -SIGINT $mongoServ
