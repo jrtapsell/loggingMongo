@@ -16,7 +16,6 @@
 #include "../mongo/db/auth/user_name.h"
 #include "../mongo/base/string_data.h"
 #include "../mongo/db/auth/role_name.h"
-#include "../third_party/mozjs-45/extract/js/src/jsfriendapi.h"
 
 using namespace std;
 using namespace mongo;
