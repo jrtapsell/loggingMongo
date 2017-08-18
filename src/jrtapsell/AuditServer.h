@@ -266,9 +266,9 @@ public:
         *out << "{";
         set<string> data;
         (*customData).getFieldNames(data);
-        string prefix = "";
+        string prefix;
         for (string name : data) {
-            *out << prefix << name << ": {}";
+            *out << prefix << "\"" << name << "\"" << ": {}";
             prefix = ",";
         }
         *out << "}";
