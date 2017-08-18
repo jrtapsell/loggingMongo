@@ -16,6 +16,7 @@
 #include "../mongo/db/auth/user_name.h"
 #include "../mongo/base/string_data.h"
 #include "../mongo/db/auth/role_name.h"
+#include "../third_party/mozjs-45/extract/js/src/jsfriendapi.h"
 
 using namespace std;
 using namespace mongo;
@@ -263,15 +264,19 @@ public:
     }
 
     void writeJsonObject(const BSONObj *customData, StringStream *out) {
+        *out << customData->jsonString();
+        /**
         *out << "{";
         set<string> data;
         (*customData).getFieldNames(data);
         string prefix;
         for (string name : data) {
-            *out << prefix << "\"" << name << "\"" << ": {}";
+            *out << prefix << "\"" << name << "\"" << ":";
+            customData->getField(name).j
             prefix = ",";
         }
         *out << "}";
+         */
     }
 };
 
