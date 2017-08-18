@@ -263,7 +263,15 @@ public:
     }
 
     void writeJsonObject(const BSONObj *customData, StringStream *out) {
-        *out << "{}";
+        *out << "{";
+        set<string> data;
+        (*customData).getFieldNames(data);
+        string prefix = "";
+        for (string name : data) {
+            *out << prefix << name << ": {}";
+            prefix = ",";
+        }
+        *out << "}";
     }
 };
 
