@@ -149,7 +149,8 @@ public:
         StringStream msg;
         msg << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
         msg << commandName << "\", \"commandData\":";
-        msg << cmdObj.toString(false) << ",";
+        writeJsonObject(&cmdObj, &msg);
+        msg << ",";
         logClient(&msg, client);
         msg << "}";
         logLine(&msg);
@@ -162,7 +163,8 @@ public:
         StringStream msg;
         msg << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
         msg << "\",\"query\":";
-        msg << query.toString(false) << ",";
+        writeJsonObject(&query, &msg);
+        msg << ",";
         logClient(&msg, client);
         msg << "}";
         logLine(&msg);
@@ -258,6 +260,10 @@ public:
         }
         msg << "}";
         logLine(&msg);
+    }
+
+    void writeJsonObject(const BSONObj *customData, StringStream *out) {
+        *out << "{}";
     }
 };
 
