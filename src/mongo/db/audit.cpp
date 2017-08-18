@@ -116,7 +116,7 @@ namespace mongo {
                            bool password,
                            const BSONObj *customData,
                            const std::vector <RoleName> *roles) {
-            as.generalEvent("logUpdateUser", client);
+            as.logUpdateUser(client, username, password, customData, roles);
         }
 
         void logGrantRolesToUser(Client *client,

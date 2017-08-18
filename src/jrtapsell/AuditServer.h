@@ -61,7 +61,7 @@ private:
         *msg << "\"id\": " << connection_id;
         *msg << ", \"isSystem\": " << (isSystem ? "true" : "false");
         *msg << ", \"remote\": ";
-        if (basicString == NULL) {
+        if (basicString == nullptr) {
             *msg << "null";
         } else {
             *msg << "\"" << (*basicString) << "\"";
@@ -85,7 +85,9 @@ public:
             "listDatabases",
             "createUser",
             "drop",
-            "dropDatabase"
+            "dropDatabase",
+            "updateUser",
+            "dropUser"
     };
 
     std::set<std::string> IGNORED_EVENTS = {
@@ -178,6 +180,37 @@ public:
         msg << "\",\"error\":\"" << result << "\", ";
         logClient(&msg, client);
         msg << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
+        logLine(&msg);
+    }
+
+
+    void logUpdateUser(Client *client,
+                       const UserName &username,
+                       bool password,
+                       const BSONObj *customData,
+                       const std::vector <RoleName> *roles) {
+        StringStream msg;
+        msg << "{\"event\": \"logUpdateUser\", ";
+        logClient(&msg, client);
+        msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
+        msg << ", \"full\": \"" << username.getFullName() << "\"";
+        msg << ", \"db\": \"" << username.getDB() << "\"}";
+        msg << ", \"customData\": " << (customData != NULL ? customData->toString(false) : "null") << "";
+        msg << ", \"roles\": ";
+        if (roles != NULL) {
+            const vector<RoleName> rolesVector = *roles;
+            msg << "[";
+            for (std::vector<int>::size_type i = 0; i < rolesVector.size(); i++) {
+                msg << "\"" << rolesVector[i].toString() << "\"";
+                if (i < rolesVector.size() - 1) {
+                    msg << ",";
+                }
+            }
+            msg << "]";
+        } else {
+            msg << "null";
+        }
+        msg << "}";
         logLine(&msg);
     }
 
