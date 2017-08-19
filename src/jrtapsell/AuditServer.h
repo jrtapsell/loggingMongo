@@ -16,6 +16,7 @@
 #include "../mongo/db/auth/user_name.h"
 #include "../mongo/base/string_data.h"
 #include "../mongo/db/auth/role_name.h"
+#include "../mongo/bson/bsonobjbuilder.h"
 
 using namespace std;
 using namespace mongo;
@@ -33,7 +34,7 @@ private:
     AuditServer() {
         StringStream msg;
         msg << "{\"event\": \"serverStartup\",";
-        writeClient(&msg, -1, true, NULL, -1);
+        writeClient(&msg, -1, true, nullptr, -1);
         msg << "}";
         logLine(&msg);
     }
@@ -49,7 +50,7 @@ private:
         ConnectionId connection_id = client->getConnectionId();
         bool isSystem = !client->hasRemote();
         if (isSystem) {
-            writeClient(msg, connection_id, isSystem, NULL, -1);
+            writeClient(msg, connection_id, isSystem, nullptr, -1);
         } else {
             const HostAndPort remote = client->getRemote();
             writeClient(msg, connection_id, isSystem, &(remote.host()), remote.port());
@@ -149,7 +150,7 @@ public:
         StringStream msg;
         msg << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
         msg << commandName << "\", \"commandData\":";
-        writeJsonObject(&cmdObj, &msg);
+        msg << cmdObj.jsonString();
         msg << ",";
         logClient(&msg, client);
         msg << "}";
@@ -163,7 +164,7 @@ public:
         StringStream msg;
         msg << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
         msg << "\",\"query\":";
-        writeJsonObject(&query, &msg);
+        msg << query.jsonString();
         msg << ",";
         logClient(&msg, client);
         msg << "}";
@@ -260,22 +261,6 @@ public:
         }
         msg << "}";
         logLine(&msg);
-    }
-
-    void writeJsonObject(const BSONObj *customData, StringStream *out) {
-        *out << customData->jsonString();
-        /**
-        *out << "{";
-        set<string> data;
-        (*customData).getFieldNames(data);
-        string prefix;
-        for (string name : data) {
-            *out << prefix << "\"" << name << "\"" << ":";
-            customData->getField(name).j
-            prefix = ",";
-        }
-        *out << "}";
-         */
     }
 };
 
