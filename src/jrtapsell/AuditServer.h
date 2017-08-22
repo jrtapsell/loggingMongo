@@ -17,6 +17,12 @@
 #include "../mongo/base/string_data.h"
 #include "../mongo/db/auth/role_name.h"
 #include "../mongo/bson/bsonobjbuilder.h"
+#include "JrtapsellSet.h"
+#include "JSONWriter.h"
+#include "types/NumberType.h"
+#include "types/BooleanType.h"
+#include "types/StringType.h"
+#include "types/NullType.h"
 
 using namespace std;
 using namespace mongo;
@@ -27,53 +33,7 @@ class AuditServer {
 
 private:
 
-    bool containsValue(const string &target, const set<string> &set) const {
-        return find(std::begin(set), std::end(set), target) != std::end(set);
-    }
-
-    AuditServer() {
-        StringStream msg;
-        msg << "{\"event\": \"serverStartup\",";
-        writeClient(&msg, -1, true, nullptr, -1);
-        msg << "}";
-        logLine(&msg);
-    }
-
-
-    void logLine(StringStream *msg) {
-        *msg << endl;
-        cout << (*msg).str();
-        cout << flush;
-    }
-
-    void logClient(StringStream *msg, Client *client) {
-        ConnectionId connection_id = client->getConnectionId();
-        bool isSystem = !client->hasRemote();
-        if (isSystem) {
-            writeClient(msg, connection_id, isSystem, nullptr, -1);
-        } else {
-            const HostAndPort remote = client->getRemote();
-            writeClient(msg, connection_id, isSystem, &(remote.host()), remote.port());
-        }
-    }
-
-    void writeClient(StringStream *msg, ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
-        *msg << "\"client\":{";
-        *msg << "\"id\": " << connection_id;
-        *msg << ", \"isSystem\": " << (isSystem ? "true" : "false");
-        *msg << ", \"remote\": ";
-        if (basicString == nullptr) {
-            *msg << "null";
-        } else {
-            *msg << "\"" << (*basicString) << "\"";
-        }
-        *msg << ", \"port\": " << i;
-        *msg << "}";
-    }
-
-public:
-
-    std::set<std::string> IGNORED_COMMANDS = {
+    JrtapsellSet IGNORED_COMMANDS = {
             "isMaster",
             "buildInfo",
             "getLastError",
@@ -91,9 +51,84 @@ public:
             "dropUser"
     };
 
-    std::set<std::string> IGNORED_EVENTS = {
+    JrtapsellSet IGNORED_EVENTS = {
             "logDropIndex"
     };
+
+
+    AuditServer() {
+        StringStream msg;
+        msg << "{\"event\": \"serverStartup\",";
+        writeClient(&msg, -1, true, nullptr, -1);
+        msg << "}";
+        logLine(&msg);
+    }
+
+
+    void logLine(StringStream *msg) {
+        *msg << endl;
+        cout << (*msg).str();
+        cout << flush;
+    }
+
+    void logClient(StringStream *msg, Client *client) {
+        BSONObjBuilder builder;
+        client->reportState(builder);
+        *msg << "\"client\":";
+        *msg << builder.obj().jsonString();
+        /**
+        ConnectionId connection_id = client->getConnectionId();
+        bool isSystem = !client->hasRemote();
+        if (isSystem) {
+            writeClient(msg, connection_id, isSystem, nullptr, -1);
+        } else {
+            const HostAndPort remote = client->getRemote();
+            writeClient(msg, connection_id, isSystem, &(remote.host()), remote.port());
+        }
+         */
+    }
+
+    jsonEntity r(const string key,  JSONType* value) const {
+        return makeEntry(key, value);
+    };
+
+    void writeClient(StringStream *msg, ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
+        *msg << "\"client\":";
+
+        NumberType n = NumberType(connection_id);
+        BooleanType type = BooleanType(isSystem);
+
+
+
+        JSONType* remote = nullptr;
+        
+        NullType nullType;
+        StringType stringHeld = StringType("");
+
+        if (basicString == nullptr) {
+            remote = &nullType;
+        } else {
+            stringHeld = StringType(*basicString);
+            remote = &stringHeld;
+        }
+
+        NumberType port = NumberType(i);
+
+        const jsonEntity list = r("remote", remote);
+
+        const std::__cxx11::list<jsonEntity> &map = {
+                {"id", &n},
+                {"isSystem", &type},
+                list,
+                {"port", &port}
+        };
+
+        JSONWriter writer = JSONWriter(map);
+
+        writer.log(msg);
+    }
+
+public:
 
     static AuditServer &instance() {
         static AuditServer INSTANCE;
@@ -127,7 +162,7 @@ public:
     }
 
     void generalEvent(const char *event, Client *client) {
-        if (containsValue(event, IGNORED_EVENTS)) {
+        if (IGNORED_EVENTS.containsValue(event)) {
             return;
         }
         StringStream msg;
@@ -144,7 +179,7 @@ public:
                               ErrorCodes::Error result) {
 
         const string &commandName = command->getName();
-        if (containsValue(commandName, IGNORED_COMMANDS)) {
+        if (IGNORED_COMMANDS.containsValue(commandName)) {
             return;
         }
         StringStream msg;
@@ -182,7 +217,8 @@ public:
         msg << "\",\"user\":\"" << user.toString();
         msg << "\",\"error\":\"" << result << "\", ";
         logClient(&msg, client);
-        msg << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
+        const HostAndPort &remote = client->getRemote();
+        msg << ", \"remote\":{\"host\":\"" << remote.host() << "\", \"port\":" << remote.port() << "}}";
         logLine(&msg);
     }
 
@@ -198,7 +234,7 @@ public:
         msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
-        msg << ", \"customData\": " << (customData != NULL ? customData->toString(false) : "null") << "";
+        msg << ", \"customData\": " << (customData != NULL ? customData->jsonString() : "null") << "";
         msg << ", \"roles\": ";
         if (roles != NULL) {
             const vector<RoleName> rolesVector = *roles;
