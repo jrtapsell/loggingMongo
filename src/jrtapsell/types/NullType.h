@@ -11,7 +11,7 @@ class NullType : public JSONType {
 public:
 
     void put(BSONObjBuilder *map, string key) {
-        (*map).append(convert(key), nullptr);
+        (*map).appendNull(StringData(key));
     }
 };
 

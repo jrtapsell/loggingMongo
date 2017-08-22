@@ -119,7 +119,7 @@ private:
         const std::__cxx11::list<jsonEntity> &map = {
                 {"id", &n},
                 {"isSystem", &type},
-                //list,
+                list,
                 {"port", &port}
         };
 
