@@ -61,10 +61,11 @@ private:
 
         ObjectType client = makeClient(-1, true, nullptr, -1);
 
-        ObjectType writer = {
+        ObjectType writer = ObjectType({
                 {"event", &startup},
                 {"client", &client}
-        };
+        });
+
         StringStream msg;
         msg << "{\"event\": \"serverStartup\",";
         msg << "}";
@@ -120,12 +121,12 @@ private:
 
         NumberType port = NumberType(i);
 
-        ObjectType writer = {
+        ObjectType writer = ObjectType({
                 {"id", &n},
                 {"isSystem", &type},
                 {"remote", remote},
                 {"port", &port}
-        };
+        });
 
         return writer;
     }
