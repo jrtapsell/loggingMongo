@@ -54,7 +54,9 @@ public:
 
 
     void log(ostream *stream) {
-        *stream << builder.obj().jsonString();
+        StringStream out;
+        out << builder.obj().jsonString() << endl;
+        (*stream) << out.str();
     }
 
     void put(BSONObjBuilder *map, string key) {
