@@ -5,9 +5,9 @@
 #ifndef LOGGINGMONGO_JSONWRITER_H
 #define LOGGINGMONGO_JSONWRITER_H
 
-#include "../mongo/bson/bsonobjbuilder.h"
-#include "../mongo/bson/bsonobj.h"
-#include "types/JSONType.h"
+#include "../../mongo/bson/bsonobjbuilder.h"
+#include "../../mongo/bson/bsonobj.h"
+#include "JSONType.h"
 #include <iostream>
 
 using namespace std;
@@ -15,12 +15,12 @@ using namespace mongo;
 
 typedef std::stringstream StringStream;
 
-class JSONWriter {
+class ObjectType: public JSONType {
 private:
     BSONObjBuilder builder {};
 
 public:
-    JSONWriter(std::list<jsonEntity> dataMap) {
+    ObjectType(std::list<jsonEntity> dataMap) {
         for (auto item = dataMap.begin(); item != dataMap.end(); ++item) {
             string key = item->first;
             JSONType* &data = item->second;
@@ -55,6 +55,10 @@ public:
 
     void log(StringStream *stream) {
         *stream << builder.obj().jsonString();
+    }
+
+    void put(BSONObjBuilder *map, string key) {
+        (*map).append(convert(key), builder.obj());
     }
 };
 #endif //LOGGINGMONGO_JSONWRITER_H

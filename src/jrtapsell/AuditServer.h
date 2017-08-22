@@ -18,7 +18,7 @@
 #include "../mongo/db/auth/role_name.h"
 #include "../mongo/bson/bsonobjbuilder.h"
 #include "JrtapsellSet.h"
-#include "JSONWriter.h"
+#include "types/ObjectType.h"
 #include "types/NumberType.h"
 #include "types/BooleanType.h"
 #include "types/StringType.h"
@@ -57,9 +57,16 @@ private:
 
 
     AuditServer() {
+        StringType startup = {"serverStartup"};
+
+        ObjectType client = makeClient(-1, true, nullptr, -1);
+
+        ObjectType writer = {
+                {"event", &startup},
+                {"client", &client}
+        };
         StringStream msg;
         msg << "{\"event\": \"serverStartup\",";
-        writeClient(&msg, -1, true, nullptr, -1);
         msg << "}";
         logLine(&msg);
     }
@@ -92,8 +99,7 @@ private:
         return makeEntry(key, value);
     };
 
-    void writeClient(StringStream *msg, ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
-        *msg << "\"client\":";
+    ObjectType makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
 
         NumberType n = NumberType(connection_id);
         BooleanType type = BooleanType(isSystem);
@@ -114,18 +120,14 @@ private:
 
         NumberType port = NumberType(i);
 
-        const jsonEntity list = r("remote", remote);
-
-        const std::__cxx11::list<jsonEntity> &map = {
+        ObjectType writer = {
                 {"id", &n},
                 {"isSystem", &type},
-                list,
+                {"remote", remote},
                 {"port", &port}
         };
 
-        JSONWriter writer = JSONWriter(map);
-
-        writer.log(msg);
+        return writer;
     }
 
 public:
