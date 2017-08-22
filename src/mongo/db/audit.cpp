@@ -27,7 +27,6 @@
  */
 
 #include "audit.h"
-#include "jrtapsell/AuditServer.h"
 #include "../../jrtapsell/AuditServer.h"
 
 using namespace std;
