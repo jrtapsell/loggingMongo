@@ -53,7 +53,7 @@ public:
     }
 
 
-    void log(StringStream *stream) {
+    void log(ostream *stream) {
         *stream << builder.obj().jsonString();
     }
 

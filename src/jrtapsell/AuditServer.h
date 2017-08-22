@@ -55,7 +55,6 @@ private:
             "logDropIndex"
     };
 
-
     AuditServer() {
         StringType startup = {"serverStartup"};
 
@@ -66,10 +65,7 @@ private:
                 {"client", &client}
         });
 
-        StringStream msg;
-        msg << "{\"event\": \"serverStartup\",";
-        msg << "}";
-        logLine(&msg);
+        writer.log(&cout);
     }
 
 
