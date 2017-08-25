@@ -131,6 +131,7 @@ baseSource=[
     'util/time_support.cpp',
     'util/timer.cpp',
     'util/version.cpp',
+    '../jrtapsell/AuditServer.cpp'
 ]
 
 baseLibDeps=[
