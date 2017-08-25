@@ -51,13 +51,10 @@ JrtapsellSet IGNORED_EVENTS = {
 };
 
 AuditServer::AuditServer() {
-    StringType startup = {"serverStartup"};
-
-    ObjectType client = makeClient(-1, true, nullptr, -1);
 
     ObjectType writer = ObjectType({
-            {"event", &startup},
-            {"client", &client}
+            {"event", "serverStartup"},
+            {"client", makeClient(-1, true, nullptr, -1)}
     });
 
     writer.log(&cout);
