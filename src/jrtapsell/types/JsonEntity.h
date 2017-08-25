@@ -17,24 +17,24 @@ using namespace mongo;
 class JsonEntity {
 public:
     string first;
-    JSONType *data;
+    JSONType *second;
 
     JsonEntity(const string key, const string value) {
         first = key;
-        data = new StringType(value);
+        second = new StringType(value);
     }
 
     JsonEntity(const string key, const long value) {
         first = key;
-        data = new NumberType(value);
+        second = new NumberType(value);
     }
 
     JsonEntity(const string key, JSONType *value) {
         first = key;
         if (value == nullptr) {
-            data = new NullType();
+            second = new NullType();
         } else {
-            data = value;
+            second = value;
         }
     }
 };
