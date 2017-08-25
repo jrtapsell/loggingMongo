@@ -23,7 +23,7 @@
 #include "types/BooleanType.h"
 #include "types/StringType.h"
 #include "types/NullType.h"
-#include "JsonEntity.h"
+#include "types/JsonEntity.h"
 
 using namespace std;
 using namespace mongo;
