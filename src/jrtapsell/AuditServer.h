@@ -46,7 +46,11 @@ private:
 
 public:
 
-    static AuditServer &instance();
+
+    static AuditServer &instance() {
+        static AuditServer INSTANCE;
+        return INSTANCE;
+    }
 
     void logDropUser(Client *client, const UserName &username);
 
