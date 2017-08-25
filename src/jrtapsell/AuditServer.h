@@ -23,6 +23,7 @@
 #include "types/BooleanType.h"
 #include "types/StringType.h"
 #include "types/NullType.h"
+#include "JsonEntity.h"
 
 using namespace std;
 using namespace mongo;
@@ -40,7 +41,7 @@ private:
 
     void logClient(StringStream *msg, Client *client);
 
-    jsonEntity r(string key,  JSONType* value) const;
+    JsonEntity r(string key,  JSONType* value) const;
 
     ObjectType makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const;
 

@@ -22,6 +22,7 @@
 #include "types/BooleanType.h"
 #include "types/StringType.h"
 #include "types/NullType.h"
+#include "JsonEntity.h"
 
 using namespace std;
 using namespace mongo;
@@ -84,7 +85,7 @@ void AuditServer::logClient(StringStream *msg, Client *client) {
      */
 }
 
-jsonEntity AuditServer::r(const string key,  JSONType* value) const {
+JsonEntity AuditServer::r(const string key,  JSONType* value) const {
     return makeEntry(key, value);
 };
 

@@ -8,7 +8,7 @@
 #include "../../mongo/bson/bsonobjbuilder.h"
 #include "../../mongo/bson/bsonobj.h"
 #include "JSONType.h"
-#include <iostream>
+#include "JsonEntity.h"
 
 using namespace std;
 using namespace mongo;
@@ -20,7 +20,7 @@ private:
     BSONObjBuilder builder {};
 
 public:
-    ObjectType(std::list<jsonEntity> dataMap) {
+    ObjectType(std::list<JsonEntity> dataMap) {
         for (auto item = dataMap.begin(); item != dataMap.end(); ++item) {
             string key = item->first;
             JSONType* &data = item->second;
