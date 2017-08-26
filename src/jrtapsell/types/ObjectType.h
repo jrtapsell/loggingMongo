@@ -34,11 +34,14 @@ public:
         object = data;
     }
 
-
     void log(ostream *stream) {
         StringStream out;
         out << object.jsonString() << endl;
         (*stream) << out.str();
+    }
+
+    void put(BSONObjBuilder *map, string key) {
+        (*map).append(convert(key), object);
     }
 };
 #endif //LOGGINGMONGO_JSONWRITER_H
