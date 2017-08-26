@@ -52,7 +52,7 @@ JrtapsellSet IGNORED_EVENTS = {
 };
 
 AuditServer::AuditServer() {
-
+    
     ObjectType writer = ObjectType({
             {"event", "serverStartup"},
             {"client", makeClient(-1, true, nullptr, -1)}
@@ -89,7 +89,7 @@ JsonEntity AuditServer::r(const string key,  JSONType* value) const {
     return makeEntry(key, value);
 };
 
-ObjectType AuditServer::makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
+ObjectType *AuditServer::makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
 
     NumberType n = NumberType(connection_id);
     BooleanType type = BooleanType(isSystem);
@@ -110,7 +110,7 @@ ObjectType AuditServer::makeClient(ConnectionId connection_id, bool isSystem, co
 
     NumberType port = NumberType(i);
 
-    ObjectType writer = ObjectType({
+    ObjectType *writer = new ObjectType({
             {"id", &n},
             {"isSystem", &type},
             {"remote", remote},
