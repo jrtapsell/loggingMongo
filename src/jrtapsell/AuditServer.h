@@ -36,13 +36,6 @@ private:
 
     AuditServer();
 
-
-    void logLine(StringStream *msg);
-
-    void logClient(StringStream *msg, Client *client);
-
-    ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const;
-
 public:
 
 

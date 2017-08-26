@@ -9,6 +9,7 @@
 #include "StringType.h"
 #include "NumberType.h"
 #include "NullType.h"
+#include "BooleanType.h"
 
 
 using namespace std;
@@ -27,6 +28,11 @@ public:
     JsonEntity(const string key, const long value) {
         first = key;
         second = new NumberType(value);
+    }
+
+    JsonEntity(const string key, const bool value) {
+        first = key;
+        second = new BooleanType(value);
     }
 
     JsonEntity(const string key, JSONType *value) {

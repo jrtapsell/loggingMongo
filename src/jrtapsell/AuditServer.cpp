@@ -4,26 +4,6 @@
 
 #include "AuditServer.h"
 
-#include <iostream>
-#include <sstream>
-#include "../mongo/db/commands.h"
-#include "../../build/opt/mongo/base/error_codes.h"
-#include "../mongo/util/net/hostandport.h"
-#include "../mongo/db/client.h"
-#include "../mongo/bson/bsonobj.h"
-#include "../mongo/db/namespace_string.h"
-#include "../mongo/db/auth/user_name.h"
-#include "../mongo/base/string_data.h"
-#include "../mongo/db/auth/role_name.h"
-#include "../mongo/bson/bsonobjbuilder.h"
-#include "JrtapsellSet.h"
-#include "types/ObjectType.h"
-#include "types/NumberType.h"
-#include "types/BooleanType.h"
-#include "types/StringType.h"
-#include "types/NullType.h"
-#include "types/JsonEntity.h"
-
 using namespace std;
 using namespace mongo;
 
@@ -51,21 +31,28 @@ JrtapsellSet IGNORED_EVENTS = {
         "logDropIndex"
 };
 
-AuditServer::AuditServer() {
-    ObjectType({
-            {"event", "serverStartup"},
-            {"client", makeClient(-1, true, nullptr, -1)}
-    }).log(&cout);
+
+ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
+
+    ObjectType *writer = new ObjectType({
+        {"id", connection_id},
+        {"isSystem", isSystem},
+        {"remote", basicString},
+        {"port", i}
+    });
+
+    return writer;
 }
 
 
-void AuditServer::logLine(StringStream *msg) {
+void logLine(StringStream *msg) {
     *msg << endl;
     cout << (*msg).str();
     cout << flush;
 }
 
-void AuditServer::logClient(StringStream *msg, Client *client) {
+ObjectType *logClient(StringStream *msg, Client *client) {
+
     BSONObjBuilder builder;
     client->reportState(builder);
     *msg << "\"client\":";
@@ -82,35 +69,11 @@ void AuditServer::logClient(StringStream *msg, Client *client) {
      */
 }
 
-ObjectType *AuditServer::makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
-
-    NumberType n = NumberType(connection_id);
-    BooleanType type = BooleanType(isSystem);
-
-
-
-    JSONType* remote = nullptr;
-
-    NullType nullType;
-    StringType stringHeld = StringType("");
-
-    if (basicString == nullptr) {
-        remote = &nullType;
-    } else {
-        stringHeld = StringType(*basicString);
-        remote = &stringHeld;
-    }
-
-    NumberType port = NumberType(i);
-
-    ObjectType *writer = new ObjectType({
-            {"id", &n},
-            {"isSystem", &type},
-            {"remote", remote},
-            {"port", &port}
-    });
-
-    return writer;
+AuditServer::AuditServer() {
+    ObjectType({
+            {"event", "serverStartup"},
+            {"client", makeClient(-1, true, nullptr, -1)}
+    }).log(&cout);
 }
 
 void AuditServer::logDropUser(Client *client, const UserName &username) {
@@ -120,8 +83,6 @@ void AuditServer::logDropUser(Client *client, const UserName &username) {
     msg << ", \"username\": \"" << username.toString() << "\"}";
     logLine(&msg);
 }
-
-
 
 void AuditServer::logDropCollection(Client *client, StringData nsname) {
     StringStream msg;

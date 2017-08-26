@@ -17,50 +17,28 @@ typedef std::stringstream StringStream;
 
 class ObjectType: public JSONType {
 private:
-    BSONObjBuilder builder {};
+    BSONObj object;
 
 public:
     ObjectType(std::list<JsonEntity> dataMap) {
+        BSONObjBuilder builder;
         for (auto item = dataMap.begin(); item != dataMap.end(); ++item) {
             string key = item->first;
             JSONType* &data = item->second;
             data->put(&builder, key);
         }
+        object = builder.obj();
     }
 
-    void put(string text, int value) {
-        builder.append(text, value);
-    }
-
-    void put(string text, long value) {
-        builder.append(text, (int) value);
-    }
-
-    void put(string text, long long int value) {
-        builder.append(text, (int) value);
-    }
-
-    void put(string text, bool value) {
-        builder.append(text, value);
-    }
-
-    void put(string text, string value) {
-        builder.append(text, value);
-    }
-
-    void put(string text, BSONObj value) {
-        builder.append(text, value);
+    ObjectType(BSONObj data) {
+        object = data;
     }
 
 
     void log(ostream *stream) {
         StringStream out;
-        out << builder.obj().jsonString() << endl;
+        out << object.jsonString() << endl;
         (*stream) << out.str();
-    }
-
-    void put(BSONObjBuilder *map, string key) {
-        (*map).append(convert(key), builder.obj());
     }
 };
 #endif //LOGGINGMONGO_JSONWRITER_H
