@@ -57,6 +57,8 @@ ObjectType *logClient(StringStream *msg, Client *client) {
     client->reportState(builder);
     *msg << "\"client\":";
     *msg << builder.obj().jsonString();
+
+    return new ObjectType(builder.obj());
     /**
     ConnectionId connection_id = client->getConnectionId();
     bool isSystem = !client->hasRemote();
@@ -70,10 +72,11 @@ ObjectType *logClient(StringStream *msg, Client *client) {
 }
 
 AuditServer::AuditServer() {
-    ObjectType({
+    ObjectType ot = ObjectType({
             {"event", "serverStartup"},
             {"client", makeClient(-1, true, nullptr, -1)}
-    }).log(&cout);
+    });
+    ot.log(&cout);
 }
 
 void AuditServer::logDropUser(Client *client, const UserName &username) {
