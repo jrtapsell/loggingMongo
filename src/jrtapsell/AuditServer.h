@@ -41,8 +41,6 @@ private:
 
     void logClient(StringStream *msg, Client *client);
 
-    JsonEntity r(string key,  JSONType* value) const;
-
     ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const;
 
 public:

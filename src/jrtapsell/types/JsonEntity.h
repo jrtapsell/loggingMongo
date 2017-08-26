@@ -39,10 +39,6 @@ public:
     }
 };
 
-JsonEntity makeEntry(const string key, JSONType* type) {
-    return JsonEntity(key, type);
-}
-
 #include "JSONType.h"
 
 #endif //LOGGINGMONGO_JSONENTITY_H
