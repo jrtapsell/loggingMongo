@@ -62,10 +62,9 @@ void logLine(StringStream *msg) {
 
 ObjectType *logClient(StringStream *msg, Client *client) {
 
+
     BSONObjBuilder builder;
-    client->reportState(builder);
-   //*msg << "\"client\":";
-   // *msg << builder.obj().jsonString();
+    //client->reportState(builder);
 
     return new ObjectType(builder.obj());
     /**
