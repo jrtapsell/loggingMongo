@@ -229,7 +229,8 @@ void AuditServer::logCreateUser(Client *client,
     ObjectType *user = makeUser(username);
     ObjectType objectType = ObjectType({
         {"event", "logCreateUser"},
-        {"user", user}
+        {"user", user},
+        {"customData", ObjectType(customData)}
     });
     StringStream msg;
     msg << "{\"event\": \"logCreateUser\", ";

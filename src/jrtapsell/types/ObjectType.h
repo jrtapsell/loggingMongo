@@ -34,6 +34,15 @@ public:
         object = data;
     }
 
+
+    ObjectType(BSONObj *data) {
+        if (data == nullptr) {
+            object = nullptr;
+        } else {
+            object = *data;
+        }
+    }
+
     void log(ostream *stream) {
         StringStream out;
         out << object.jsonString() << endl;
