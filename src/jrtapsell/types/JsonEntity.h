@@ -20,6 +20,15 @@ public:
     string first;
     JSONType *second;
 
+    JsonEntity(const string key, const string *value) {
+        first = key;
+        if (value == nullptr) {
+            second = new NullType();
+        } else {
+            second = new StringType(*value);
+        }
+    }
+
     JsonEntity(const string key, const string value) {
         first = key;
         second = new StringType(value);
