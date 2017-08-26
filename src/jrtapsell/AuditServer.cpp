@@ -72,12 +72,10 @@ ObjectType *logClient(StringStream *msg, Client *client) {
 }
 
 AuditServer::AuditServer() {
-    cout << "ABC";
     ObjectType ot = ObjectType({
             {"event", "serverStartup"},
             {"client", makeClient(-1, true, nullptr, -1)}
     });
-    cout << "DEF";
     ot.log(&cout);
 }
 
