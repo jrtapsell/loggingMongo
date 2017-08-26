@@ -40,7 +40,7 @@ public:
 
     ObjectType(const BSONObj *data) {
         reference = data->copy();
-        object = &reference;    
+        object = &reference;
     }
 
     void log(ostream *stream) {

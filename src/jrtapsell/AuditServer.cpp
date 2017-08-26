@@ -64,8 +64,8 @@ ObjectType *logClient(StringStream *msg, Client *client) {
 
     BSONObjBuilder builder;
     client->reportState(builder);
-    *msg << "\"client\":";
-    *msg << builder.obj().jsonString();
+   //*msg << "\"client\":";
+   // *msg << builder.obj().jsonString();
 
     return new ObjectType(builder.obj());
     /**
