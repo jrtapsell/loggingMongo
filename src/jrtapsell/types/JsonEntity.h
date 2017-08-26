@@ -25,6 +25,11 @@ public:
         second = new StringType(value);
     }
 
+    JsonEntity(const string key, const int value) {
+        first = key;
+        second = new NumberType(value);
+    }
+
     JsonEntity(const string key, const long value) {
         first = key;
         second = new NumberType(value);
