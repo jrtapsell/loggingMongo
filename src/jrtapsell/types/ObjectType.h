@@ -17,35 +17,38 @@ typedef std::stringstream StringStream;
 
 class ObjectType: public JSONType {
 private:
-    BSONObj object;
+    BSONObj *object;
+    BSONObj reference;
 
 public:
     ObjectType(std::list<JsonEntity> dataMap) {
         BSONObjBuilder builder;
         for (auto item = dataMap.begin(); item != dataMap.end(); ++item) {
             string key = item->first;
-            JSONType* &data = item->second;
+            JSONType* data = item->second;
             data->put(&builder, key);
         }
-        object = builder.obj();
+        reference = builder.obj();
+        object = &reference;
     }
 
-    ObjectType(const BSONObj data) {
-        object = data;
+    ObjectType(BSONObj data) {
+        reference = data;
+        object = &reference;
     }
 
 
-    ObjectType(const BSONObj *data) {
+    ObjectType(BSONObj *data) {
         if (data == nullptr) {
             object = nullptr;
         } else {
-            object = *data;
+            object = data;
         }
     }
 
     void log(ostream *stream) {
         StringStream out;
-        out << object.jsonString() << endl;
+        out << object->jsonString() << endl;
         (*stream) << out.str();
     }
 
