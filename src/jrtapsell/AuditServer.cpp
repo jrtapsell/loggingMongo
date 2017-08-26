@@ -32,7 +32,7 @@ JrtapsellSet IGNORED_EVENTS = {
 };
 
 
-ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) const {
+ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) {
 
     ObjectType *writer = new ObjectType({
         {"id", connection_id},
