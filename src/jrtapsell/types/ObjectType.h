@@ -30,12 +30,12 @@ public:
         object = builder.obj();
     }
 
-    ObjectType(BSONObj data) {
+    ObjectType(const BSONObj data) {
         object = data;
     }
 
 
-    ObjectType(BSONObj *data) {
+    ObjectType(const BSONObj *data) {
         if (data == nullptr) {
             object = nullptr;
         } else {
