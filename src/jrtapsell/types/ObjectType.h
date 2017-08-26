@@ -38,12 +38,9 @@ public:
     }
 
 
-    ObjectType(BSONObj *data) {
-        if (data == nullptr) {
-            object = nullptr;
-        } else {
-            object = data;
-        }
+    ObjectType(const BSONObj *data) {
+        reference = data->copy();
+        object = &reference;    
     }
 
     void log(ostream *stream) {
