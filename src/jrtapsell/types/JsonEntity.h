@@ -29,6 +29,11 @@ public:
         }
     }
 
+    JsonEntity(const string key, const StringData value) {
+        first = key;
+        second = new StringType(value.toString());
+    }
+
     JsonEntity(const string key, const string value) {
         first = key;
         second = new StringType(value);

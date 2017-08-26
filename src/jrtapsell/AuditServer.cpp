@@ -32,6 +32,15 @@ JrtapsellSet IGNORED_EVENTS = {
 };
 
 
+
+ObjectType *makeUser(const UserName &name) {
+    return new ObjectType({
+        {"username", name.getUser()},
+        {"database", name.getDB()}
+    });
+}
+
+
 ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *basicString, int i) {
 
     ObjectType *writer = new ObjectType({
@@ -217,6 +226,11 @@ void AuditServer::logCreateUser(Client *client,
                    bool password,
                    const BSONObj *customData,
                    const std::vector<RoleName> &roles) {
+    ObjectType *user = makeUser(username);
+    ObjectType objectType = ObjectType({
+        {"event", "logCreateUser"},
+        {"user", user}
+    });
     StringStream msg;
     msg << "{\"event\": \"logCreateUser\", ";
     logClient(&msg, client);
