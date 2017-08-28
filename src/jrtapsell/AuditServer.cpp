@@ -229,6 +229,7 @@ void AuditServer::logCreateDatabase(Client *client, StringData dbname) {
     logClient(&msg, client);
     msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
     //logLine(&msg);
+    data->log(&cout);
 }
 
 void AuditServer::logCreateCollection(Client *client, StringData nsname) {
