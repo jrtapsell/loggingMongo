@@ -32,6 +32,7 @@ JrtapsellSet IGNORED_EVENTS = {
 };
 
 
+ObjectType *makeClient(Client *pClient);
 
 ObjectType *makeUser(const UserName &name) {
     return new ObjectType({
@@ -52,6 +53,21 @@ ObjectType *makeClient(ConnectionId connection_id, bool isSystem, const string *
 
     return writer;
 }
+
+
+ObjectType *makeClient(Client *pClient) {
+    string remoteTemp;
+    string* remote = nullptr;
+    int port = -1;
+    if (pClient->hasRemote()) {
+        remoteTemp = pClient->getRemote().host();
+        remote = &remoteTemp;
+        port = pClient->getRemote().port();
+    }
+    return makeClient(pClient->getConnectionId(), pClient->hasRemote(), remote, port);
+}
+
+
 
 
 void logLine(StringStream *msg) {
@@ -92,7 +108,7 @@ void AuditServer::logDropUser(Client *client, const UserName &username) {
     msg << "{\"event\": \"logDropUser\", ";
     logClient(&msg, client);
     msg << ", \"username\": \"" << username.toString() << "\"}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::logDropCollection(Client *client, StringData nsname) {
@@ -100,7 +116,7 @@ void AuditServer::logDropCollection(Client *client, StringData nsname) {
     msg << "{\"event\": \"logDropCollection\", ";
     logClient(&msg, client);
     msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::logDropDatabase(Client *client, StringData dbname) {
@@ -108,7 +124,7 @@ void AuditServer::logDropDatabase(Client *client, StringData dbname) {
     msg << "{\"event\": \"logDropDatabase\", ";
     logClient(&msg, client);
     msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::generalEvent(const char *event, Client *client) {
@@ -119,7 +135,7 @@ void AuditServer::generalEvent(const char *event, Client *client) {
     msg << "{\"event\": \"" << event << "\",";
     logClient(&msg, client);
     msg << "}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::logCommandAuthzCheck(Client *client,
@@ -139,7 +155,7 @@ void AuditServer::logCommandAuthzCheck(Client *client,
     msg << ",";
     logClient(&msg, client);
     msg << "}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::logQueryAuthzCheck(Client *client,
@@ -153,7 +169,7 @@ void AuditServer::logQueryAuthzCheck(Client *client,
     msg << ",";
     logClient(&msg, client);
     msg << "}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 
@@ -169,7 +185,7 @@ void AuditServer::logAuthentication(Client *client,
     logClient(&msg, client);
     const HostAndPort &remote = client->getRemote();
     msg << ", \"remote\":{\"host\":\"" << remote.host() << "\", \"port\":" << remote.port() << "}}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 
@@ -200,24 +216,27 @@ void AuditServer::logUpdateUser(Client *client,
         msg << "null";
     }
     msg << "}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::logCreateDatabase(Client *client, StringData dbname) {
+    ObjectType *data = new ObjectType({
+        {"event", "logCreateDatabase"},
+        {"client", makeClient(client)}
+    });
     StringStream msg;
     msg << "{\"event\": \"logCreateDatabase\", ";
     logClient(&msg, client);
     msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
-    logLine(&msg);
+    //logLine(&msg);
 }
-
 
 void AuditServer::logCreateCollection(Client *client, StringData nsname) {
     StringStream msg;
     msg << "{\"event\": \"logCreateCollection\", ";
     logClient(&msg, client);
     msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
-    logLine(&msg);
+    //logLine(&msg);
 }
 
 void AuditServer::logCreateUser(Client *client,
@@ -253,5 +272,6 @@ void AuditServer::logCreateUser(Client *client,
         msg << "null";
     }
     msg << "}";
-    logLine(&msg);
+    objectType.log(&cout);
+    //logLine(&msg);
 }
