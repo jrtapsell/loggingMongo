@@ -41,6 +41,7 @@ public:
         StringStream out;
         out << object->jsonString() << endl;
         (*stream) << out.str();
+        cout << "PPAP";
     }
 
     void put(BSONObjBuilder *map, string key) {
