@@ -226,7 +226,7 @@ void AuditServer::logCreateUser(Client *client,
                    const BSONObj *customData,
                    const std::vector<RoleName> &roles) {
     ObjectType *user = makeUser(username);
-    ObjectType *custom = new ObjectType(customData);
+    ObjectType *custom = new ObjectType(*customData);
     ObjectType objectType = ObjectType({
         {"event", "logCreateUser"},
         {"user", user},

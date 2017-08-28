@@ -37,12 +37,6 @@ public:
         object = &reference;
     }
 
-
-    ObjectType(const BSONObj *data) {
-        reference = data->copy();
-        object = &reference;
-    }
-
     void log(ostream *stream) {
         StringStream out;
         out << object->jsonString() << endl;
