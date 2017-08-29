@@ -104,7 +104,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logDropUser\", ";
         logClient(&msg, client);
-        msg << ", \"username\": \"" << username.toString() << "\"}";
+        msg << ", \"eventData\"{\"username\": \"" << username.toString() << "\"}}";
         logLine(&msg);
     }
 
@@ -114,7 +114,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logDropCollection\", ";
         logClient(&msg, client);
-        msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
+        msg << ", \"eventData\":{\"nsname\": \"" << nsname.toString() << "\"}}";
         logLine(&msg);
     }
 
@@ -122,7 +122,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logDropDatabase\", ";
         logClient(&msg, client);
-        msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
+        msg << ", \"eventData\":{\"dbname\": \"" << dbname.toString() << "\"}}";
         logLine(&msg);
     }
 
@@ -148,10 +148,10 @@ public:
             return;
         }
         StringStream msg;
-        msg << "{\"eventType\":\"logCommandAuthzCheck\", \"commandName\":\"";
+        msg << "{\"eventType\":\"logCommandAuthzCheck\",  \"eventData\":{\"commandName\":\"";
         msg << commandName << "\", \"commandData\":";
         msg << cmdObj.jsonString();
-        msg << ",";
+        msg << "},";
         logClient(&msg, client);
         msg << "}";
         logLine(&msg);
