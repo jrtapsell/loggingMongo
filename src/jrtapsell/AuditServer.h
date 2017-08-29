@@ -104,7 +104,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logDropUser\", ";
         logClient(&msg, client);
-        msg << ", \"eventData\"{\"username\": \"" << username.toString() << "\"}}";
+        msg << ", \"eventData\":{\"username\": \"" << username.toString() << "\"}}";
         logLine(&msg);
     }
 
@@ -162,10 +162,10 @@ public:
                             const BSONObj &query,
                             ErrorCodes::Error result) {
         StringStream msg;
-        msg << "{\"eventType\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
+        msg << "{\"eventType\":\"logQueryAuthzCheck\", \"eventData\":{\"namespace\":\"" << ns.toString();
         msg << "\",\"query\":";
         msg << query.jsonString();
-        msg << ",";
+        msg << "},";
         logClient(&msg, client);
         msg << "}";
         logLine(&msg);
@@ -178,11 +178,10 @@ public:
                            ErrorCodes::Error result) {
         StringStream msg;
         msg << "{\"eventType\":\"logAuthentication\"";
-        msg << ",\"mechanism\":\"" << mechanism.toString();
+        msg << ",\"eventData\":{\"mechanism\":\"" << mechanism.toString();
         msg << "\",\"user\":\"" << user.toString();
-        msg << "\",\"error\":\"" << result << "\", ";
+        msg << "\",\"error\":\"" << result << "\"},";
         logClient(&msg, client);
-        msg << ", \"remote\":\"" << client->getRemote().toString() << "\"}";
         logLine(&msg);
     }
 
@@ -195,7 +194,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logUpdateUser\", ";
         logClient(&msg, client);
-        msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
+        msg << ", \"eventData\":{\"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
         msg << ", \"customData\": " << (customData != NULL ? customData->toString(false) : "null") << "";
@@ -213,7 +212,7 @@ public:
         } else {
             msg << "null";
         }
-        msg << "}";
+        msg << "}}";
         logLine(&msg);
     }
 
