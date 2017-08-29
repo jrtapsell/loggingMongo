@@ -33,7 +33,7 @@ private:
 
     AuditServer() {
         StringStream msg;
-        msg << "{\"event\": \"serverStartup\",";
+        msg << "{\"eventType\": \"serverStartup\",";
         writeClient(&msg, -1, true, nullptr, -1);
         msg << "}";
         logLine(&msg);
@@ -102,7 +102,7 @@ public:
 
     void logDropUser(Client *client, const UserName &username) {
         StringStream msg;
-        msg << "{\"event\": \"logDropUser\", ";
+        msg << "{\"eventType\": \"logDropUser\", ";
         logClient(&msg, client);
         msg << ", \"username\": \"" << username.toString() << "\"}";
         logLine(&msg);
@@ -112,7 +112,7 @@ public:
 
     void logDropCollection(Client *client, StringData nsname) {
         StringStream msg;
-        msg << "{\"event\": \"logDropCollection\", ";
+        msg << "{\"eventType\": \"logDropCollection\", ";
         logClient(&msg, client);
         msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
         logLine(&msg);
@@ -120,7 +120,7 @@ public:
 
     void logDropDatabase(Client *client, StringData dbname) {
         StringStream msg;
-        msg << "{\"event\": \"logDropDatabase\", ";
+        msg << "{\"eventType\": \"logDropDatabase\", ";
         logClient(&msg, client);
         msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
         logLine(&msg);
@@ -131,7 +131,7 @@ public:
             return;
         }
         StringStream msg;
-        msg << "{\"event\": \"" << event << "\",";
+        msg << "{\"eventType\": \"" << event << "\",";
         logClient(&msg, client);
         msg << "}";
         logLine(&msg);
@@ -148,7 +148,7 @@ public:
             return;
         }
         StringStream msg;
-        msg << "{\"event\":\"logCommandAuthzCheck\", \"commandName\":\"";
+        msg << "{\"eventType\":\"logCommandAuthzCheck\", \"commandName\":\"";
         msg << commandName << "\", \"commandData\":";
         msg << cmdObj.jsonString();
         msg << ",";
@@ -162,7 +162,7 @@ public:
                             const BSONObj &query,
                             ErrorCodes::Error result) {
         StringStream msg;
-        msg << "{\"event\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
+        msg << "{\"eventType\":\"logQueryAuthzCheck\", \"namespace\":\"" << ns.toString();
         msg << "\",\"query\":";
         msg << query.jsonString();
         msg << ",";
@@ -177,7 +177,7 @@ public:
                            const UserName &user,
                            ErrorCodes::Error result) {
         StringStream msg;
-        msg << "{\"event\":\"logAuthentication\"";
+        msg << "{\"eventType\":\"logAuthentication\"";
         msg << ",\"mechanism\":\"" << mechanism.toString();
         msg << "\",\"user\":\"" << user.toString();
         msg << "\",\"error\":\"" << result << "\", ";
@@ -193,7 +193,7 @@ public:
                        const BSONObj *customData,
                        const std::vector <RoleName> *roles) {
         StringStream msg;
-        msg << "{\"event\": \"logUpdateUser\", ";
+        msg << "{\"eventType\": \"logUpdateUser\", ";
         logClient(&msg, client);
         msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
@@ -219,7 +219,7 @@ public:
 
     void logCreateDatabase(Client *client, StringData dbname) {
         StringStream msg;
-        msg << "{\"event\": \"logCreateDatabase\", ";
+        msg << "{\"eventType\": \"logCreateDatabase\", ";
         logClient(&msg, client);
         msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
         logLine(&msg);
@@ -228,7 +228,7 @@ public:
 
     void logCreateCollection(Client *client, StringData nsname) {
         StringStream msg;
-        msg << "{\"event\": \"logCreateCollection\", ";
+        msg << "{\"eventType\": \"logCreateCollection\", ";
         logClient(&msg, client);
         msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
         logLine(&msg);
@@ -240,7 +240,7 @@ public:
                        const BSONObj *customData,
                        const std::vector<RoleName> &roles) {
         StringStream msg;
-        msg << "{\"event\": \"logCreateUser\", ";
+        msg << "{\"eventType\": \"logCreateUser\", ";
         logClient(&msg, client);
         msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
