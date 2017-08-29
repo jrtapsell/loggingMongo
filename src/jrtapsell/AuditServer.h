@@ -182,6 +182,7 @@ public:
         msg << "\",\"user\":\"" << user.toString();
         msg << "\",\"error\":\"" << result << "\"},";
         logClient(&msg, client);
+        msg << "}";
         logLine(&msg);
     }
 
