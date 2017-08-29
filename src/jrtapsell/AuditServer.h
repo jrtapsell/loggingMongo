@@ -219,9 +219,9 @@ public:
 
     void logCreateDatabase(Client *client, StringData dbname) {
         StringStream msg;
-        msg << "{\"eventType\": \"logCreateDatabase\", \"eventData\":{";
+        msg << "{\"eventType\": \"logCreateDatabase\", ";
         logClient(&msg, client);
-        msg << ", \"dbname\": \"" << dbname.toString() << "\"}}";
+        msg << ", \"eventData\":{\"dbname\": \"" << dbname.toString() << "\"}}";
         logLine(&msg);
     }
 
