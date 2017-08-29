@@ -219,9 +219,9 @@ public:
 
     void logCreateDatabase(Client *client, StringData dbname) {
         StringStream msg;
-        msg << "{\"eventType\": \"logCreateDatabase\", ";
+        msg << "{\"eventType\": \"logCreateDatabase\", \"eventData\":{";
         logClient(&msg, client);
-        msg << ", \"dbname\": \"" << dbname.toString() << "\"}";
+        msg << ", \"dbname\": \"" << dbname.toString() << "\"}}";
         logLine(&msg);
     }
 
@@ -230,7 +230,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logCreateCollection\", ";
         logClient(&msg, client);
-        msg << ", \"nsname\": \"" << nsname.toString() << "\"}";
+        msg << ", \"eventData\":{\"nsname\": \"" << nsname.toString() << "\"}}";
         logLine(&msg);
     }
 
@@ -242,7 +242,7 @@ public:
         StringStream msg;
         msg << "{\"eventType\": \"logCreateUser\", ";
         logClient(&msg, client);
-        msg << ", \"user\": {\"username\":\"" << username.getUser() << "\"";
+        msg << ", \"eventData\":{\"user\": {\"username\":\"" << username.getUser() << "\"";
         msg << ", \"full\": \"" << username.getFullName() << "\"";
         msg << ", \"db\": \"" << username.getDB() << "\"}";
         msg << ", \"customData\": " << (customData != NULL ? customData->toString(false) : "null") << "";
@@ -259,7 +259,7 @@ public:
         } else {
             msg << "null";
         }
-        msg << "}";
+        msg << "}}";
         logLine(&msg);
     }
 };
