@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Takes the following arguments
+# - The name of the server
+# - The port to run the mongo server on
+# - The port to stream audit events out on
+
 cp -r template servers/$1
 cd servers/$1
 echo "  port: $2" >> mongod.conf
