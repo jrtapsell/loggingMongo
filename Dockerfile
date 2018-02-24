@@ -1,4 +1,4 @@
-FROM updated AS build 
+FROM ubuntu AS build 
 WORKDIR /build
 RUN apt-get update
 RUN apt-get install -y python2.7 git gcc g++ python-pip
@@ -9,7 +9,7 @@ RUN git status
 
 
 # Use an official Python runtime as a parent image
-FROM updated
+FROM ubuntu
 
 RUN apt-get update
 RUN apt-get install -y mongodb-clients
