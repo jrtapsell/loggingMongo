@@ -1,11 +1,9 @@
-FROM ubuntu AS build 
+FROM ubuntu
 WORKDIR /build
-RUN apt-get update
-RUN apt-get install -y python2.7 git gcc g++ python-pip
 ADD . /build
-RUN pip install -r buildscripts/requirements.txt
+RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip && pip install -r buildscripts/requirements.txt
 RUN git status
-RUN python2.7 buildscripts/scons.py -j 8 mongod
+RUN python2.7 buildscripts/scons.py -j $((2 * $(grep -c ^processor /proc/cpuinfo))) mongod
 
 
 # Use an official Python runtime as a parent image
@@ -18,7 +16,7 @@ RUN apt-get install -y nmap
 # Set the working directory to /app
 WORKDIR /app
 
-COPY --from=build mongod ./
+COPY --from=0 /build/mongod ./
 ADD static/* ./
 
 RUN mkdir log
