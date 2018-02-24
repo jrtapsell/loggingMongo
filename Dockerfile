@@ -2,10 +2,10 @@ FROM ubuntu AS build
 WORKDIR /build
 RUN apt-get update
 RUN apt-get install -y python2.7 git gcc g++ python-pip
-RUN pip install -r buildscripts/requirements.txt
 ADD . /build
+RUN pip install -r buildscripts/requirements.txt
 RUN git status
-#RUN python2.7 buildscripts/scons.py -j 8 mongod
+RUN python2.7 buildscripts/scons.py -j 8 mongod
 
 
 # Use an official Python runtime as a parent image
