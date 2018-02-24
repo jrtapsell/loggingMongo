@@ -1,4 +1,4 @@
-FROM ubuntu-updated AS build 
+FROM updated AS build 
 WORKDIR /build
 RUN apt-get update
 RUN apt-get install -y python2.7 git gcc g++ python-pip
@@ -9,8 +9,9 @@ RUN git status
 
 
 # Use an official Python runtime as a parent image
-FROM ubuntu-updated
+FROM updated
 
+RUN apt-get update
 RUN apt-get install -y mongodb-clients
 RUN apt-get install -y nmap
 
