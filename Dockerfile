@@ -4,6 +4,7 @@ ADD . /build
 RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip && pip install -r buildscripts/requirements.txt
 RUN git status
 RUN python2.7 buildscripts/scons.py -j $((2 * $(grep -c ^processor /proc/cpuinfo))) mongod
+RUN strip --strip-all mongod
 
 
 # Use an official Python runtime as a parent image
