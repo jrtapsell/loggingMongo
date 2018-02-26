@@ -1,7 +1,7 @@
 FROM mongo
 WORKDIR /build
 ADD . /build
-RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip
+RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip python-dev
 RUN pip install --upgrade pip
 RUN pip install -r buildscripts/requirements.txt
 RUN git status
