@@ -8,9 +8,9 @@ RUN strip --strip-all mongod
 
 
 # Use an official Python runtime as a parent image
-FROM mvertes/alpine-mongo
+FROM mongo
 
-RUN apk update && apk add nmap-ncat
+RUN apt-get install nmap
 
 # Set the working directory to /app
 WORKDIR /app
