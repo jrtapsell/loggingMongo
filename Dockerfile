@@ -1,4 +1,4 @@
-FROM mongo
+FROM ubuntu
 WORKDIR /build
 ADD . /build
 RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip python-dev
@@ -10,7 +10,7 @@ RUN strip --strip-all mongod
 
 
 # Use an official Python runtime as a parent image
-FROM mongo
+FROM ubuntu
 
 RUN apt-get update && apt-get install -y nmap
 
