@@ -8,11 +8,9 @@ RUN strip --strip-all mongod
 
 
 # Use an official Python runtime as a parent image
-FROM ubuntu
+FROM mvertes/alpine-mongo
 
-RUN apt-get update
-RUN apt-get install -y mongodb-clients
-RUN apt-get install -y nmap
+RUN apk update && apk add nmap-ncat
 
 # Set the working directory to /app
 WORKDIR /app
@@ -28,4 +26,4 @@ RUN ./makeUser.sh
 # Run app.py when the container launches
 EXPOSE 27017
 EXPOSE 24109
-CMD /bin/bash -c './mongod -f mongod.conf --auth | tee /proc/1/fd/1 | ncat -lkp 24109'
+CMD ./mongod -f mongod.conf --auth | tee /proc/1/fd/1 | ncat -lkp 24109
