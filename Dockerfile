@@ -1,7 +1,7 @@
 FROM ubuntu
 WORKDIR /build
 ADD . /build
-RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip python-dev
+RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip python-dev clang-5.0
 RUN pip install --upgrade pip
 RUN pip install -r buildscripts/requirements.txt
 RUN git status
@@ -12,7 +12,7 @@ RUN strip --strip-all mongod
 # Use an official Python runtime as a parent image
 FROM ubuntu
 
-RUN apt-get update && apt-get install -y nmap
+RUN apt-get update && apt-get install -y nmap mongo-org-shell
 
 # Set the working directory to /app
 WORKDIR /app
