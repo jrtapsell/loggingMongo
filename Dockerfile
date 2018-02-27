@@ -2,7 +2,7 @@ FROM ubuntu
 WORKDIR /build
 ADD . /build
 RUN apt-get update
-RUN apt-get install apt-transport-https
+RUN apt-get install -y apt-transport-https
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 RUN apt-get update && apt-get install -y python2.7 git gcc g++ python-pip python-dev clang-5.0
@@ -17,7 +17,7 @@ RUN strip --strip-all mongod
 FROM ubuntu
 
 RUN apt-get update
-RUN apt-get install apt-transport-https
+RUN apt-get install -y apt-transport-https
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 RUN apt-get update
