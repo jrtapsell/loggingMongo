@@ -36,5 +36,8 @@ RUN strip --strip-all mongod
 #EXPOSE 24109
 #CMD ./entry.sh
 
-#FROM mongo
-#COPY --from=0 /build/mongod /usr/bin/mongod
+FROM mongo
+RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/testing.list
+RUN apt-get update
+RUN apt-get install -y python2.7 git gcc-5 g++-5 python-pip python-dev
+COPY --from=0 /build/mongod /usr/bin/mongod
