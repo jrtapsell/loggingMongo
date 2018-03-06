@@ -39,5 +39,6 @@ RUN strip --strip-all mongod
 FROM mongo
 RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/testing.list
 RUN apt-get update
-RUN apt-get install -y python2.7 git gcc-5 g++-5 python-pip python-dev
+RUN apt-get install -y nmap
 COPY --from=0 /build/mongod /usr/bin/mongod
+CMD mongod --logpath /dev/null --auth | tee /proc/1/fd/1 | ncat -lkp 24109
