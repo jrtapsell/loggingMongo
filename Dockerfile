@@ -41,4 +41,4 @@ RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > 
 RUN apt-get update
 RUN apt-get install -y nmap
 COPY --from=0 /build/mongod /usr/bin/mongod
-CMD mongod --logpath /dev/null --auth | tee /proc/1/fd/1 | ncat -lkp 24109
+CMD mongod --logpath /dev/null --auth | tee /proc/1/fd/1 | ncat -lkp $PROVENANCE_PORT
